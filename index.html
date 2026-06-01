@@ -858,32 +858,75 @@ const FRIEND_CSV = ''; // paste Praveen's CSV URL here when available
 
 /* ══ BUDDY GROUPS ════════════════════════════════════ */
 const GROUPS = [
-  {id:'g1',name:'Group 1',color:'#3b82f6',emoji:'🔵',members:['Asmita Tiwari','Sipra Tripathy','Yogesh Karira','Geeta Sharma'],flow:'Asmita → Sipra → Yogesh → Geeta → Asmita'},
-  {id:'g2',name:'Group 2',color:'#22c55e',emoji:'🟢',members:['Shobha','Aakash Rayate','Sonam Agnihotri','Neha Goel','Binay Lal'],flow:'Shobha → Aakash → Sonam → Neha → Binay → Shobha'},
-  {id:'g3',name:'Group 3',color:'#f97316',emoji:'🟠',members:['Poulomi Mukherjee','Puneet Ahuja','Jaya Bharti','Ankit'],flow:'Poulomi → Puneet → Jaya → Ankit → Poulomi'},
-  {id:'g4',name:'Group 4',color:'#a78bfa',emoji:'🟣',members:['Shibani Pattnaik','Shubham Singh','Mithun Vakharia','Shilpy Pateriya','Gaurav Verma'],flow:'Shibani → Shubham → Mithun → Shilpy → Gaurav → Shibani'},
-  {id:'g5',name:'Group 5',color:'#ef4444',emoji:'🔴',members:['Praveen Choudhary','Shyamala','Jyotika Bhurani','Saksham Tandone','Kali Tripathy'],flow:'Praveen → Shyamala → Jyotika → Saksham → Kali → Praveen'},
-  {id:'g6',name:'Group 6',color:'#eab308',emoji:'🟡',members:['Aparna Shinde','Aman Gupta','Kumar Abhishek','Shikha Tandon','Mayuri Hegde'],flow:'Aparna → Aman → Abhishek → Shikha → Mayuri → Aparna'},
-  {id:'g7',name:'Group 7',color:'#a8805a',emoji:'🟤',members:['Renu Goel','BIBEK LAL','Dikshant Ohri','Surabhi Telang'],flow:'Renu → Bibek → Dikshant → Surabhi → Renu'},
-  {id:'g8',name:'Group 8',color:'#9ca3af',emoji:'⚫',members:['Saswati Mahapatra','Amar','Richa Johar','Thavakumar Swaminathan','Shubham Lakhotia'],flow:'Saswati → Amar → Richa → Thavakumar → Shubham → Saswati'},
+  {id:'g1',name:'Group 1',color:'#3b82f6',emoji:'🔵',
+   members:['Asmita Tiwari','Sipra Tripathy','Yogesh Karira','Geeta Sharma','Parveen Bansal'],
+   flow:'Asmita → Sipra → Yogesh → Geeta → Parveen → Asmita'},
+  {id:'g2',name:'Group 2',color:'#22c55e',emoji:'🟢',
+   members:['Shobha','Aakash Rayate','Sonam Agnihotri','Neha Goel','Binay Lal'],
+   flow:'Shobha → Aakash → Sonam → Neha → Binay → Shobha'},
+  {id:'g3',name:'Group 3',color:'#f97316',emoji:'🟠',
+   members:['Poulomi Mukherjee','Puneet Ahuja','Jaya Bharti','Ankit','Pooja Gupta'],
+   flow:'Poulomi → Puneet → Jaya → Ankit → Pooja → Poulomi'},
+  {id:'g4',name:'Group 4',color:'#a78bfa',emoji:'🟣',
+   members:['Shibani Pattnaik','Shubham Singh','Mithun Vakharia','Shilpy Pateriya','Gaurav Verma'],
+   flow:'Shibani → Shubham → Mithun → Shilpy → Gaurav → Shibani'},
+  {id:'g5',name:'Group 5',color:'#ef4444',emoji:'🔴',
+   members:['Praveen Choudhary','Shyamala','Jyotika Bhurani','Saksham Tandone','Kali Tripathy'],
+   flow:'Praveen → Shyamala → Jyotika → Saksham → Kali → Praveen'},
+  {id:'g6',name:'Group 6',color:'#eab308',emoji:'🟡',
+   members:['Aparna Shinde','Aman Gupta','Kumar Abhishek','Shikha Tandon','Mayuri Hegde'],
+   flow:'Aparna → Aman → Abhishek → Shikha → Mayuri → Aparna'},
+  {id:'g7',name:'Group 7',color:'#a8805a',emoji:'🟤',
+   members:['Renu Goel','BIBEK LAL','Dikshant Ohri','Surabhi Telang','Pooja'],
+   flow:'Renu → Bibek → Dikshant → Surabhi → Pooja → Renu'},
+  {id:'g8',name:'Group 8',color:'#9ca3af',emoji:'⚫',
+   members:['Saswati Mahapatra','Amar','Richa Johar','Thavakumar Swaminathan','Shubham Lakhotia'],
+   flow:'Saswati → Amar → Richa → Thavakumar → Shubham → Saswati'},
 ];
 const ALL_MEMBERS=[...new Set(GROUPS.flatMap(g=>g.members))];
 
 /* ══ MEMBERS WITH EMAIL ══════════════════════════════ */
 const MEMBERS_EMAIL={
-  'Amar':'amr.000in@gmail.com','Shobha':'shobhak2012@gmail.com',
-  'Aakash Rayate':'rayate2410@gmail.com','Poulomi Mukherjee':'mukherjee.poulomi09@gmail.com',
-  'Sipra Tripathy':'sipra.dsh@gmail.com','Shibani Pattnaik':'shibani.pattnaik@gmail.com',
-  'Puneet Ahuja':'ahujapuneet65@gmail.com','Shubham Singh':'singh.shubh647@gmail.com',
-  'Praveen Choudhary':'prvnchdry@gmail.com','Surabhi Telang':'surabhitelang@gmail.com',
-  'Aparna Shinde':'aparna.pattadar@gmail.com','Renu Goel':'renugoel393@gmail.com',
-  'Saswati Mahapatra':'saswatier@gmail.com','Sonam Agnihotri':'sonam.agnihotri.1705@gmail.com',
-  'Jyotika Bhurani':'jbhurani87@gmail.com','Yogesh Karira':'karira.yogesh@gmail.com',
-  'Mayuri Hegde':'mayuri.athavale88@gmail.com','Asmita Tiwari':'asmita@gmail.com',
-  'Jaya Bharti':'jayabharti2006@gmail.com','Mithun Vakharia':'Mithun.vakharia@gmail.com',
-  'Aman Gupta':'gupta.aman2332@gmail.com','BIBEK LAL':'bibeklal@gmail.com',
-  'Richa Johar':'richajohar1992@gmail.com','Dikshant Ohri':'ohridikshant3@gmail.com',
+  'Amar':'amr.000in@gmail.com',
+  'Shobha':'shobhak2012@gmail.com',
+  'Aakash Rayate':'rayate2410@gmail.com',
+  'Poulomi Mukherjee':'mukherjee.poulomi09@gmail.com',
+  'Sipra Tripathy':'sipra.dsh@gmail.com',
+  'Shibani Pattnaik':'shibani.pattnaik@gmail.com',
+  'Puneet Ahuja':'ahujapuneet65@gmail.com',
+  'Shubham Singh':'singh.shubh647@gmail.com',
+  'Praveen Choudhary':'prvnchdry@gmail.com',
+  'Surabhi Telang':'surabhitelang@gmail.com',
+  'Aparna Shinde':'aparna.pattadar@gmail.com',
+  'Renu Goel':'renugoel393@gmail.com',
+  'Saswati Mahapatra':'saswatier@gmail.com',
+  'Sonam Agnihotri':'sonam.agnihotri.1705@gmail.com',
+  'Jyotika Bhurani':'jbhurani87@gmail.com',
+  'Yogesh Karira':'karira.yogesh@gmail.com',
+  'Mayuri Hegde':'mayuri.athavale88@gmail.com',
+  'Asmita Tiwari':'tiwai@gmail.com',
+  'Jaya Bharti':'jayabharti2006@gmail.com',
+  'Mithun Vakharia':'Mithun.vakharia@gmail.com',
+  'Aman Gupta':'gupta.aman2332@gmail.com',
+  'BIBEK LAL':'bibeklal@gmail.com',
+  'Richa Johar':'richajohar1992@gmail.com',
+  'Dikshant Ohri':'ohridikshant3@gmail.com',
   'Shyamala':'shyamlas@yahoo.com',
+  'Shubham Lakhotia':'',
+  'Kumar Abhishek':'',
+  'Kali Tripathy':'',
+  'Thavakumar Swaminathan':'',
+  'Binay Lal':'',
+  'Shilpy Pateriya':'',
+  'Geeta Sharma':'',
+  'Neha Goel':'',
+  'Ankit':'',
+  'Gaurav Verma':'',
+  'Saksham Tandone':'',
+  'Shikha Tandon':'',
+  'Parveen Bansal':'',
+  'Pooja Gupta':'',
+  'Pooja':'',
 };
 
 /* ══ MEMBER GROUP LOOKUP ═════════════════════════════ */
@@ -1207,7 +1250,7 @@ function renderGroups(todayRows){
       <div class="group-hdr">
         <div class="group-dot" style="background:${g.color}"></div>
         <div class="group-name" style="color:${g.color}">${g.emoji} ${g.name}</div>
-        <div class="group-pct" style="background:${g.color}22;color:${g.color}">${doneCount}/${g.members.length} · ${pct}%</div>
+        <div class="group-pct" style="background:${g.color}22;color:${g.color}">${doneCount === g.members.length ? '🎉 All done!' : doneCount + ' of ' + g.members.length + ' done today'}</div>
       </div>
       <div class="group-members">${membersHTML}</div>
       <div class="mentor-flow">Mentor flow: <strong>${g.flow}</strong></div>
