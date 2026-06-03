@@ -5,16 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>100 Days Fitness Challenge 2026 — Keya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════════
-   TOKENS & RESET
-═══════════════════════════════════════════════ */
 :root{
   --bg:#080c12;--bg2:#0f1420;--bg3:#141926;--card:#181f2e;--card2:#1e2638;
   --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.12);
-  --orange:#f97316;--orange2:#fb923c;
-  --gold:#f59e0b;--silver:#94a3b8;--bronze:#b87333;
+  --orange:#f97316;--gold:#f59e0b;--silver:#94a3b8;--bronze:#b87333;
   --green:#22c55e;--sky:#38bdf8;--red:#ef4444;--purple:#a78bfa;
   --white:#f1f5f9;--muted:#4e6280;--text:#8fa3be;
   --r:10px;--r2:16px;--r3:22px;
@@ -22,1277 +18,1072 @@
   --g5:#ef4444;--g6:#eab308;--g7:#a8805a;--g8:#6b7280;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{height:100%;scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+html,body{min-height:100%;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 input,textarea,select{font-family:inherit}
-img{max-width:100%}
 
-/* ═══════════════════════════════════════════════
-   LAYOUT — DESKTOP SIDEBAR + MOBILE BOTTOM NAV
-═══════════════════════════════════════════════ */
+/* ═══ LAYOUT ═══ */
 .layout{display:flex;flex-direction:column;min-height:100vh}
 
-/* ── TOP NAV (desktop / tablet / iPad) ── */
+/* TOP NAV */
 .topnav{
-  position:sticky;top:0;z-index:200;
+  position:sticky;top:0;z-index:200;height:64px;
   background:rgba(8,12,18,.96);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
-  display:flex;align-items:center;
-  padding:0 2rem;height:64px;gap:2rem;
+  display:flex;align-items:center;padding:0 2rem;gap:1.5rem;
 }
-.nav-brand{
-  display:flex;align-items:center;gap:.6rem;flex-shrink:0;
-}
-.nav-logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.3rem;letter-spacing:3px;color:var(--orange);
-}
-.nav-day{
-  display:flex;align-items:center;gap:.4rem;
-  background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);
-  border-radius:50px;padding:.2rem .7rem;
-  font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--orange);
-}
+.nav-brand{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:3px;color:var(--orange)}
+.nav-day{display:inline-flex;align-items:center;gap:.4rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);border-radius:50px;padding:.2rem .75rem;font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange)}
 .live-dot{width:5px;height:5px;border-radius:50%;background:var(--orange);animation:lp 1.6s ease-in-out infinite;flex-shrink:0}
 @keyframes lp{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,.5)}50%{box-shadow:0 0 0 5px rgba(249,115,22,0)}}
-.nav-links{display:flex;align-items:center;gap:.25rem;margin-left:auto}
-.nav-link{
-  display:flex;align-items:center;gap:.45rem;
-  padding:.5rem 1rem;border-radius:50px;
-  font-size:.88rem;font-weight:600;color:var(--text);
-  transition:all .18s;cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-}
+.nav-links{display:flex;align-items:center;gap:.2rem;margin:0 auto}
+.nav-link{display:flex;align-items:center;gap:.4rem;padding:.48rem 1rem;border-radius:50px;font-size:.88rem;font-weight:600;color:var(--text);transition:all .18s;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .nav-link:hover{color:var(--white);background:rgba(255,255,255,.06)}
 .nav-link.active{color:var(--orange);background:rgba(249,115,22,.1)}
-.nav-link-icon{font-size:1rem}
-.nav-right{display:flex;align-items:center;gap:.6rem;margin-left:1rem;flex-shrink:0}
-.topbar-sync{font-size:.68rem;color:var(--muted)}
-.btn-refresh{
-  display:flex;align-items:center;gap:.3rem;
-  background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);
-  border-radius:50px;padding:.28rem .8rem;
-  font-size:.7rem;font-weight:700;color:var(--sky);
-  transition:all .2s;
-}
-.btn-refresh:hover{background:rgba(56,189,248,.18)}
+.nav-right{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+.sync-txt{font-size:.68rem;color:var(--muted)}
+.btn-refresh{display:flex;align-items:center;gap:.3rem;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:50px;padding:.28rem .8rem;font-size:.7rem;font-weight:700;color:var(--sky);transition:all .2s}
+.btn-refresh:hover{background:rgba(56,189,248,.2)}
 .spin{display:inline-block;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ── MAIN CONTENT ── */
 .main{flex:1}
+.page{display:none;padding:2rem 2.5rem;animation:fadeIn .2s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
 
-/* ── PAGE SYSTEM ── */
-.page{display:none;padding:2rem 2.5rem;max-width:100%}
-.page.active{display:block;animation:fadeIn .22s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-
-/* ── BOTTOM TAB BAR (mobile only) ── */
+/* MOBILE */
 .tab-bar{display:none}
-
 @media(max-width:768px){
   .topnav{display:none}
-  .page{padding:1rem 1rem calc(72px + env(safe-area-inset-bottom))}
-  .tab-bar{
-    display:grid;grid-template-columns:repeat(4,1fr);
-    position:fixed;bottom:0;left:0;right:0;z-index:200;
-    height:calc(60px + env(safe-area-inset-bottom));
-    padding-bottom:env(safe-area-inset-bottom);
-    background:rgba(8,12,18,.98);backdrop-filter:blur(16px);
-    border-top:1px solid var(--border);
-  }
-  .tab{
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:2px;color:var(--muted);font-size:.56rem;font-weight:600;
-    letter-spacing:.4px;text-transform:uppercase;
-    -webkit-tap-highlight-color:transparent;transition:color .15s;
-  }
+  .page{padding:1rem 1rem calc(68px + env(safe-area-inset-bottom))}
+  .tab-bar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;bottom:0;left:0;right:0;z-index:200;height:calc(58px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:rgba(8,12,18,.98);backdrop-filter:blur(16px);border-top:1px solid var(--border)}
+  .tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--muted);font-size:.55rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;-webkit-tap-highlight-color:transparent;transition:color .15s}
   .tab.active{color:var(--orange)}
-  .tab-icon{font-size:1.25rem;line-height:1}
+  .tab-icon{font-size:1.2rem;line-height:1}
 }
-
-/* ── iPad mid-size tweak ── */
 @media(min-width:769px) and (max-width:1024px){
   .topnav{padding:0 1.2rem;gap:1rem}
-  .nav-link{padding:.45rem .75rem;font-size:.82rem}
+  .nav-link{padding:.42rem .72rem;font-size:.82rem}
   .page{padding:1.5rem}
 }
 
-/* ═══════════════════════════════════════════════
-   SHARED COMPONENTS
-═══════════════════════════════════════════════ */
+/* ═══ SHARED ═══ */
 .sec-label{font-size:.62rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:.35rem}
-.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:3px;margin-bottom:1.5rem;line-height:1}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:3px;margin-bottom:1.4rem;line-height:1}
 .sec-title span{color:var(--orange)}
-
-/* cards */
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2)}
-.card2{background:var(--card2);border:1px solid var(--border2);border-radius:var(--r2)}
+.divider-label{font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 .8rem;display:flex;align-items:center;gap:.6rem}
+.divider-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.empty{text-align:center;padding:2.5rem 1rem;color:var(--muted)}
+.empty-icon{font-size:2.2rem;opacity:.3;margin-bottom:.5rem}
+.empty-t{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--text);margin-bottom:.25rem}
+.empty-d{font-size:.78rem;line-height:1.55}
 
-/* grid helpers */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
-@media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
-
-/* stat box */
-.stat-box{padding:1.1rem 1.2rem;text-align:center}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:1px;color:var(--orange);line-height:1;display:block}
-.stat-l{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
-
-/* empty state */
-.empty{text-align:center;padding:3rem 1rem;color:var(--muted)}
-.empty-icon{font-size:2.5rem;opacity:.35;margin-bottom:.7rem}
-.empty-t{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:var(--text);margin-bottom:.3rem}
-.empty-d{font-size:.8rem;line-height:1.6}
-
-/* ═══════════════════════════════════════════════
-   HOME PAGE
-═══════════════════════════════════════════════ */
+/* ═══ HOME PAGE ═══ */
 .home-wrap{max-width:1100px;margin:0 auto}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;margin-bottom:2.5rem}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
 
-/* hero two-col */
-.hero-2col{
-  display:grid;grid-template-columns:1fr 1fr;gap:2rem;
-  align-items:center;margin-bottom:2.5rem;
-}
-@media(max-width:900px){.hero-2col{grid-template-columns:1fr;min-height:auto}}
-
+/* hero left */
 .hero-left{text-align:center}
-.hero-left .act-pills{justify-content:center}
-.hero-left .value-pills{justify-content:center}
-.hero-left .hero-dates{display:inline-flex}
-.hero-left .reg-note{text-align:center}
-.hero-pill{
-  display:inline-flex;align-items:center;gap:.45rem;
-  background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.25);
-  border-radius:50px;padding:.28rem .9rem;
-  font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
-  color:var(--orange);margin-bottom:1.5rem;
-}
-.hero-h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(4.5rem,8vw,7.5rem);
-  letter-spacing:3px;line-height:.88;
-  margin-bottom:.6rem;
-}
+.hero-pill{display:inline-flex;align-items:center;gap:.45rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.25);border-radius:50px;padding:.28rem .9rem;font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:1.4rem}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,8vw,7rem);letter-spacing:3px;line-height:.88;margin-bottom:.6rem}
 .hero-h1 .n1{display:block;color:var(--white)}
-.hero-h1 .n2{display:block;color:var(--orange);filter:drop-shadow(0 0 30px rgba(249,115,22,.35))}
-.hero-h1 .n3{display:block;color:var(--white);font-size:clamp(2rem,4vw,3.5rem);letter-spacing:8px}
-.hero-sub{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--sky);margin:.6rem 0 .3rem}
-.hero-org{font-size:.7rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
-.hero-dates{
-  display:inline-flex;align-items:center;gap:.8rem;
-  background:rgba(255,255,255,.04);border:1px solid var(--border2);
-  border-radius:50px;padding:.45rem 1.2rem;
-  font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:1.5rem;
-}
+.hero-h1 .n2{display:block;color:var(--orange);filter:drop-shadow(0 0 28px rgba(249,115,22,.35))}
+.hero-h1 .n3{display:block;color:var(--white);font-size:clamp(2rem,4vw,3.2rem);letter-spacing:8px}
+.hero-sub{font-family:'Caveat',cursive;font-size:1.35rem;color:var(--sky);margin:.6rem 0 .3rem}
+.hero-org{font-size:.68rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem}
+.hero-dates{display:inline-flex;align-items:center;gap:.8rem;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:50px;padding:.42rem 1.2rem;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:1.4rem}
 .hero-dates strong{color:var(--white)}
-.dsep{width:22px;height:1px;background:var(--muted)}
-.act-pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.act-pill{
-  display:flex;align-items:center;gap:.35rem;
-  background:rgba(255,255,255,.05);border:1px solid var(--border2);
-  border-radius:50px;padding:.38rem .9rem;
-  font-size:.78rem;font-weight:700;color:var(--text);
-}
-.value-pills{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem}
-.vp{
-  background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.15);
-  border-radius:50px;padding:.22rem .7rem;
-  font-size:.7rem;font-weight:600;color:#4ade80;
-}
-.btn-reg{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:var(--orange);color:#fff;
-  font-weight:700;font-size:.9rem;letter-spacing:1.5px;text-transform:uppercase;
-  padding:.85rem 2rem;border-radius:50px;
-  box-shadow:0 8px 28px rgba(249,115,22,.35);
-  transition:all .2s;border:none;cursor:pointer;
-}
+.dsep{width:20px;height:1px;background:var(--muted)}
+.act-pills{display:flex;gap:.45rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.3rem}
+.act-pill{display:flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:50px;padding:.35rem .85rem;font-size:.76rem;font-weight:700;color:var(--text)}
+.value-pills{display:flex;gap:.35rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.8rem}
+.vp{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.15);border-radius:50px;padding:.2rem .68rem;font-size:.7rem;font-weight:600;color:#4ade80}
+.btn-reg{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--orange);color:#fff;font-weight:700;font-size:.9rem;letter-spacing:1.5px;text-transform:uppercase;padding:.82rem 2rem;border-radius:50px;box-shadow:0 8px 28px rgba(249,115,22,.35);transition:all .2s;border:none;cursor:pointer}
 .btn-reg:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(249,115,22,.5)}
 .btn-reg.closed{background:var(--card2);color:var(--muted);box-shadow:none;transform:none;cursor:not-allowed}
-.reg-note{font-size:.7rem;color:var(--muted);margin-top:.6rem}
+.reg-note{font-size:.68rem;color:var(--muted);margin-top:.55rem}
 
-/* hero right — visual card */
-.hero-right{
-  background:var(--card);border:1px solid var(--border2);
-  border-radius:var(--r3);padding:2rem;
-  position:relative;overflow:hidden;
-}
-.hero-right::before{
-  content:'';position:absolute;top:-60px;right:-60px;
-  width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle,rgba(249,115,22,.15),transparent 70%);
-}
-.challenge-stat{margin-bottom:1.2rem}
-.cs-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}
-.cs-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.cs-label{font-size:.75rem;font-weight:600;color:var(--muted)}
-.cs-val{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--white);letter-spacing:1px}
-.cs-val.orange{color:var(--orange)}
-.cs-val.green{color:var(--green)}
-.cs-val.sky{color:var(--sky)}
-.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;margin-top:.4rem;overflow:hidden}
+/* hero right */
+.hero-right{background:var(--card);border:1px solid var(--border2);border-radius:var(--r3);padding:1.8rem;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.12),transparent 70%)}
+
+/* mini podium on home */
+.home-podium{display:flex;justify-content:center;align-items:flex-end;gap:.6rem;margin:1rem 0 1.4rem}
+.hp-item{display:flex;flex-direction:column;align-items:center;flex:1;max-width:110px}
+.hp-trophy{font-size:1.3rem;margin-bottom:.25rem}
+.hp-card{width:100%;border-radius:10px 10px 0 0;padding:.9rem .5rem .7rem;text-align:center;border:1px solid var(--border);border-bottom:none;transition:transform .2s}
+.hp-card:hover{transform:translateY(-3px)}
+.hp-card.g{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3)}
+.hp-card.s{background:rgba(148,163,184,.07);border-color:rgba(148,163,184,.2)}
+.hp-card.b{background:rgba(180,83,9,.1);border-color:rgba(180,83,9,.25)}
+.hp-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;margin:0 auto .38rem;border:2px solid rgba(255,255,255,.1)}
+.hp-av.g{border-color:var(--gold);box-shadow:0 0 10px rgba(245,158,11,.25)}
+.hp-av.s{border-color:var(--silver)}.hp-av.b{border-color:var(--bronze)}
+.hp-name{font-weight:700;font-size:.68rem;color:var(--white);line-height:1.2;word-break:break-word;margin-bottom:.18rem}
+.hp-km{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;line-height:1}
+.hp-km.g{color:var(--gold)}.hp-km.s{color:var(--silver)}.hp-km.b{color:var(--bronze)}
+.hp-kl{font-size:.5rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.hp-rank{width:100%;padding:.35rem;border-radius:0 0 6px 6px;font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:2px;text-align:center}
+.hp-rank.g{background:var(--gold);color:#000}
+.hp-rank.s{background:rgba(148,163,184,.16);color:var(--silver);border:1px solid rgba(148,163,184,.2)}
+.hp-rank.b{background:rgba(180,83,9,.2);color:#f97316;border:1px solid rgba(180,83,9,.28)}
+
+/* challenge stats */
+.cs-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.cs-row:last-child{border-bottom:none}
+.cs-label{font-size:.75rem;font-weight:500;color:var(--muted)}
+.cs-val{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px}
+.cs-val.or{color:var(--orange)}.cs-val.gr{color:var(--green)}.cs-val.sk{color:var(--sky)}
+.progress-bar{height:5px;background:rgba(255,255,255,.06);border-radius:3px;margin-top:.4rem;overflow:hidden}
 .progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--orange),var(--gold));transition:width 1s ease}
 
 /* WA share */
-.wa-card{
-  background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.18);
-  border-radius:var(--r2);padding:1rem 1.2rem;
-  display:flex;align-items:center;gap:1rem;margin-top:1.5rem;
-}
-.wa-icon{font-size:1.8rem;flex-shrink:0}
-.wa-text{flex:1}
-.wa-title{font-weight:700;font-size:.85rem;color:#4ade80;margin-bottom:.2rem}
-.wa-desc{font-size:.75rem;color:var(--muted);line-height:1.5}
-.btn-share{
-  display:inline-flex;align-items:center;gap:.35rem;
-  background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);
-  border-radius:50px;padding:.35rem .9rem;
-  font-size:.72rem;font-weight:700;color:var(--green);
-  flex-shrink:0;transition:all .15s;cursor:pointer;
-}
+.wa-row{display:flex;align-items:center;gap:.8rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15);border-radius:var(--r2);padding:.9rem 1.1rem;margin-top:1.2rem}
+.wa-icon{font-size:1.6rem;flex-shrink:0}
+.wa-t{font-weight:700;font-size:.82rem;color:#4ade80}
+.wa-d{font-size:.72rem;color:var(--muted);margin-top:.1rem}
+.btn-share{display:inline-flex;align-items:center;gap:.3rem;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);border-radius:50px;padding:.32rem .85rem;font-size:.7rem;font-weight:700;color:var(--green);flex-shrink:0;cursor:pointer;transition:all .15s}
 .btn-share:hover{background:rgba(34,197,94,.22)}
 
-/* goals */
-.goals-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem}
-@media(max-width:1000px){.goals-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:768px){.goals-grid{grid-template-columns:1fr 1fr}}
-.goal-card{
-  padding:1.2rem 1rem;
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r2);
-  transition:border-color .2s,transform .2s;
-  position:relative;overflow:hidden;
-}
-.goal-card::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 50% 0%,rgba(249,115,22,.06),transparent 70%);
-  opacity:0;transition:opacity .3s;
-}
-.goal-card:hover{border-color:rgba(249,115,22,.3);transform:translateY(-3px)}
-.goal-card:hover::before{opacity:1}
-.goal-icon{font-size:1.7rem;margin-bottom:.6rem;display:block}
-.goal-t{font-weight:700;font-size:.8rem;letter-spacing:.3px;text-transform:uppercase;color:var(--white);margin-bottom:.3rem}
-.goal-d{font-size:.73rem;color:var(--muted);line-height:1.45}
+/* ── GOALS / TIPS CARDS (shared style) ── */
+.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem}
+.item-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:1.2rem 1rem;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.item-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(249,115,22,.06),transparent 70%);opacity:0;transition:opacity .3s}
+.item-card:hover{border-color:rgba(249,115,22,.28);transform:translateY(-2px)}
+.item-card:hover::before{opacity:1}
+.item-icon{font-size:1.7rem;margin-bottom:.55rem;display:block}
+.item-title{font-weight:700;font-size:.82rem;letter-spacing:.3px;text-transform:uppercase;color:var(--white);margin-bottom:.28rem}
+.item-desc{font-size:.73rem;color:var(--muted);line-height:1.45}
 
-/* ═══════════════════════════════════════════════
-   LEADERBOARD PAGE
-═══════════════════════════════════════════════ */
-.lb-wrap{max-width:1100px;margin:0 auto}
-
-/* stats row */
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+/* ═══ BOARD PAGE ═══ */
+.board-wrap{max-width:1100px;margin:0 auto}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.4rem}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:1rem 1.2rem;text-align:center}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:1px;color:var(--orange);line-height:1;display:block}
+.stat-l{font-size:.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
 
 /* champion */
-.champ-card{
-  background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(249,115,22,.06));
-  border:1px solid rgba(245,158,11,.22);
-  border-radius:var(--r2);padding:1.2rem 1.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:1rem;margin-bottom:1.5rem;
-}
-.champ-tag{font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
-.champ-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:1px;line-height:1}
-.champ-meta{font-size:.72rem;color:var(--muted);margin-top:.2rem}
-.champ-km{text-align:right;flex-shrink:0}
-.champ-km-n{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--gold);line-height:1;letter-spacing:1px}
-.champ-km-l{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.champ-card{background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(249,115,22,.06));border:1px solid rgba(245,158,11,.22);border-radius:var(--r2);padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.2rem}
+.champ-tag{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
+.champ-name{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:1px;line-height:1}
+.champ-meta{font-size:.7rem;color:var(--muted);margin-top:.15rem}
+.champ-km-n{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--gold);line-height:1;letter-spacing:1px;text-align:right}
+.champ-km-l{font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:right}
 
-/* two-col layout for lb */
-.lb-cols{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start}
-@media(max-width:960px){.lb-cols{grid-template-columns:1fr}}
+/* board two-col */
+.board-cols{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start}
+@media(max-width:960px){.board-cols{grid-template-columns:1fr}}
 
-/* podium — correct 3-position */
-.podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.8rem;margin-bottom:1.5rem}
+/* podium — full 3 */
+.podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.8rem;margin-bottom:1.2rem}
 .pod{display:flex;flex-direction:column;align-items:center;flex:1;max-width:140px}
-.pod-trophy{font-size:1.8rem;margin-bottom:.4rem;line-height:1}
-.pod-card{
-  width:100%;border-radius:14px 14px 0 0;
-  padding:1.2rem .8rem .9rem;text-align:center;
-  border:1px solid var(--border);border-bottom:none;
-  transition:transform .25s;
-}
+.pod-trophy{font-size:1.7rem;margin-bottom:.35rem}
+.pod-card{width:100%;border-radius:12px 12px 0 0;padding:1.1rem .7rem .9rem;text-align:center;border:1px solid var(--border);border-bottom:none;transition:transform .22s}
 .pod-card:hover{transform:translateY(-4px)}
 .pod-card.g{background:linear-gradient(180deg,rgba(245,158,11,.14),rgba(245,158,11,.04));border-color:rgba(245,158,11,.3)}
 .pod-card.s{background:linear-gradient(180deg,rgba(148,163,184,.1),rgba(148,163,184,.03));border-color:rgba(148,163,184,.22)}
 .pod-card.b{background:linear-gradient(180deg,rgba(180,83,9,.12),rgba(180,83,9,.03));border-color:rgba(180,83,9,.28)}
-.pod-av{
-  width:48px;height:48px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:1.1rem;margin:0 auto .5rem;
-  border:2.5px solid rgba(255,255,255,.1);
-}
-.pod-av.g{border-color:var(--gold);box-shadow:0 0 16px rgba(245,158,11,.25)}
+.pod-av{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem;margin:0 auto .48rem;border:2.5px solid rgba(255,255,255,.1)}
+.pod-av.g{border-color:var(--gold);box-shadow:0 0 14px rgba(245,158,11,.25)}
 .pod-av.s{border-color:var(--silver)}.pod-av.b{border-color:var(--bronze)}
-.pod-name{font-weight:700;font-size:.78rem;color:var(--white);margin-bottom:.2rem;line-height:1.25;word-break:break-word}
-.pod-km{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;line-height:1}
+.pod-name{font-weight:700;font-size:.76rem;color:var(--white);line-height:1.25;word-break:break-word;margin-bottom:.18rem}
+.pod-km{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;line-height:1}
 .pod-km.g{color:var(--gold)}.pod-km.s{color:var(--silver)}.pod-km.b{color:var(--bronze)}
-.pod-kl{font-size:.55rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
-.pod-days{font-size:.65rem;color:var(--muted);margin-top:.25rem}
-.pod-bar{height:3px;border-radius:2px;margin-top:.9rem}
+.pod-kl{font-size:.52rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+.pod-days{font-size:.62rem;color:var(--muted);margin-top:.2rem}
+.pod-bar{height:3px;border-radius:2px;margin-top:.8rem}
 .pod-bar.g{background:linear-gradient(90deg,var(--gold),transparent)}
 .pod-bar.s{background:linear-gradient(90deg,var(--silver),transparent)}
 .pod-bar.b{background:linear-gradient(90deg,var(--bronze),transparent)}
-.pod-rank{
-  width:100%;padding:.45rem;border-radius:0 0 8px 8px;
-  font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:3px;text-align:center;
-}
+.pod-rank{width:100%;padding:.4rem;border-radius:0 0 7px 7px;font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:3px;text-align:center}
 .pod-rank.g{background:var(--gold);color:#000}
-.pod-rank.s{background:rgba(148,163,184,.16);color:var(--silver);border:1px solid rgba(148,163,184,.22)}
-.pod-rank.b{background:rgba(180,83,9,.22);color:#f97316;border:1px solid rgba(180,83,9,.3)}
+.pod-rank.s{background:rgba(148,163,184,.16);color:var(--silver);border:1px solid rgba(148,163,184,.2)}
+.pod-rank.b{background:rgba(180,83,9,.2);color:#f97316;border:1px solid rgba(180,83,9,.28)}
 
-.lb-divider{font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 .8rem;display:flex;align-items:center;gap:.6rem}
-.lb-divider::after{content:'';flex:1;height:1px;background:var(--border)}
-
-/* full rankings */
-.rank-list{display:flex;flex-direction:column;gap:.4rem}
-.rank-item{
-  display:flex;align-items:center;gap:.75rem;
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:.7rem .9rem;
-  transition:border-color .15s,background .15s;
-}
-.rank-item:hover{border-color:rgba(249,115,22,.25);background:var(--card2)}
-.rank-num{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;color:var(--muted);width:24px;text-align:center;flex-shrink:0}
-.rank-num.r1{color:var(--gold)}.rank-num.r2{color:var(--silver)}.rank-num.r3{color:var(--bronze)}
-.rank-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;flex-shrink:0}
-.rank-info{flex:1;min-width:0}
-.rank-name{font-weight:600;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rank-sub{font-size:.65rem;color:var(--muted);margin-top:.05rem}
-.rank-km{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--sky);line-height:1;text-align:right;flex-shrink:0}
-.rank-km small{font-family:'DM Sans',sans-serif;font-size:.55rem;color:var(--muted)}
-.rb{font-size:.55rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:.1rem .4rem;border-radius:50px;display:inline-block}
-.rb-w{background:rgba(34,197,94,.12);color:#4ade80}
-.rb-r{background:rgba(249,115,22,.12);color:var(--orange)}
-.rb-c{background:rgba(56,189,248,.12);color:var(--sky)}
-.rb-m{background:rgba(167,139,250,.12);color:var(--purple)}
-
-/* right sidebar */
-.lb-right{}
-
-/* category achievers */
-.cat-tabs{display:flex;gap:.4rem;margin-bottom:.9rem;overflow-x:auto;scrollbar-width:none}
+/* category achievers — outlined tags, no solid bg */
+.cat-tabs{display:flex;gap:.4rem;margin-bottom:.85rem;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .cat-tabs::-webkit-scrollbar{display:none}
-.cat-tab{
-  flex-shrink:0;padding:.32rem .85rem;
-  border-radius:50px;font-size:.72rem;font-weight:700;letter-spacing:.3px;
-  border:1.5px solid var(--border);color:var(--muted);
-  transition:all .18s;cursor:pointer;-webkit-tap-highlight-color:transparent;
-}
-.cat-tab.aw{border-color:var(--green);background:rgba(34,197,94,.1);color:var(--green)}
-.cat-tab.ar{border-color:var(--orange);background:rgba(249,115,22,.1);color:var(--orange)}
-.cat-tab.ac{border-color:var(--sky);background:rgba(56,189,248,.1);color:var(--sky)}
+.cat-tab{flex-shrink:0;padding:.32rem .85rem;border-radius:50px;font-size:.72rem;font-weight:700;letter-spacing:.3px;border:1.5px solid var(--border);color:var(--muted);background:transparent;transition:all .18s;cursor:pointer}
+.cat-tab.aw{border-color:var(--green);color:var(--green)}
+.cat-tab.ar{border-color:var(--orange);color:var(--orange)}
+.cat-tab.ac{border-color:var(--sky);color:var(--sky)}
 .cat-panel{display:none}.cat-panel.active{display:block}
-.cat-podium{display:flex;flex-direction:column;gap:.5rem}
-.cat-row{
-  display:flex;align-items:center;gap:.7rem;
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:.6rem .8rem;
-  position:relative;overflow:hidden;
-}
+.cat-podium{display:flex;flex-direction:column;gap:.45rem}
+.cat-row{display:flex;align-items:center;gap:.65rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.58rem .8rem;position:relative;overflow:hidden}
 .cat-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
 .cat-row.p1::before{background:var(--gold)}
 .cat-row.p2::before{background:var(--silver)}
 .cat-row.p3::before{background:var(--bronze)}
-.cat-medal{font-size:1.2rem;flex-shrink:0}
-.cat-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0}
+.cat-medal{font-size:1.1rem;flex-shrink:0}
+.cat-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;flex-shrink:0}
 .cat-info{flex:1;min-width:0}
 .cat-name{font-weight:700;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cat-days{font-size:.62rem;color:var(--muted)}
-.cat-km{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;text-align:right;flex-shrink:0}
+.cat-days{font-size:.6rem;color:var(--muted)}
+.cat-km{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;text-align:right;flex-shrink:0}
 .cat-km.w{color:var(--green)}.cat-km.r{color:var(--orange)}.cat-km.c{color:var(--sky)}
 .cat-empty{text-align:center;padding:1.2rem;font-size:.8rem;color:var(--muted)}
 
+/* day navigator */
+.day-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.4rem .6rem;margin-bottom:1rem}
+.day-nav-btn{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--text);transition:all .15s;flex-shrink:0}
+.day-nav-btn:hover:not(:disabled){background:rgba(249,115,22,.15);color:var(--orange)}
+.day-nav-btn:disabled{opacity:.25;cursor:not-allowed}
+.day-nav-label{text-align:center;flex:1}
+.day-nav-date{font-weight:700;font-size:.88rem;color:var(--white)}
+.day-nav-day{font-size:.62rem;color:var(--muted);letter-spacing:1px}
+
 /* buddy groups */
-.groups-stack{display:flex;flex-direction:column;gap:.8rem}
+.groups-stack{display:flex;flex-direction:column;gap:.7rem}
 .group-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden}
-.group-hdr{
-  display:flex;align-items:center;gap:.7rem;
-  padding:.65rem 1rem;border-bottom:1px solid var(--border);
-}
-.group-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.group-name{font-weight:700;font-size:.82rem}
-.group-pct{
-  margin-left:auto;font-size:.65rem;font-weight:700;
-  padding:.15rem .55rem;border-radius:50px;
-}
-.group-members{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(76px,1fr));
-  gap:.4rem;padding:.7rem;
-}
-/* on desktop make them slightly bigger */
-@media(min-width:769px){
-  .group-members{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
-}
-.mc{
-  border-radius:10px;padding:.6rem .4rem .5rem;
-  text-align:center;position:relative;
-  border:1.5px solid var(--border);
-  background:rgba(255,255,255,.02);
-  transition:all .2s;
-}
-.mc:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.2)}
-.mc.done{border-color:var(--green);background:rgba(34,197,94,.06);box-shadow:0 0 0 1px rgba(34,197,94,.12)}
+.group-hdr{display:flex;align-items:center;gap:.6rem;padding:.62rem .9rem;border-bottom:1px solid var(--border)}
+.group-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.group-name{font-weight:700;font-size:.8rem}
+.group-done{margin-left:auto;font-size:.62rem;font-weight:700;padding:.12rem .5rem;border-radius:50px}
+.group-members{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:.4rem;padding:.65rem}
+.mc{border-radius:9px;padding:.58rem .38rem .48rem;text-align:center;position:relative;border:1.5px solid var(--border);background:rgba(255,255,255,.02);transition:all .18s}
+.mc:hover{transform:translateY(-2px)}
+.mc.done{border-color:var(--green);background:rgba(34,197,94,.06)}
 .mc.extra{border-color:var(--gold);background:rgba(245,158,11,.06);animation:glow 3s ease-in-out infinite}
-@keyframes glow{0%,100%{box-shadow:0 0 0 1px rgba(245,158,11,.12),0 0 10px rgba(245,158,11,.06)}50%{box-shadow:0 0 0 2px rgba(245,158,11,.4),0 0 20px rgba(245,158,11,.18)}}
-.mc.pending{opacity:.38}
-.mc-trophy{position:absolute;top:-7px;right:-5px;font-size:.9rem}
-.mc-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.78rem;margin:0 auto .38rem;border:2px solid rgba(255,255,255,.08)}
-.mc.done .mc-av{border-color:rgba(34,197,94,.45)}
-.mc.extra .mc-av{border-color:var(--gold)}
-.mc-name{font-size:.6rem;font-weight:700;color:var(--white);line-height:1.25;word-break:break-word}
-.mc-km{font-family:'Bebas Neue',sans-serif;font-size:1rem;line-height:1;margin-top:.18rem}
+@keyframes glow{0%,100%{box-shadow:0 0 0 1px rgba(245,158,11,.12),0 0 10px rgba(245,158,11,.06)}50%{box-shadow:0 0 0 2px rgba(245,158,11,.4),0 0 18px rgba(245,158,11,.16)}}
+.mc.pending{opacity:.36}
+.mc-trophy{position:absolute;top:-6px;right:-5px;font-size:.88rem}
+.mc-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;margin:0 auto .35rem;border:2px solid rgba(255,255,255,.08)}
+.mc.done .mc-av{border-color:rgba(34,197,94,.4)}.mc.extra .mc-av{border-color:var(--gold)}
+.mc-name{font-size:.58rem;font-weight:700;color:var(--white);line-height:1.2;word-break:break-word}
+.mc-km{font-family:'Bebas Neue',sans-serif;font-size:.95rem;line-height:1;margin-top:.15rem}
 .mc.done .mc-km{color:var(--green)}.mc.extra .mc-km{color:var(--gold)}.mc.pending .mc-km{color:var(--muted)}
-.mc-act{font-size:.5rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-top:.06rem}
-.mentor-flow{padding:.4rem .9rem .6rem;font-size:.62rem;color:var(--muted);line-height:1.5}
+.mc-act{font-size:.48rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-top:.05rem}
+.mentor-flow{padding:.38rem .9rem .58rem;font-size:.6rem;color:var(--muted);line-height:1.5}
 .mentor-flow strong{color:var(--text)}
 
-/* ═══════════════════════════════════════════════
-   LOG ACTIVITY PAGE
-═══════════════════════════════════════════════ */
-.log-wrap{max-width:640px;margin:0 auto}
-.log-hdr{margin-bottom:1.8rem}
-.log-hdr h2{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:3px;margin-bottom:.2rem}
-.log-hdr h2 span{color:var(--orange)}
-.log-hdr p{font-size:.82rem;color:var(--muted)}
-
-.form-section{margin-bottom:1.6rem}
-.fs-title{
-  font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
-  color:var(--orange);padding-bottom:.5rem;border-bottom:1px solid var(--border);
-  margin-bottom:.9rem;
-}
-.fg{margin-bottom:.85rem}
-.fl{display:block;font-size:.75rem;font-weight:600;color:var(--text);margin-bottom:.3rem}
-.fi,.fta{
-  width:100%;padding:.72rem .95rem;
+/* ═══ WEEKLY AWARDS ═══ */
+.weekly-awards-wrap{display:flex;flex-direction:column;gap:.7rem;margin-bottom:.5rem}
+.wa-award-card{
   background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);color:var(--white);
-  font-size:.9rem;transition:border-color .2s,box-shadow .2s;
-  -webkit-appearance:none;
+  border-radius:var(--r2);overflow:hidden;position:relative;
+  transition:transform .2s,border-color .2s;
 }
+.wa-award-card:hover{transform:translateY(-2px)}
+
+/* Gold - Distance Champion */
+.wa-award-card.gold{border-color:rgba(245,158,11,.3);background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(249,115,22,.04))}
+/* Green - Perfect Week */
+.wa-award-card.green{border-color:rgba(34,197,94,.3);background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(56,189,248,.04))}
+/* Purple - Most Improved */
+.wa-award-card.purple{border-color:rgba(167,139,250,.3);background:linear-gradient(135deg,rgba(167,139,250,.08),rgba(249,115,22,.04))}
+
+/* top accent bar */
+.wa-award-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.wa-award-card.gold::before{background:linear-gradient(90deg,var(--gold),var(--orange))}
+.wa-award-card.green::before{background:linear-gradient(90deg,var(--green),var(--sky))}
+.wa-award-card.purple::before{background:linear-gradient(90deg,var(--purple),var(--sky))}
+
+.wa-card-inner{display:flex;align-items:center;gap:.85rem;padding:.9rem 1rem}
+.wa-medal{font-size:1.8rem;flex-shrink:0;line-height:1}
+.wa-info{flex:1;min-width:0}
+.wa-award-title{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.2rem}
+.gold .wa-award-title{color:var(--gold)}
+.green .wa-award-title{color:var(--green)}
+.purple .wa-award-title{color:var(--purple)}
+.wa-winner-row{display:flex;align-items:center;gap:.6rem}
+.wa-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.72rem;flex-shrink:0;border:2px solid rgba(255,255,255,.1)}
+.gold .wa-av{border-color:var(--gold)}
+.green .wa-av{border-color:var(--green)}
+.purple .wa-av{border-color:var(--purple)}
+.wa-winner-name{font-weight:700;font-size:.88rem;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wa-winner-stat{font-family:'Bebas Neue',sans-serif;font-size:.78rem;color:var(--muted);margin-top:.1rem}
+.wa-stat-right{text-align:right;flex-shrink:0}
+.wa-stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;line-height:1}
+.gold .wa-stat-num{color:var(--gold)}
+.green .wa-stat-num{color:var(--green)}
+.purple .wa-stat-num{color:var(--purple)}
+.wa-stat-label{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+/* no winner yet state */
+.wa-pending{
+  display:flex;align-items:center;gap:.7rem;
+  padding:.75rem 1rem;
+  opacity:.55;
+}
+.wa-pending-icon{font-size:1.4rem}
+.wa-pending-text{font-size:.78rem;color:var(--muted)}
+.wa-pending-title{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.15rem}
+
+/* week navigator */
+.week-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.35rem .55rem;margin-bottom:.8rem}
+.week-nav-btn{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--text);transition:all .15s;flex-shrink:0}
+.week-nav-btn:hover:not(:disabled){background:rgba(249,115,22,.15);color:var(--orange)}
+.week-nav-btn:disabled{opacity:.25;cursor:not-allowed}
+.week-nav-label{text-align:center;flex:1}
+.week-nav-title{font-weight:700;font-size:.82rem;color:var(--white)}
+.week-nav-sub{font-size:.6rem;color:var(--muted);letter-spacing:.5px}
+
+/* ═══ RANKINGS PAGE ═══ */
+.rank-wrap{max-width:1100px;margin:0 auto}
+.rank-filter-tabs{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap}
+.rft{padding:.35rem .9rem;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.3px;border:1.5px solid var(--border);color:var(--muted);background:transparent;transition:all .18s;cursor:pointer}
+.rft.active-all{border-color:var(--orange);color:var(--orange)}
+.rft.active-w{border-color:var(--green);color:var(--green)}
+.rft.active-r{border-color:var(--orange);color:var(--orange)}
+.rft.active-c{border-color:var(--sky);color:var(--sky)}
+.rank-list{display:flex;flex-direction:column;gap:.38rem}
+.rank-item{display:flex;align-items:center;gap:.7rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.65rem .9rem;transition:border-color .15s,background .15s}
+.rank-item:hover{border-color:rgba(249,115,22,.2);background:var(--card2)}
+.rank-num{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--muted);width:22px;text-align:center;flex-shrink:0}
+.rank-num.r1{color:var(--gold)}.rank-num.r2{color:var(--silver)}.rank-num.r3{color:var(--bronze)}
+.rank-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0}
+.rank-info{flex:1;min-width:0}
+.rank-name{font-weight:600;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-sub{font-size:.62rem;color:var(--muted);margin-top:.04rem}
+.rank-km{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;color:var(--sky);line-height:1;text-align:right;flex-shrink:0}
+.rank-km small{font-family:'DM Sans',sans-serif;font-size:.52rem;color:var(--muted)}
+.rb{font-size:.52rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:.1rem .38rem;border-radius:50px;display:inline-block}
+.rb-w{background:rgba(34,197,94,.1);color:#4ade80}
+.rb-r{background:rgba(249,115,22,.1);color:var(--orange)}
+.rb-c{background:rgba(56,189,248,.1);color:var(--sky)}
+.rb-m{background:rgba(167,139,250,.1);color:var(--purple)}
+
+/* ═══ ADMIN PAGE ═══ */
+.admin-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:2rem}
+.lock-icon{font-size:3rem;margin-bottom:1rem;opacity:.5}
+.lock-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:3px;color:var(--text);margin-bottom:.4rem}
+.lock-desc{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+.pin-wrap{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.pin-input{width:48px;height:52px;text-align:center;font-size:1.3rem;font-weight:700;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);color:var(--white);transition:border-color .2s}
+.pin-input:focus{outline:none;border-color:var(--orange)}
+.btn-unlock{background:var(--orange);color:#fff;font-weight:700;font-size:.88rem;letter-spacing:1.5px;text-transform:uppercase;padding:.72rem 2rem;border-radius:50px;box-shadow:0 6px 20px rgba(249,115,22,.28);transition:all .2s}
+.btn-unlock:hover{transform:translateY(-2px)}
+.pin-error{font-size:.78rem;color:var(--red);margin-top:.5rem;display:none}
+
+.admin-wrap{display:none;max-width:640px;margin:0 auto}
+.admin-hdr{margin-bottom:1.6rem}
+.admin-hdr h2{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:3px;margin-bottom:.2rem}
+.admin-hdr h2 span{color:var(--orange)}
+.admin-hdr p{font-size:.8rem;color:var(--muted)}
+.fs{margin-bottom:1.4rem}
+.fs-title{font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);padding-bottom:.45rem;border-bottom:1px solid var(--border);margin-bottom:.85rem}
+.fg{margin-bottom:.8rem}
+.fl{display:block;font-size:.73rem;font-weight:600;color:var(--text);margin-bottom:.28rem}
+.fi,.fta{width:100%;padding:.7rem .92rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);color:var(--white);font-size:.9rem;transition:border-color .2s;-webkit-appearance:none}
 .fi:focus,.fta:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.1)}
 .fi::placeholder,.fta::placeholder{color:var(--muted)}
 .fi[readonly]{opacity:.6;cursor:default}
-.fta{resize:vertical;min-height:72px}
-.fr2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.fta{resize:vertical;min-height:68px}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
 @media(max-width:500px){.fr2{grid-template-columns:1fr}}
-.fhint{font-size:.68rem;color:var(--muted);margin-top:.22rem}
-
-/* name dropdown */
+.fhint{font-size:.67rem;color:var(--muted);margin-top:.2rem}
 .nd-wrap{position:relative}
-.nd-drop{
-  display:none;position:absolute;top:100%;left:0;right:0;z-index:50;
-  background:var(--card2);border:1.5px solid var(--orange);border-top:none;
-  border-radius:0 0 var(--r) var(--r);
-  max-height:220px;overflow-y:auto;
-  box-shadow:0 8px 28px rgba(0,0,0,.55);
-  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
-}
-.nd-item{
-  display:flex;align-items:center;gap:.65rem;
-  padding:.6rem .95rem;font-size:.86rem;font-weight:500;color:var(--text);
-  cursor:pointer;border-bottom:1px solid rgba(255,255,255,.04);
-  transition:background .12s;
-}
+.nd-drop{display:none;position:absolute;top:100%;left:0;right:0;z-index:50;background:var(--card2);border:1.5px solid var(--orange);border-top:none;border-radius:0 0 var(--r) var(--r);max-height:200px;overflow-y:auto;box-shadow:0 8px 28px rgba(0,0,0,.55)}
+.nd-item{display:flex;align-items:center;gap:.6rem;padding:.58rem .9rem;font-size:.84rem;font-weight:500;color:var(--text);cursor:pointer;border-bottom:1px solid rgba(255,255,255,.04);transition:background .12s}
 .nd-item:last-child{border-bottom:none}
-.nd-item:hover,.nd-item.hov{background:rgba(249,115,22,.1);color:var(--white)}
-.nd-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;flex-shrink:0}
-.nd-grp{font-size:.6rem;color:var(--muted);margin-left:auto;flex-shrink:0}
-.nd-confirm{font-size:.7rem;color:var(--green);margin-top:.22rem;display:none}
-
-/* activity type */
-.act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.ao{
-  background:var(--card);border:2px solid var(--border);
-  border-radius:var(--r);padding:.8rem .4rem;
-  text-align:center;cursor:pointer;
-  transition:all .18s;-webkit-tap-highlight-color:transparent;
-}
+.nd-item:hover{background:rgba(249,115,22,.1);color:var(--white)}
+.nd-av{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:800;flex-shrink:0}
+.nd-grp{font-size:.58rem;color:var(--muted);margin-left:auto;flex-shrink:0}
+.nd-confirm{font-size:.68rem;color:var(--green);margin-top:.2rem;display:none}
+.act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+.ao{background:var(--card);border:2px solid var(--border);border-radius:var(--r);padding:.75rem .35rem;text-align:center;cursor:pointer;transition:all .18s}
 .ao:hover,.ao.sel{border-color:var(--orange);background:rgba(249,115,22,.07)}
-.ao.sel{border-color:var(--orange)}
-.ao-icon{font-size:1.4rem;display:block;margin-bottom:.22rem}
-.ao-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--muted)}
-.ao:hover .ao-label,.ao.sel .ao-label{color:var(--orange)}
-.ao-min{font-size:.58rem;color:var(--muted);margin-top:.06rem}
-
-/* submit status */
-.sub-status{display:none;border-radius:var(--r);padding:.82rem 1rem;margin-bottom:.9rem;font-size:.84rem;font-weight:600;align-items:center;gap:.55rem}
+.ao.sel .ao-label{color:var(--orange)}
+.ao-icon{font-size:1.3rem;display:block;margin-bottom:.2rem}
+.ao-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--muted)}
+.ao-min{font-size:.56rem;color:var(--muted);margin-top:.06rem}
+.sub-status{display:none;border-radius:var(--r);padding:.78rem 1rem;margin-bottom:.85rem;font-size:.82rem;font-weight:600;align-items:center;gap:.52rem}
 .sub-status.show{display:flex}
 .sub-status.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.28);color:#4ade80}
 .sub-status.err{background:rgba(239,68,68,.09);border:1px solid rgba(239,68,68,.28);color:var(--red)}
 .sub-status.loading{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);color:var(--orange)}
-.btn-sub{
-  width:100%;padding:.88rem;border:none;border-radius:var(--r);
-  background:var(--orange);color:#fff;
-  font-weight:700;font-size:.95rem;letter-spacing:1.5px;text-transform:uppercase;
-  box-shadow:0 6px 20px rgba(249,115,22,.28);transition:all .2s;
-}
+.btn-sub{width:100%;padding:.85rem;border:none;border-radius:var(--r);background:var(--orange);color:#fff;font-weight:700;font-size:.95rem;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 6px 20px rgba(249,115,22,.28);transition:all .2s}
 .btn-sub:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(249,115,22,.45)}
 .btn-sub:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.or-sep{text-align:center;color:var(--muted);font-size:.74rem;margin:1rem 0;position:relative}
+.or-sep{text-align:center;color:var(--muted);font-size:.72rem;margin:.9rem 0;position:relative}
 .or-sep::before,.or-sep::after{content:'';position:absolute;top:50%;width:44%;height:1px;background:var(--border)}
 .or-sep::before{left:0}.or-sep::after{right:0}
-.gf-btn{
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  width:100%;padding:.75rem;border-radius:var(--r);
-  background:transparent;border:1px solid var(--border);
-  color:var(--muted);font-size:.82rem;font-weight:600;
-  transition:all .18s;
-}
-.gf-btn:hover{border-color:var(--sky);color:var(--sky);background:rgba(56,189,248,.05)}
+.gf-btn{display:flex;align-items:center;justify-content:center;gap:.48rem;width:100%;padding:.72rem;border-radius:var(--r);background:transparent;border:1px solid var(--border);color:var(--muted);font-size:.8rem;font-weight:600;transition:all .18s}
+.gf-btn:hover{border-color:var(--sky);color:var(--sky)}
 
-/* ═══════════════════════════════════════════════
-   FAQ PAGE
-═══════════════════════════════════════════════ */
+/* ═══ FAQ PAGE ═══ */
 .faq-wrap{max-width:680px;margin:0 auto}
-.faq-hdr{margin-bottom:1.8rem}
+.faq-hdr{margin-bottom:1.6rem}
 .faq-hdr h2{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:3px;margin-bottom:.2rem}
 .faq-hdr h2 span{color:var(--orange)}
-.faq-hdr p{font-size:.82rem;color:var(--muted)}
+.faq-hdr p{font-size:.8rem;color:var(--muted)}
 .faq-item{border-bottom:1px solid var(--border)}
-.faq-q{
-  width:100%;background:none;border:none;color:var(--white);
-  text-align:left;font-size:.9rem;font-weight:600;
-  padding:1.1rem 0;display:flex;justify-content:space-between;
-  align-items:center;gap:.8rem;transition:color .18s;
-  -webkit-tap-highlight-color:transparent;
-}
+.faq-q{width:100%;background:none;border:none;color:var(--white);text-align:left;font-size:.88rem;font-weight:600;padding:1.05rem 0;display:flex;justify-content:space-between;align-items:center;gap:.8rem;transition:color .18s}
 .faq-q:hover{color:var(--orange)}
-.faq-ico{
-  width:22px;height:22px;flex-shrink:0;border-radius:50%;
-  background:rgba(255,255,255,.05);display:flex;align-items:center;
-  justify-content:center;font-size:.75rem;color:var(--muted);
-  transition:transform .3s,background .2s;
-}
+.faq-ico{width:21px;height:21px;flex-shrink:0;border-radius:50%;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--muted);transition:transform .3s,background .2s}
 .faq-item.open .faq-ico{transform:rotate(45deg);background:var(--orange);color:#fff}
-.faq-a{display:none;padding:0 0 1.1rem;color:var(--muted);line-height:1.75;font-size:.85rem}
+.faq-a{display:none;padding:0 0 1rem;color:var(--muted);line-height:1.72;font-size:.83rem}
 .faq-item.open .faq-a{display:block}
 .faq-a strong{color:var(--sky)}
-
-/* footer */
-.page-footer{padding:2rem 0 1rem;border-top:1px solid var(--border);margin-top:2rem;text-align:center}
-.footer-tips{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;margin-bottom:.9rem}
-.ftip{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:50px;padding:.2rem .65rem;font-size:.65rem;color:var(--muted)}
-.footer-copy{font-size:.65rem;color:rgba(100,116,139,.35)}
+.page-footer{padding:1.8rem 0 .8rem;border-top:1px solid var(--border);margin-top:2rem;text-align:center}
+.footer-copy{font-size:.62rem;color:rgba(100,116,139,.35)}
 </style>
 </head>
 <body>
 <div class="layout">
 
-<!-- ═══════════ TOP NAV ═══════════ -->
+<!-- TOP NAV -->
 <nav class="topnav">
   <div class="nav-brand">
     <div class="nav-logo">🏃 100D FITNESS · KEYA</div>
-    <div class="nav-day"><div class="live-dot"></div><span id="sb-day">Loading…</span></div>
+    <div class="nav-day"><div class="live-dot"></div><span id="nav-day">Loading…</span></div>
   </div>
   <div class="nav-links">
-    <div class="nav-link active" onclick="goto('home',this)">
-      <span class="nav-link-icon">🏠</span> Home
-    </div>
-    <div class="nav-link" onclick="goto('lb',this)">
-      <span class="nav-link-icon">🏆</span> Leaderboard
-    </div>
-    <div class="nav-link" onclick="goto('log',this)">
-      <span class="nav-link-icon">➕</span> Log Activity
-    </div>
-    <div class="nav-link" onclick="goto('faq',this)">
-      <span class="nav-link-icon">❓</span> FAQ
-    </div>
+    <div class="nav-link active" onclick="goto('home',this)"><span>🏠</span> Home</div>
+    <div class="nav-link" onclick="goto('board',this)"><span>🏆</span> Board</div>
+    <div class="nav-link" onclick="goto('rankings',this)"><span>📋</span> Rankings</div>
+    <div class="nav-link" onclick="goto('faq',this)"><span>❓</span> FAQ</div>
   </div>
   <div class="nav-right">
-    <div class="topbar-sync" id="last-sync"></div>
+    <div class="sync-txt" id="last-sync"></div>
     <button class="btn-refresh" onclick="fetchData(true)"><span id="ref-icon">↻</span> Refresh</button>
   </div>
 </nav>
 
-<!-- ═══════════ MAIN ═══════════ -->
 <main class="main">
 
-  <!-- ══ HOME ══ -->
-  <div id="pg-home" class="page active">
-    <div class="home-wrap">
-      <div class="hero-2col">
+<!-- ══════════════════ HOME ══════════════════ -->
+<div id="pg-home" class="page active">
+  <div class="home-wrap">
+    <div class="hero-grid">
 
-        <!-- LEFT -->
-        <div class="hero-left">
-          <div class="hero-pill"><div class="live-dot"></div> Challenge Live — 1 June 2026</div>
-          <h1 class="hero-h1">
-            <span class="n1">100</span>
-            <span class="n2">DAYS</span>
-            <span class="n3">FITNESS</span>
-          </h1>
-          <div class="hero-sub">"Lets move together, stronger everyday!"</div>
-          <div class="hero-org">— Keya Apartments Community —</div>
-          <div class="hero-dates">
-            <strong>1 Jun 2026</strong><div class="dsep"></div><strong>9 Sep 2026</strong>
-          </div>
-          <div class="act-pills">
-            <div class="act-pill">🚶 Walk 2 km+</div>
-            <div class="act-pill">🏃 Run 2 km+</div>
-            <div class="act-pill">🚴 Cycle 5 km+</div>
-          </div>
-          <div class="value-pills">
-            <span class="vp">✅ Discipline</span>
-            <span class="vp">✅ Consistency</span>
-            <span class="vp">✅ Fitness Habit</span>
-            <span class="vp">✅ Group Motivation</span>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:center">
-            <button id="reg-btn" class="btn-reg" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdY91lYQoPHhXdzPybz9tkPuYIbuo5faE29KEdCHYfI0Mtqrg/viewform?usp=dialog','_blank')">
-              🎯 Register Now — Free
-            </button>
-            <p class="reg-note" id="reg-note">Registration open until 1 June 2026 · Age 14+</p>
-          </div>
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="hero-pill"><div class="live-dot"></div> Challenge Live — 1 June 2026</div>
+        <h1 class="hero-h1">
+          <span class="n1">100</span>
+          <span class="n2">DAYS</span>
+          <span class="n3">FITNESS</span>
+        </h1>
+        <div class="hero-sub">"Lets move together, stronger everyday!"</div>
+        <div class="hero-org">— Keya Apartments Community —</div>
+        <div class="hero-dates"><strong>1 Jun 2026</strong><div class="dsep"></div><strong>9 Sep 2026</strong></div>
+        <div class="act-pills">
+          <div class="act-pill">🚶 Walk 2 km+</div>
+          <div class="act-pill">🏃 Run 2 km+</div>
+          <div class="act-pill">🚴 Cycle 5 km+</div>
         </div>
+        <div class="value-pills">
+          <span class="vp">✅ Discipline</span>
+          <span class="vp">✅ Consistency</span>
+          <span class="vp">✅ Fitness Habit</span>
+          <span class="vp">✅ Group Motivation</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <button id="reg-btn" class="btn-reg" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdY91lYQoPHhXdzPybz9tkPuYIbuo5faE29KEdCHYfI0Mtqrg/viewform?usp=dialog','_blank')">🎯 Register Now — Free</button>
+          <p class="reg-note" id="reg-note">Registration open until 1 June 2026 · Age 14+</p>
+        </div>
+      </div>
 
-        <!-- RIGHT — challenge card -->
-        <div class="hero-right">
-          <div class="sec-label" style="margin-bottom:1rem">Challenge Details</div>
-          <div class="challenge-stat">
-            <div class="cs-row"><span class="cs-label">Total Duration</span><span class="cs-val orange">100 Days</span></div>
-            <div class="cs-row"><span class="cs-label">Start Date</span><span class="cs-val">1 June 2026</span></div>
-            <div class="cs-row"><span class="cs-label">End Date</span><span class="cs-val">9 September 2026</span></div>
-            <div class="cs-row"><span class="cs-label">Registered Members</span><span class="cs-val green" id="hero-members">37</span></div>
-            <div class="cs-row"><span class="cs-label">Total KM Covered</span><span class="cs-val sky" id="hero-km">0</span></div>
-            <div class="cs-row"><span class="cs-label">Today's Progress</span><span class="cs-val orange" id="hero-today">0 logged</span></div>
+      <!-- RIGHT -->
+      <div class="hero-right">
+        <div class="sec-label" style="margin-bottom:.4rem">Top Achievers</div>
+        <div class="home-podium" id="home-podium">
+          <div class="empty" style="width:100%;padding:1.2rem"><div class="empty-icon">🏁</div><div class="empty-d">Activities from 1 June</div></div>
+        </div>
+        <div class="sec-label" style="margin-bottom:.6rem">Challenge Details</div>
+        <div class="cs-row"><span class="cs-label">Duration</span><span class="cs-val or">100 Days</span></div>
+        <div class="cs-row"><span class="cs-label">Start</span><span class="cs-val">1 June 2026</span></div>
+        <div class="cs-row"><span class="cs-label">End</span><span class="cs-val">9 September 2026</span></div>
+        <div class="cs-row"><span class="cs-label">Members</span><span class="cs-val gr" id="hero-members">40</span></div>
+        <div class="cs-row"><span class="cs-label">Total KM</span><span class="cs-val sk" id="hero-km">0</span></div>
+        <div class="cs-row"><span class="cs-label">Today</span><span class="cs-val or" id="hero-today">0 logged</span></div>
+        <div class="sec-label" style="margin:.8rem 0 .4rem">Progress</div>
+        <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:.35rem;font-size:.62rem;color:var(--muted)">
+          <span>Day <span id="prog-day">1</span></span><span>Day 100</span>
+        </div>
+        <div class="wa-row">
+          <div class="wa-icon">📲</div>
+          <div class="wa-text" style="flex:1">
+            <div class="wa-t">Share on WhatsApp</div>
+            <div class="wa-d">Send link to your group — members log directly!</div>
           </div>
-          <div class="sec-label" style="margin-bottom:.5rem">Challenge Progress</div>
-          <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
-          <div style="display:flex;justify-content:space-between;margin-top:.4rem;font-size:.65rem;color:var(--muted)">
-            <span>Day <span id="prog-day">1</span></span><span>100 Days</span>
-          </div>
+          <button class="btn-share" onclick="shareApp()">📤 Share</button>
+        </div>
+      </div>
+    </div>
 
-          <div class="wa-card" style="margin-top:1.4rem">
-            <div class="wa-icon">📲</div>
-            <div class="wa-text">
-              <div class="wa-title">Share on WhatsApp</div>
-              <div class="wa-desc">Send this link to your group — members log directly from their phone!</div>
+    <!-- OUR GOAL -->
+    <div class="sec-label">Why Join</div>
+    <h2 class="sec-title" style="margin-bottom:1rem">Our <span>Goal</span></h2>
+    <div class="items-grid" style="margin-bottom:2.5rem">
+      <div class="item-card"><span class="item-icon">🎯</span><div class="item-title">Build Discipline</div><div class="item-desc">Show up every day. Small actions compound into extraordinary results.</div></div>
+      <div class="item-card"><span class="item-icon">🔁</span><div class="item-title">Stay Consistent</div><div class="item-desc">100 days builds a lifelong fitness habit you'll carry forever.</div></div>
+      <div class="item-card"><span class="item-icon">😄</span><div class="item-title">Fun & Fitness</div><div class="item-desc">Walk, run, or cycle — keep it joyful every single day.</div></div>
+      <div class="item-card"><span class="item-icon">🏅</span><div class="item-title">Marathon Ready</div><div class="item-desc">Build endurance toward your first 5K, 10K, or half marathon.</div></div>
+      <div class="item-card"><span class="item-icon">🤝</span><div class="item-title">Grow Together</div><div class="item-desc">Our apartment community moves and celebrates together.</div></div>
+    </div>
+
+    <!-- TIPS -->
+    <div class="sec-label">Daily Reminders</div>
+    <h2 class="sec-title" style="margin-bottom:1rem">Stay <span>Healthy</span></h2>
+    <div class="items-grid" style="margin-bottom:2rem">
+      <div class="item-card"><span class="item-icon">💧</span><div class="item-title">Stay Hydrated</div><div class="item-desc">Drink water before, during and after your activity every day.</div></div>
+      <div class="item-card"><span class="item-icon">😴</span><div class="item-title">Rest is Training</div><div class="item-desc">Sleep 7–8 hrs. Recovery is where the body gets stronger.</div></div>
+      <div class="item-card"><span class="item-icon">🥗</span><div class="item-title">Fuel Well</div><div class="item-desc">Eat balanced meals. Good nutrition powers great workouts.</div></div>
+      <div class="item-card"><span class="item-icon">👟</span><div class="item-title">Warm Up 5 Min</div><div class="item-desc">Always warm up before activity to avoid injury.</div></div>
+      <div class="item-card"><span class="item-icon">🧘</span><div class="item-title">Stretch After</div><div class="item-desc">Cool down stretches reduce soreness and improve flexibility.</div></div>
+    </div>
+
+    <div class="page-footer"><div class="footer-copy">100 Days Fitness Challenge 2026 · Built with 💚 for Keya Apartments</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════ BOARD ══════════════════ -->
+<div id="pg-board" class="page">
+  <div class="board-wrap">
+    <div class="stats-row">
+      <div class="stat-box"><span class="stat-n" id="lb-p">40</span><div class="stat-l">Members</div></div>
+      <div class="stat-box"><span class="stat-n" id="lb-km">0</span><div class="stat-l">Total KM</div></div>
+      <div class="stat-box"><span class="stat-n" id="lb-logs">0</span><div class="stat-l">Activities</div></div>
+    </div>
+
+    <div id="champ-card" class="champ-card" style="display:none">
+      <div>
+        <div class="champ-tag">⚡ Today's Distance Champion</div>
+        <div class="champ-name" id="champ-name">—</div>
+        <div class="champ-meta" id="champ-meta">—</div>
+      </div>
+      <div>
+        <div class="champ-km-n" id="champ-km-n">—</div>
+        <div class="champ-km-l">KM Today</div>
+      </div>
+    </div>
+
+    <div class="board-cols">
+      <!-- LEFT -->
+      <div>
+        <div class="divider-label">🏆 Top 3 Podium</div>
+        <div class="podium-3" id="podium"></div>
+
+        <!-- Category Achievers -->
+        <div class="divider-label">🥇 Category Achievers</div>
+        <div class="cat-tabs">
+          <button class="cat-tab aw" onclick="showCat('w',this)">🚶 Walking</button>
+          <button class="cat-tab" onclick="showCat('r',this)">🏃 Running</button>
+          <button class="cat-tab" onclick="showCat('c',this)">🚴 Cycling</button>
+        </div>
+        <div class="cat-panel active" id="cat-w"></div>
+        <div class="cat-panel" id="cat-r"></div>
+        <div class="cat-panel" id="cat-c"></div>
+      </div>
+
+      <!-- RIGHT — fitness buddy groups with day nav -->
+      <div>
+        <!-- WEEKLY AWARDS -->
+        <div class="divider-label">🏆 Weekly Performance Awards</div>
+        <div class="weekly-awards-wrap" id="weekly-awards">
+          <!-- week navigator -->
+          <div class="week-nav">
+            <button class="week-nav-btn" id="btn-week-prev" onclick="changeWeek(-1)">‹</button>
+            <div class="week-nav-label">
+              <div class="week-nav-title" id="week-nav-title">This Week</div>
+              <div class="week-nav-sub" id="week-nav-sub">Loading…</div>
             </div>
-            <button class="btn-share" onclick="shareApp()">📤 Share</button>
+            <button class="week-nav-btn" id="btn-week-next" onclick="changeWeek(1)" disabled>›</button>
           </div>
+          <!-- award cards rendered by JS -->
         </div>
-      </div>
 
-      <!-- GOALS -->
-      <div class="sec-label">Why Join</div>
-      <h2 class="sec-title" style="margin-bottom:1rem">Our <span>Goal</span></h2>
-      <div class="goals-grid" style="margin-bottom:2rem">
-        <div class="goal-card"><span class="goal-icon">🎯</span><div class="goal-t">Build Discipline</div><div class="goal-d">Show up every day. Small actions compound into extraordinary results.</div></div>
-        <div class="goal-card"><span class="goal-icon">🔁</span><div class="goal-t">Stay Consistent</div><div class="goal-d">100 days builds a lifelong fitness habit.</div></div>
-        <div class="goal-card"><span class="goal-icon">😄</span><div class="goal-t">Fun & Fitness</div><div class="goal-d">Walk, run, or cycle — keep it joyful every single day.</div></div>
-        <div class="goal-card"><span class="goal-icon">🏅</span><div class="goal-t">Marathon Ready</div><div class="goal-d">Build endurance toward your first 5K, 10K, or half marathon.</div></div>
-        <div class="goal-card"><span class="goal-icon">🤝</span><div class="goal-t">Grow Together</div><div class="goal-d">Our apartment community moves and celebrates together.</div></div>
-      </div>
-      <div class="page-footer">
-        <div class="footer-tips"><span class="ftip">💧 Stay hydrated</span><span class="ftip">😴 Rest is training</span><span class="ftip">🥗 Fuel well</span><span class="ftip">👟 Warm up 5 min</span><span class="ftip">📲 Log daily</span><span class="ftip">🧘 Stretch after</span></div>
-        <div class="footer-copy">100 Days Fitness Challenge 2026 · Built with 💚 for Keya Apartments</div>
+        <div class="divider-label">👥 Fitness Buddy Groups</div>
+        <!-- Day navigator -->
+        <div class="day-nav">
+          <button class="day-nav-btn" id="btn-prev" onclick="changeDay(-1)">‹</button>
+          <div class="day-nav-label">
+            <div class="day-nav-date" id="nav-date-label">Today</div>
+            <div class="day-nav-day" id="nav-day-num">Day 1 of 100</div>
+          </div>
+          <button class="day-nav-btn" id="btn-next" onclick="changeDay(1)" disabled>›</button>
+        </div>
+        <div class="groups-stack" id="groups-wrap"></div>
       </div>
     </div>
+    <div class="page-footer"><div class="footer-copy">100 Days Fitness Challenge 2026 · Keya Apartments</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════ RANKINGS ══════════════════ -->
+<div id="pg-rankings" class="page">
+  <div class="rank-wrap">
+    <div class="sec-label">All Time</div>
+    <h2 class="sec-title">Full <span>Rankings</span></h2>
+
+    <div class="rank-filter-tabs">
+      <button class="rft active-all" onclick="showRankFilter('all',this)">🏅 Overall</button>
+      <button class="rft" onclick="showRankFilter('w',this)">🚶 Walking</button>
+      <button class="rft" onclick="showRankFilter('r',this)">🏃 Running</button>
+      <button class="rft" onclick="showRankFilter('c',this)">🚴 Cycling</button>
+    </div>
+
+    <div id="rank-all" class="rank-panel">
+      <div class="rank-list" id="rank-list-all"></div>
+    </div>
+    <div id="rank-w" class="rank-panel" style="display:none">
+      <div class="rank-list" id="rank-list-w"></div>
+    </div>
+    <div id="rank-r" class="rank-panel" style="display:none">
+      <div class="rank-list" id="rank-list-r"></div>
+    </div>
+    <div id="rank-c" class="rank-panel" style="display:none">
+      <div class="rank-list" id="rank-list-c"></div>
+    </div>
+
+    <div class="page-footer"><div class="footer-copy">100 Days Fitness Challenge 2026 · Keya Apartments</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════ ADMIN ══════════════════ -->
+<div id="pg-admin" class="page">
+
+  <!-- LOCK SCREEN -->
+  <div class="admin-lock" id="admin-lock">
+    <div class="lock-icon">🔐</div>
+    <div class="lock-title">Admin Access</div>
+    <div class="lock-desc">Enter the 4-digit PIN to access the activity log</div>
+    <div class="pin-wrap">
+      <input class="pin-input" id="pin1" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,'pin2')">
+      <input class="pin-input" id="pin2" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,'pin3')">
+      <input class="pin-input" id="pin3" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,'pin4')">
+      <input class="pin-input" id="pin4" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,null)">
+    </div>
+    <button class="btn-unlock" onclick="checkPin()">Unlock</button>
+    <div class="pin-error" id="pin-error">❌ Incorrect PIN. Try again.</div>
   </div>
 
-  <!-- ══ LEADERBOARD ══ -->
-  <div id="pg-lb" class="page">
-    <div class="lb-wrap">
-      <!-- stats -->
-      <div class="stats-row">
-        <div class="card stat-box"><span class="stat-n" id="lb-p">37</span><div class="stat-l">Members</div></div>
-        <div class="card stat-box"><span class="stat-n" id="lb-km">0</span><div class="stat-l">Total KM</div></div>
-        <div class="card stat-box"><span class="stat-n" id="lb-logs">0</span><div class="stat-l">Activities Logged</div></div>
+  <!-- ADMIN FORM (shown after unlock) -->
+  <div class="admin-wrap" id="admin-form">
+    <div class="admin-hdr">
+      <div class="sec-label">Admin · Log Entry</div>
+      <h2>Log <span>Activity</span></h2>
+      <p>Saves directly to Google Sheet · auto-reflects on leaderboard</p>
+    </div>
+
+    <div class="sub-status" id="sub-status"></div>
+
+    <div class="fs">
+      <div class="fs-title">Participant</div>
+      <div class="fg">
+        <label class="fl">Full Name *</label>
+        <div class="nd-wrap">
+          <input class="fi" id="f-name-search" type="text" placeholder="🔍 Search name…" autocomplete="off" oninput="filterNames(this.value)" onfocus="showDrop()" onblur="setTimeout(hideDrop,200)">
+          <input type="hidden" id="f-name">
+          <div class="nd-drop" id="nd-drop"></div>
+        </div>
+        <div class="nd-confirm" id="nd-confirm"></div>
       </div>
-
-      <!-- daily champ -->
-      <div class="champ-card" id="champ-card" style="display:none">
-        <div>
-          <div class="champ-tag">⚡ Today's Distance Champion</div>
-          <div class="champ-name" id="champ-name">—</div>
-          <div class="champ-meta" id="champ-meta">—</div>
-        </div>
-        <div class="champ-km">
-          <div class="champ-km-n" id="champ-km-n">—</div>
-          <div class="champ-km-l">KM Today</div>
-        </div>
-      </div>
-
-      <div class="lb-cols">
-        <!-- LEFT — podium + rankings -->
-        <div>
-          <div class="lb-divider">🏆 Top 3 Podium</div>
-          <div class="podium-3" id="podium"></div>
-
-          <div class="lb-divider">📋 Full Rankings</div>
-          <div class="rank-list" id="rank-list">
-            <div class="empty"><div class="empty-icon">📊</div><div class="empty-t">Loading…</div><div class="empty-d">Fetching live data from Google Sheet</div></div>
-          </div>
-        </div>
-
-        <!-- RIGHT — category achievers + buddy groups -->
-        <div class="lb-right">
-          <div class="lb-divider">🥇 Category Achievers</div>
-          <div class="cat-tabs">
-            <button class="cat-tab aw" onclick="showCat('w',this)">🚶 Walking</button>
-            <button class="cat-tab" onclick="showCat('r',this)">🏃 Running</button>
-            <button class="cat-tab" onclick="showCat('c',this)">🚴 Cycling</button>
-          </div>
-          <div class="cat-panel active" id="cat-w"></div>
-          <div class="cat-panel" id="cat-r"></div>
-          <div class="cat-panel" id="cat-c"></div>
-
-          <div class="lb-divider" style="margin-top:1.4rem">👥 Buddy Groups — Today</div>
-          <div class="groups-stack" id="groups-wrap"></div>
-        </div>
-      </div>
-
-      <div class="page-footer">
-        <div class="footer-copy">100 Days Fitness Challenge 2026 · Keya Apartments</div>
+      <div class="fr2">
+        <div class="fg"><label class="fl">Email</label><input class="fi" id="f-email" type="email" placeholder="Auto-filled" readonly></div>
+        <div class="fg"><label class="fl">Date *</label><input class="fi" id="f-date" type="date"></div>
       </div>
     </div>
-  </div>
 
-  <!-- ══ LOG ACTIVITY ══ -->
-  <div id="pg-log" class="page">
-    <div class="log-wrap">
-      <div class="log-hdr">
-        <div class="sec-label">Daily Entry</div>
-        <h2>Log <span>Activity</span></h2>
-        <p>Saves directly to Google Sheet — reflects on leaderboard within 2 minutes!</p>
+    <div class="fs">
+      <div class="fs-title">Activity Details</div>
+      <div class="fg">
+        <label class="fl">Activity Type *</label>
+        <div class="act-grid">
+          <div class="ao" onclick="selAct(this,'Walking')"><span class="ao-icon">🚶</span><div class="ao-label">Walking</div><div class="ao-min">min 2 km</div></div>
+          <div class="ao" onclick="selAct(this,'Running')"><span class="ao-icon">🏃</span><div class="ao-label">Running</div><div class="ao-min">min 2 km</div></div>
+          <div class="ao" onclick="selAct(this,'Cycling')"><span class="ao-icon">🚴</span><div class="ao-label">Cycling</div><div class="ao-min">min 5 km</div></div>
+        </div>
+        <input type="hidden" id="f-act">
       </div>
-
-      <div class="sub-status" id="sub-status"></div>
-
-      <div class="form-section">
-        <div class="fs-title">Who are you?</div>
-        <div class="fg">
-          <label class="fl">Full Name *</label>
-          <div class="nd-wrap">
-            <input class="fi" id="f-name-search" type="text" placeholder="🔍 Type to search your name…" autocomplete="off" oninput="filterNames(this.value)" onfocus="showDrop()" onblur="setTimeout(hideDrop,200)">
-            <input type="hidden" id="f-name">
-            <div class="nd-drop" id="nd-drop"></div>
-          </div>
-          <div class="nd-confirm" id="nd-confirm"></div>
-        </div>
-        <div class="fr2">
-          <div class="fg"><label class="fl">Email</label><input class="fi" id="f-email" type="email" placeholder="Auto-filled on selection" readonly></div>
-          <div class="fg"><label class="fl">Date *</label><input class="fi" id="f-date" type="date"></div>
-        </div>
-      </div>
-
-      <div class="form-section">
-        <div class="fs-title">Activity Details</div>
-        <div class="fg">
-          <label class="fl">Activity Type *</label>
-          <div class="act-grid">
-            <div class="ao" onclick="selAct(this,'Walking')"><span class="ao-icon">🚶</span><div class="ao-label">Walking</div><div class="ao-min">min 2 km</div></div>
-            <div class="ao" onclick="selAct(this,'Running')"><span class="ao-icon">🏃</span><div class="ao-label">Running</div><div class="ao-min">min 2 km</div></div>
-            <div class="ao" onclick="selAct(this,'Cycling')"><span class="ao-icon">🚴</span><div class="ao-label">Cycling</div><div class="ao-min">min 5 km</div></div>
-          </div>
-          <input type="hidden" id="f-act">
-        </div>
-        <div class="fg">
-          <label class="fl">Distance (km) *</label>
-          <input class="fi" id="f-km" type="number" placeholder="e.g. 3.5" step="0.1" min="0" inputmode="decimal">
-          <div class="fhint" id="km-hint">Minimum: Walking / Running 2 km · Cycling 5 km</div>
-        </div>
-      </div>
-
-      <div class="form-section">
-        <div class="fs-title">Proof & Notes (Optional)</div>
-        <div class="fg">
-          <label class="fl">Activity Link <span style="color:var(--muted);font-weight:400">(Strava / Apple Fitness / Garmin / Nike Run Club…)</span></label>
-          <input class="fi" id="f-map" type="url" placeholder="https://strava.com/activities/…" inputmode="url">
-        </div>
-        <div class="fg">
-          <label class="fl">Notes</label>
-          <textarea class="fta fi" id="f-notes" placeholder="How did it go? Weather, route, highlights…" rows="3"></textarea>
-        </div>
-      </div>
-
-      <button class="btn-sub" id="sub-btn" onclick="submitLog()">🚀 Submit Activity</button>
-      <div class="or-sep">or fill the Google Form directly</div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSds1RRlK7L2R2MroDnZz4ZkbAKHg1_akgI62o1Bv_MJWpEdoQ/viewform?usp=dialog" target="_blank" class="gf-btn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Open Google Activity Tracker Form
-      </a>
-      <div style="height:1rem"></div>
-    </div>
-  </div>
-
-  <!-- ══ FAQ ══ -->
-  <div id="pg-faq" class="page">
-    <div class="faq-wrap">
-      <div class="faq-hdr">
-        <div class="sec-label">Help & Info</div>
-        <h2>Frequently Asked <span>Questions</span></h2>
-        <p>Everything you need to know about the 100-day challenge</p>
-      </div>
-      <div id="faq-list"></div>
-      <div class="page-footer">
-        <div class="footer-copy">100 Days Fitness Challenge 2026 · Keya Apartments</div>
+      <div class="fg">
+        <label class="fl">Distance (km) *</label>
+        <input class="fi" id="f-km" type="number" placeholder="e.g. 3.5" step="0.1" min="0" inputmode="decimal">
+        <div class="fhint" id="km-hint">Minimum: Walking / Running 2 km · Cycling 5 km</div>
       </div>
     </div>
+
+    <div class="fs">
+      <div class="fs-title">Proof & Notes</div>
+      <div class="fg">
+        <label class="fl">Activity Link <span style="color:var(--muted);font-weight:400">(Strava / Apple / Garmin…)</span></label>
+        <input class="fi" id="f-map" type="url" placeholder="https://strava.com/activities/…">
+      </div>
+      <div class="fg">
+        <label class="fl">Notes <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+        <textarea class="fta fi" id="f-notes" placeholder="Any notes about the activity…" rows="2"></textarea>
+      </div>
+    </div>
+
+    <button class="btn-sub" id="sub-btn" onclick="submitLog()">🚀 Save to Google Sheet</button>
+    <div class="or-sep">or use Google Form</div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSds1RRlK7L2R2MroDnZz4ZkbAKHg1_akgI62o1Bv_MJWpEdoQ/viewform?usp=dialog" target="_blank" class="gf-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Open Google Activity Form
+    </a>
+    <div style="height:1rem"></div>
   </div>
+</div>
 
-</main><!-- end main -->
-</div><!-- end layout -->
+<!-- ══════════════════ FAQ ══════════════════ -->
+<div id="pg-faq" class="page">
+  <div class="faq-wrap">
+    <div class="faq-hdr">
+      <div class="sec-label">Help & Info</div>
+      <h2>Frequently Asked <span>Questions</span></h2>
+      <p>Everything about the 100-day challenge</p>
+    </div>
+    <div id="faq-list"></div>
+    <div class="page-footer"><div class="footer-copy">100 Days Fitness Challenge 2026 · Keya Apartments</div></div>
+  </div>
+</div>
 
-<!-- MOBILE BOTTOM TABS -->
+</main>
+</div><!-- layout -->
+
+<!-- MOBILE TAB BAR -->
 <div class="tab-bar">
   <button class="tab active" onclick="goto('home',this)"><span class="tab-icon">🏠</span><span>Home</span></button>
-  <button class="tab" onclick="goto('lb',this)"><span class="tab-icon">🏆</span><span>Board</span></button>
-  <button class="tab" onclick="goto('log',this)"><span class="tab-icon">➕</span><span>Log</span></button>
+  <button class="tab" onclick="goto('board',this)"><span class="tab-icon">🏆</span><span>Board</span></button>
+  <button class="tab" onclick="goto('rankings',this)"><span class="tab-icon">📋</span><span>Ranks</span></button>
   <button class="tab" onclick="goto('faq',this)"><span class="tab-icon">❓</span><span>FAQ</span></button>
 </div>
 
 <script>
-/* ══ CONFIG ══════════════════════════════════════════ */
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw7bwt3vcX_6bKWL2oZRi1dojbxXenhWcKVJkY6QEZ0VNPQmE_NlmwPr4YyM76IcfgS/exec';
-const MY_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR8fZtNYlF6BtiQ6VedKS64xYVfTJpV8XHw8N_x07Zh3ybTlyn3rNTM2d9Zm-FCMS8LOXKkpGWp_Ezo/pub?gid=2128169938&single=true&output=csv';
-const FRIEND_CSV = ''; // paste Praveen's CSV URL here when available
+/* ══ CONFIG ══ */
+const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbw7bwt3vcX_6bKWL2oZRi1dojbxXenhWcKVJkY6QEZ0VNPQmE_NlmwPr4YyM76IcfgS/exec';
+const MY_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vR8fZtNYlF6BtiQ6VedKS64xYVfTJpV8XHw8N_x07Zh3ybTlyn3rNTM2d9Zm-FCMS8LOXKkpGWp_Ezo/pub?gid=2128169938&single=true&output=csv';
+const FRIEND_CSV='';
+const ADMIN_PIN='1001'; // ← change this to your preferred 4-digit PIN
 
-/* ══ BUDDY GROUPS ════════════════════════════════════ */
-const GROUPS = [
-  {id:'g1',name:'Group 1',color:'#3b82f6',emoji:'🔵',
-   members:['Asmita Tiwari','Sipra Tripathy','Yogesh Karira','Geeta Sharma','Parveen Bansal'],
-   flow:'Asmita → Sipra → Yogesh → Geeta → Parveen → Asmita'},
-  {id:'g2',name:'Group 2',color:'#22c55e',emoji:'🟢',
-   members:['Shobha','Aakash Rayate','Sonam Agnihotri','Neha Goel','Binay Lal'],
-   flow:'Shobha → Aakash → Sonam → Neha → Binay → Shobha'},
-  {id:'g3',name:'Group 3',color:'#f97316',emoji:'🟠',
-   members:['Poulomi Mukherjee','Puneet Ahuja','Jaya Bharti','Ankit','Pooja Gupta'],
-   flow:'Poulomi → Puneet → Jaya → Ankit → Pooja → Poulomi'},
-  {id:'g4',name:'Group 4',color:'#a78bfa',emoji:'🟣',
-   members:['Shibani Pattnaik','Shubham Singh','Mithun Vakharia','Shilpy Pateriya','Gaurav Verma'],
-   flow:'Shibani → Shubham → Mithun → Shilpy → Gaurav → Shibani'},
-  {id:'g5',name:'Group 5',color:'#ef4444',emoji:'🔴',
-   members:['Praveen Choudhary','Shyamala','Jyotika Bhurani','Saksham Tandone','Kali Tripathy'],
-   flow:'Praveen → Shyamala → Jyotika → Saksham → Kali → Praveen'},
-  {id:'g6',name:'Group 6',color:'#eab308',emoji:'🟡',
-   members:['Aparna Shinde','Aman Gupta','Kumar Abhishek','Shikha Tandon','Mayuri Hegde'],
-   flow:'Aparna → Aman → Abhishek → Shikha → Mayuri → Aparna'},
-  {id:'g7',name:'Group 7',color:'#a8805a',emoji:'🟤',
-   members:['Renu Goel','BIBEK LAL','Dikshant Ohri','Surabhi Telang','Pooja'],
-   flow:'Renu → Bibek → Dikshant → Surabhi → Pooja → Renu'},
-  {id:'g8',name:'Group 8',color:'#9ca3af',emoji:'⚫',
-   members:['Saswati Mahapatra','Amar','Richa Johar','Thavakumar Swaminathan','Shubham Lakhotia'],
-   flow:'Saswati → Amar → Richa → Thavakumar → Shubham → Saswati'},
+/* ══ GROUPS ══ */
+const GROUPS=[
+  {id:'g1',name:'Group 1',color:'#3b82f6',emoji:'🔵',members:['Asmita Tiwari','Sipra Tripathy','Yogesh Karira','Geeta Sharma','Parveen Bansal'],flow:'Asmita → Sipra → Yogesh → Geeta → Parveen → Asmita'},
+  {id:'g2',name:'Group 2',color:'#22c55e',emoji:'🟢',members:['Shobha','Aakash Rayate','Sonam Agnihotri','Neha Goel','Binay Lal'],flow:'Shobha → Aakash → Sonam → Neha → Binay → Shobha'},
+  {id:'g3',name:'Group 3',color:'#f97316',emoji:'🟠',members:['Poulomi Mukherjee','Puneet Ahuja','Jaya Bharti','Ankit','Pooja Gupta'],flow:'Poulomi → Puneet → Jaya → Ankit → Pooja → Poulomi'},
+  {id:'g4',name:'Group 4',color:'#a78bfa',emoji:'🟣',members:['Shibani Pattnaik','Shubham Singh','Pritam Kumari','Shilpy Pateriya','Gaurav Verma'],flow:'Shibani → Shubham → Pritam → Shilpy → Gaurav → Shibani'},
+  {id:'g5',name:'Group 5',color:'#ef4444',emoji:'🔴',members:['Praveen Choudhary','Shyamala','Jyotika Bhurani','Saksham Tandone','Kali Tripathy'],flow:'Praveen → Shyamala → Jyotika → Saksham → Kali → Praveen'},
+  {id:'g6',name:'Group 6',color:'#eab308',emoji:'🟡',members:['Aparna Shinde','Aman Gupta','Kumar Abhishek','Shikha Tandon','Mayuri Hegde'],flow:'Aparna → Aman → Abhishek → Shikha → Mayuri → Aparna'},
+  {id:'g7',name:'Group 7',color:'#a8805a',emoji:'🟤',members:['Renu Goel','BIBEK LAL','Dikshant Ohri','Surabhi Telang','Pooja'],flow:'Renu → Bibek → Dikshant → Surabhi → Pooja → Renu'},
+  {id:'g8',name:'Group 8',color:'#9ca3af',emoji:'⚫',members:['Saswati Mahapatra','Amar','Richa Johar','Thavakumar Swaminathan','Parita Kachhela'],flow:'Saswati → Amar → Richa → Thavakumar → Parita → Saswati'},
 ];
 const ALL_MEMBERS=[...new Set(GROUPS.flatMap(g=>g.members))];
 
-/* ══ MEMBERS WITH EMAIL ══════════════════════════════ */
-const MEMBERS_EMAIL={
-  'Amar':'amr.000in@gmail.com',
-  'Shobha':'shobhak2012@gmail.com',
-  'Aakash Rayate':'rayate2410@gmail.com',
-  'Poulomi Mukherjee':'mukherjee.poulomi09@gmail.com',
-  'Sipra Tripathy':'sipra.dsh@gmail.com',
-  'Shibani Pattnaik':'shibani.pattnaik@gmail.com',
-  'Puneet Ahuja':'ahujapuneet65@gmail.com',
-  'Shubham Singh':'singh.shubh647@gmail.com',
-  'Praveen Choudhary':'prvnchdry@gmail.com',
-  'Surabhi Telang':'surabhitelang@gmail.com',
-  'Aparna Shinde':'aparna.pattadar@gmail.com',
-  'Renu Goel':'renugoel393@gmail.com',
-  'Saswati Mahapatra':'saswatier@gmail.com',
-  'Sonam Agnihotri':'sonam.agnihotri.1705@gmail.com',
-  'Jyotika Bhurani':'jbhurani87@gmail.com',
-  'Yogesh Karira':'karira.yogesh@gmail.com',
-  'Mayuri Hegde':'mayuri.athavale88@gmail.com',
-  'Asmita Tiwari':'tiwai@gmail.com',
-  'Jaya Bharti':'jayabharti2006@gmail.com',
-  'Mithun Vakharia':'Mithun.vakharia@gmail.com',
-  'Aman Gupta':'gupta.aman2332@gmail.com',
-  'BIBEK LAL':'bibeklal@gmail.com',
-  'Richa Johar':'richajohar1992@gmail.com',
-  'Dikshant Ohri':'ohridikshant3@gmail.com',
-  'Shyamala':'shyamlas@yahoo.com',
-  'Shubham Lakhotia':'',
-  'Kumar Abhishek':'',
-  'Kali Tripathy':'',
-  'Thavakumar Swaminathan':'',
-  'Binay Lal':'',
-  'Shilpy Pateriya':'',
-  'Geeta Sharma':'',
-  'Neha Goel':'',
-  'Ankit':'',
-  'Gaurav Verma':'',
-  'Saksham Tandone':'',
-  'Shikha Tandon':'',
-  'Parveen Bansal':'',
-  'Pooja Gupta':'',
-  'Pooja':'',
-};
+/* ══ EMAILS ══ */
+const EMAILS={'Amar':'amr.000in@gmail.com','Shobha':'shobhak2012@gmail.com','Aakash Rayate':'rayate2410@gmail.com','Poulomi Mukherjee':'mukherjee.poulomi09@gmail.com','Sipra Tripathy':'sipra.dsh@gmail.com','Shibani Pattnaik':'shibani.pattnaik@gmail.com','Puneet Ahuja':'ahujapuneet65@gmail.com','Shubham Singh':'singh.shubh647@gmail.com','Praveen Choudhary':'prvnchdry@gmail.com','Surabhi Telang':'surabhitelang@gmail.com','Aparna Shinde':'aparna.pattadar@gmail.com','Renu Goel':'renugoel393@gmail.com','Saswati Mahapatra':'saswatier@gmail.com','Sonam Agnihotri':'sonam.agnihotri.1705@gmail.com','Jyotika Bhurani':'jbhurani87@gmail.com','Yogesh Karira':'karira.yogesh@gmail.com','Mayuri Hegde':'mayuri.athavale88@gmail.com','Asmita Tiwari':'tiwai@gmail.com','Jaya Bharti':'jayabharti2006@gmail.com','Pritam Kumari':'','Aman Gupta':'gupta.aman2332@gmail.com','BIBEK LAL':'bibeklal@gmail.com','Richa Johar':'richajohar1992@gmail.com','Dikshant Ohri':'ohridikshant3@gmail.com','Shyamala':'shyamlas@yahoo.com'};
 
-/* ══ MEMBER GROUP LOOKUP ═════════════════════════════ */
+/* ══ MEMBER GROUP LOOKUP ══ */
 const MEMBER_GROUP={};
 GROUPS.forEach(g=>g.members.forEach(m=>{MEMBER_GROUP[m.toLowerCase()]=g}));
+const GC={'Group 1':'#3b82f6','Group 2':'#22c55e','Group 3':'#f97316','Group 4':'#a78bfa','Group 5':'#ef4444','Group 6':'#eab308','Group 7':'#a8805a','Group 8':'#9ca3af'};
 
-/* ══ COLOURS ═════════════════════════════════════════ */
-const AV=[['#1565c0','#0d47a1'],['#c62828','#b71c1c'],['#6a1b9a','#4a148c'],['#e65100','#bf360c'],['#00695c','#004d40'],['#1b5e20','#33691e'],['#0277bd','#01579b'],['#558b2f','#33691e'],['#f57f17','#e65100'],['#37474f','#263238'],['#4527a0','#311b92'],['#2e7d32','#1b5e20'],['#ad1457','#880e4f'],['#0288d1','#01579b'],['#bf360c','#7f0000'],['#1a237e','#283593'],['#33691e','#1b5e20'],['#006064','#00838f'],['#4a148c','#6a1b9a'],['#e65100','#f57f17'],['#1b5e20','#388e3c'],['#880e4f','#c2185b'],['#bf360c','#e64a19'],['#37474f','#546e7a'],['#0d47a1','#1976d2'],['#2e7d32','#388e3c'],['#6a1b9a','#7b1fa2'],['#b71c1c','#c62828'],['#01579b','#0277bd'],['#e65100','#bf360c'],['#004d40','#00695c'],['#33691e','#558b2f'],['#263238','#37474f'],['#311b92','#4527a0'],['#880e4f','#ad1457'],['#7f0000','#bf360c'],['#283593','#1a237e']];
+/* ══ AVATAR COLORS ══ */
+const AV=[['#1565c0','#0d47a1'],['#c62828','#b71c1c'],['#6a1b9a','#4a148c'],['#e65100','#bf360c'],['#00695c','#004d40'],['#1b5e20','#33691e'],['#0277bd','#01579b'],['#558b2f','#33691e'],['#f57f17','#e65100'],['#37474f','#263238'],['#4527a0','#311b92'],['#2e7d32','#1b5e20'],['#ad1457','#880e4f'],['#0288d1','#01579b'],['#bf360c','#7f0000'],['#1a237e','#283593'],['#33691e','#1b5e20'],['#006064','#00838f'],['#4a148c','#6a1b9a'],['#e65100','#f57f17'],['#1b5e20','#388e3c'],['#880e4f','#c2185b'],['#bf360c','#e64a19'],['#37474f','#546e7a'],['#0d47a1','#1976d2'],['#2e7d32','#388e3c'],['#6a1b9a','#7b1fa2'],['#b71c1c','#c62828'],['#01579b','#0277bd'],['#e65100','#bf360c'],['#004d40','#00695c'],['#33691e','#558b2f'],['#263238','#37474f'],['#311b92','#4527a0'],['#880e4f','#ad1457'],['#7f0000','#bf360c'],['#283593','#1a237e'],['#00838f','#006064'],['#f57f17','#f9a825'],['#388e3c','#2e7d32']];
 function avc(i){return AV[i%AV.length]}
 function ini(n){return(n||'').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase()}
 function avidx(name){const nm=(name||'').toLowerCase().trim();const i=ALL_MEMBERS.findIndex(r=>r.toLowerCase()===nm);return i>=0?i:Math.abs(nm.split('').reduce((a,c)=>a+c.charCodeAt(0),0))%AV.length}
 
-/* ══ NAVIGATION ══════════════════════════════════════ */
-function goto(id,triggerEl){
+/* ══ NAV ══ */
+function goto(id,el){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('pg-'+id).classList.add('active');
-  // sync all nav elements (topnav + tab bar)
   document.querySelectorAll('.nav-link,.tab').forEach(b=>b.classList.remove('active'));
-  const idx=['home','lb','log','faq'].indexOf(id);
+  const idx=['home','board','rankings','faq','admin'].indexOf(id);
   if(idx>=0){
     document.querySelectorAll('.nav-link')[idx]?.classList.add('active');
     document.querySelectorAll('.tab')[idx]?.classList.add('active');
   }
   window.scrollTo({top:0,behavior:'instant'});
-  if(id==='lb') fetchData(false);
+  if(id==='board'||id==='rankings') fetchData(false);
 }
 
-/* ══ DAY COUNTER ════════════════════════════════════ */
+// Hidden admin access — type "admin" in URL hash or triple-tap logo
+window.addEventListener('hashchange',()=>{ if(location.hash==='#admin') showAdmin(); });
+document.addEventListener('DOMContentLoaded',()=>{ if(location.hash==='#admin') showAdmin(); });
+function showAdmin(){
+  // add admin to nav temporarily
+  document.getElementById('pg-admin').classList.add('active');
+  document.querySelectorAll('.page').forEach(p=>{ if(p.id!=='pg-admin') p.classList.remove('active'); });
+  document.getElementById('pg-admin').classList.add('active');
+}
+
+/* ══ ADMIN PIN ══ */
+function pinNext(el,nextId){
+  if(el.value.length===1 && nextId) document.getElementById(nextId).focus();
+  if(!nextId){ checkPin(); }
+}
+function checkPin(){
+  const pin=['pin1','pin2','pin3','pin4'].map(id=>document.getElementById(id).value).join('');
+  if(pin===ADMIN_PIN){
+    document.getElementById('admin-lock').style.display='none';
+    document.getElementById('admin-form').style.display='block';
+  } else {
+    document.getElementById('pin-error').style.display='block';
+    ['pin1','pin2','pin3','pin4'].forEach(id=>{document.getElementById(id).value='';});
+    document.getElementById('pin1').focus();
+    setTimeout(()=>document.getElementById('pin-error').style.display='none',2500);
+  }
+}
+
+/* ══ DAY LOGIC ══ */
+const START_DATE = new Date(2026,5,1); // June 1 2026
+let viewingDate = new Date(); // currently viewed date in buddy groups
+
+function todayISO(){const t=new Date();return `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`}
+function dateToISO(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function dayNumber(d){const mid=new Date(d.getFullYear(),d.getMonth(),d.getDate());const smid=new Date(2026,5,1);const diff=Math.floor((mid-smid)/86400000);return Math.max(1,Math.min(100,diff+1))}
+
 function initDayTag(){
   const today=new Date();
   const todayMid=new Date(today.getFullYear(),today.getMonth(),today.getDate());
-  const startMid=new Date(2026,5,1);
-  const diff=Math.floor((todayMid-startMid)/86400000);
-  let label,dayN=1;
-  if(diff<0){label='Starts 1 Jun 2026';}
+  const diff=Math.floor((todayMid-new Date(2026,5,1))/86400000);
+  let label='Starts 1 Jun 2026',dayN=1;
+  if(diff>=0&&diff<100){dayN=diff+1;label=`Day ${dayN} of 100`;}
   else if(diff>=100){label='Challenge Complete 🎉';dayN=100;}
-  else{dayN=diff+1;label=`Day ${dayN} of 100`;}
-  const sdel=document.getElementById('sb-day');if(sdel)sdel.textContent=label;
-  const pf=document.getElementById('prog-fill');
-  if(pf) pf.style.width=Math.min(100,(dayN/100)*100)+'%';
-  const pd=document.getElementById('prog-day');
-  if(pd) pd.textContent=dayN;
+  document.getElementById('nav-day').textContent=label;
+  const mobDay=document.getElementById('mob-day');if(mobDay)mobDay.textContent=label;
+  const pf=document.getElementById('prog-fill');if(pf)pf.style.width=Math.min(100,(dayN/100)*100)+'%';
+  const pd=document.getElementById('prog-day');if(pd)pd.textContent=dayN;
   document.getElementById('f-date').valueAsDate=today;
+  viewingDate=today;
+  updateDayNav();
 }
 
-function shareApp(){
-  const url=window.location.href;
-  if(navigator.share) navigator.share({title:'100 Days Fitness – Keya',text:'Join our fitness challenge! Log your activity here:',url});
-  else navigator.clipboard.writeText(url).then(()=>alert('Link copied! Paste in your WhatsApp group 📋'));
+function updateDayNav(){
+  const iso=dateToISO(viewingDate);
+  const today=todayISO();
+  const isToday=iso===today;
+  const dayN=dayNumber(viewingDate);
+  const label=isToday?'Today':viewingDate.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
+  document.getElementById('nav-date-label').textContent=label;
+  document.getElementById('nav-day-num').textContent=`Day ${dayN} of 100`;
+  document.getElementById('btn-next').disabled=isToday;
+  // disable prev if before start
+  const prevDate=new Date(viewingDate);prevDate.setDate(prevDate.getDate()-1);
+  document.getElementById('btn-prev').disabled=prevDate<new Date(2026,5,1);
+  renderGroups();
 }
 
-/* ══ CSV HELPERS ════════════════════════════════════ */
-function splitCSV(line){
-  const cols=[];let cur='',inQ=false;
-  for(let i=0;i<line.length;i++){
-    const c=line[i];
-    if(c==='"') inQ=!inQ;
-    else if(c===','&&!inQ){cols.push(cur);cur='';}
-    else cur+=c;
-  }
-  cols.push(cur);
-  return cols.map(c=>c.replace(/^"|"$/g,'').trim());
+function changeDay(dir){
+  viewingDate=new Date(viewingDate);
+  viewingDate.setDate(viewingDate.getDate()+dir);
+  updateDayNav();
 }
-function parseCSV(csv){
-  const lines=csv.trim().split('\n');
-  if(lines.length<2) return [];
-  const headers=splitCSV(lines[0]).map(h=>h.toLowerCase().replace(/[^a-z0-9]/g,''));
-  return lines.slice(1).map(line=>{
-    const cols=splitCSV(line);
-    const row={};
-    headers.forEach((h,i)=>{row[h]=(cols[i]||'').trim();});
-    return row;
-  }).filter(r=>Object.values(r).some(v=>v));
-}
-function gf(row,...keys){
-  for(const k of keys){
-    const v=row[k.toLowerCase().replace(/[^a-z0-9]/g,'')];
-    if(v&&v!=='-'&&v!=='—') return v;
-  }
-  return '';
-}
-function normalise(rows){
-  return rows.map(r=>({
-    name: gf(r,'name','fullname','full name','participant'),
-    date: gf(r,'date','activitydate','activity date'),
-    km:   parseFloat(gf(r,'km','distance','distancekm','distance(km)'))||0,
-    act:  gf(r,'activity','activitytype','activity type','type'),
-    email:gf(r,'email','emailid'),
-    link: gf(r,'link','activitylink','maplink','map link','activity link','route'),
-  })).filter(r=>r.name&&r.name.length>1);
-}
+
 function isoDate(str){
   if(!str) return '';
   try{
-    if(str.includes('/')){
-      const p=str.split('/');
-      if(p.length===3){
-        if(p[2].length===4) return `${p[2]}-${p[1].padStart(2,'0')}-${p[0].padStart(2,'0')}`;
-        return `${p[2]}-${p[0].padStart(2,'0')}-${p[1].padStart(2,'0')}`;
-      }
-    }
-    const d=new Date(str);
-    if(!isNaN(d)) return d.toISOString().slice(0,10);
+    if(str.includes('/')){const p=str.split('/');if(p.length===3){if(p[2].length===4)return `${p[2]}-${p[1].padStart(2,'0')}-${p[0].padStart(2,'0')}`;return `${p[2]}-${p[0].padStart(2,'0')}-${p[1].padStart(2,'0')}`;}}
+    const d=new Date(str);if(!isNaN(d))return d.toISOString().slice(0,10);
   }catch(e){}
   return str.slice(0,10);
 }
-function todayISO(){
-  const t=new Date();
-  return `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
-}
-function actCat(act){
-  const a=(act||'').toLowerCase();
-  if(a.includes('cycl')) return 'Cycling';
-  if(a.includes('run')) return 'Running';
-  return 'Walking';
-}
+function actCat(act){const a=(act||'').toLowerCase();if(a.includes('cycl'))return 'Cycling';if(a.includes('run'))return 'Running';return 'Walking';}
 
-/* ══ FETCH ══════════════════════════════════════════ */
+/* ══ CSV PARSE ══ */
+function splitCSV(line){const cols=[];let cur='',inQ=false;for(let i=0;i<line.length;i++){const c=line[i];if(c==='"')inQ=!inQ;else if(c===','&&!inQ){cols.push(cur);cur='';}else cur+=c;}cols.push(cur);return cols.map(c=>c.replace(/^"|"$/g,'').trim())}
+function parseCSV(csv){const lines=csv.trim().split('\n');if(lines.length<2)return[];const headers=splitCSV(lines[0]).map(h=>h.toLowerCase().replace(/[^a-z0-9]/g,''));return lines.slice(1).map(line=>{const cols=splitCSV(line);const row={};headers.forEach((h,i)=>{row[h]=(cols[i]||'').trim();});return row;}).filter(r=>Object.values(r).some(v=>v));}
+function gf(row,...keys){for(const k of keys){const v=row[k.toLowerCase().replace(/[^a-z0-9]/g,'')];if(v&&v!=='-'&&v!=='—')return v;}return'';}
+function normalise(rows){return rows.map(r=>({name:gf(r,'name','fullname','full name','participant'),date:gf(r,'date','activitydate','activity date'),km:parseFloat(gf(r,'km','distance','distancekm','distance(km)'))||0,act:gf(r,'activity','activitytype','activity type','type'),email:gf(r,'email','emailid'),link:gf(r,'link','activitylink','maplink','activity link','map link','route'),})).filter(r=>r.name&&r.name.length>1);}
+
+/* ══ FETCH ══ */
 let fetchTimer=null,allRows=[];
 async function fetchData(manual=false){
   const icon=document.getElementById('ref-icon');
   if(icon){icon.className='spin';icon.textContent='↻';}
   try{
     const res=await fetch(MY_CSV+'&t='+Date.now(),{cache:'no-store'});
-    const csv=await res.text();
-    let rows=normalise(parseCSV(csv));
-    if(FRIEND_CSV){
-      try{
-        const r2=await fetch(FRIEND_CSV+'&t='+Date.now(),{cache:'no-store'});
-        const csv2=await r2.text();
-        const rows2=normalise(parseCSV(csv2));
-        const existing=new Set(rows.map(r=>`${r.name}|${r.date}|${r.km}`));
-        rows2.forEach(r=>{
-          const k=`${r.name}|${r.date}|${r.km}`;
-          if(!existing.has(k)){rows.push(r);existing.add(k);}
-        });
-      }catch(e){console.warn('Friend CSV:',e.message);}
-    }
+    let rows=normalise(parseCSV(await res.text()));
+    if(FRIEND_CSV){try{const r2=await fetch(FRIEND_CSV+'&t='+Date.now(),{cache:'no-store'});const rows2=normalise(parseCSV(await r2.text()));const ex=new Set(rows.map(r=>`${r.name}|${r.date}|${r.km}`));rows2.forEach(r=>{const k=`${r.name}|${r.date}|${r.km}`;if(!ex.has(k)){rows.push(r);ex.add(k);}});}catch(e){}}
     allRows=rows;
     renderAll(rows);
     const el=document.getElementById('last-sync');
-    if(el) el.textContent='Synced '+new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+    if(el)el.textContent='Synced '+new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
   }catch(err){
-    console.warn('Fetch failed:',err.message);
-    if(!allRows.length) renderAll([]);
-    const el=document.getElementById('last-sync');
-    if(el) el.textContent='Sync failed';
-  }finally{
-    if(icon){icon.className='';icon.textContent='↻';}
-  }
-  if(fetchTimer) clearTimeout(fetchTimer);
-  fetchTimer=setTimeout(()=>{
-    if(document.getElementById('pg-lb').classList.contains('active')) fetchData(false);
-  },120000);
+    console.warn('Fetch:',err.message);
+    if(!allRows.length)renderAll([]);
+  }finally{if(icon){icon.className='';icon.textContent='↻';}}
+  if(fetchTimer)clearTimeout(fetchTimer);
+  fetchTimer=setTimeout(()=>{if(!document.getElementById('pg-home').classList.contains('active'))fetchData(false);},120000);
 }
 
-/* ══ RENDER ALL ══════════════════════════════════════ */
+/* ══ RENDER ALL ══ */
 function renderAll(rows){
   const totKm={},totDays={},catKm={Walking:{},Running:{},Cycling:{}};
   rows.forEach(r=>{
-    if(!r.name||r.km<=0) return;
+    if(!r.name||r.km<=0)return;
     totKm[r.name]=(totKm[r.name]||0)+r.km;
     totDays[r.name]=(totDays[r.name]||0)+1;
     const cat=actCat(r.act);
     catKm[cat][r.name]=(catKm[cat][r.name]||0)+r.km;
   });
   const totalKm=Object.values(totKm).reduce((a,b)=>a+b,0);
-  // Update home stats
+  // home stats
   const hkm=document.getElementById('hero-km');if(hkm)hkm.textContent=totalKm.toFixed(1)+' km';
-  const todayStr=todayISO();
-  const todayRows=rows.filter(r=>isoDate(r.date)===todayStr&&r.km>0);
+  const todayRows=rows.filter(r=>isoDate(r.date)===todayISO()&&r.km>0);
   const ht=document.getElementById('hero-today');if(ht)ht.textContent=todayRows.length+' logged';
-  // lb stats
+  // board stats
   document.getElementById('lb-km').textContent=totalKm.toFixed(1);
   document.getElementById('lb-logs').textContent=rows.length;
   document.getElementById('lb-p').textContent=ALL_MEMBERS.length;
-  // daily champ
+  // champ
   if(todayRows.length){
     const best=[...todayRows].sort((a,b)=>b.km-a.km)[0];
     document.getElementById('champ-card').style.display='flex';
     document.getElementById('champ-name').textContent=best.name;
     document.getElementById('champ-km-n').textContent=best.km.toFixed(1);
     document.getElementById('champ-meta').textContent=(best.act||'Activity')+' · Today 🔥';
-  } else { document.getElementById('champ-card').style.display='none'; }
-  const ranked=Object.entries(totKm)
-    .map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:rows.filter(r=>r.name===name&&r.km>0).pop()?.act||'—'}))
-    .sort((a,b)=>b.km-a.km);
+  }else{document.getElementById('champ-card').style.display='none';}
+  const ranked=Object.entries(totKm).map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:rows.filter(r=>r.name===name&&r.km>0).pop()?.act||'—'})).sort((a,b)=>b.km-a.km);
+  renderHomePodium(ranked);
   renderPodium(ranked);
   renderCatAchievers(catKm,totDays);
-  renderRankings(ranked);
-  renderGroups(todayRows);
+  renderGroups();
+  renderRankings(totKm,totDays,rows,catKm);
+  renderWeeklyAwards();
 }
 
-/* ══ PODIUM — 3 positions correctly ═════════════════ */
+/* ══ HOME MINI PODIUM ══ */
+function renderHomePodium(ranked){
+  const el=document.getElementById('home-podium');
+  if(!ranked.length){el.innerHTML=`<div class="empty" style="width:100%;padding:1.2rem"><div class="empty-icon">🏁</div><div class="empty-d">Activities from 1 June 2026</div></div>`;return;}
+  const t=[ranked[0]||null,ranked[1]||null,ranked[2]||null];
+  const order=[{p:t[1],cls:'s',tr:'🥈',rk:'2ND'},{p:t[0],cls:'g',tr:'🥇',rk:'1ST'},{p:t[2],cls:'b',tr:'🥉',rk:'3RD'}];
+  el.innerHTML=order.map(({p,cls,tr,rk})=>{
+    if(!p)return`<div class="hp-item"><div class="hp-trophy" style="opacity:.2">${tr}</div><div class="hp-card ${cls}" style="opacity:.2;min-height:70px"></div><div class="hp-rank ${cls}">${rk}</div></div>`;
+    const[c1,c2]=avc(avidx(p.name));
+    return`<div class="hp-item"><div class="hp-trophy">${tr}</div><div class="hp-card ${cls}"><div class="hp-av ${cls}" style="background:linear-gradient(135deg,${c1},${c2})">${ini(p.name)}</div><div class="hp-name">${p.name}</div><div class="hp-km ${cls}">${p.km.toFixed(1)}</div><div class="hp-kl">KM</div></div><div class="hp-rank ${cls}">${rk}</div></div>`;
+  }).join('');
+}
+
+/* ══ BOARD PODIUM ══ */
 function renderPodium(ranked){
   const el=document.getElementById('podium');
-  if(ranked.length<1){
-    el.innerHTML=`<div class="empty" style="width:100%"><div class="empty-icon">🏁</div><div class="empty-t">No Data Yet</div><div class="empty-d">Activities appear from 1 June 2026</div></div>`;
-    return;
-  }
+  if(!ranked.length){el.innerHTML=`<div class="empty" style="width:100%"><div class="empty-icon">🏁</div><div class="empty-t">No Data Yet</div></div>`;return;}
   const t=[ranked[0]||null,ranked[1]||null,ranked[2]||null];
-  // Display order: 2nd left, 1st center, 3rd right
-  const order=[
-    {p:t[1],cls:'s',tr:'🥈',rk:'2ND'},
-    {p:t[0],cls:'g',tr:'🥇',rk:'1ST'},
-    {p:t[2],cls:'b',tr:'🥉',rk:'3RD'},
-  ];
+  const order=[{p:t[1],cls:'s',tr:'🥈',rk:'2ND'},{p:t[0],cls:'g',tr:'🥇',rk:'1ST'},{p:t[2],cls:'b',tr:'🥉',rk:'3RD'}];
   el.innerHTML=order.map(({p,cls,tr,rk})=>{
-    if(!p) return `<div class="pod"><div class="pod-trophy" style="opacity:.2">${tr}</div><div class="pod-card ${cls}" style="opacity:.2;min-height:100px"></div><div class="pod-rank ${cls}">${rk}</div></div>`;
+    if(!p)return`<div class="pod"><div class="pod-trophy" style="opacity:.2">${tr}</div><div class="pod-card ${cls}" style="opacity:.2;min-height:90px"></div><div class="pod-rank ${cls}">${rk}</div></div>`;
     const[c1,c2]=avc(avidx(p.name));
-    return `<div class="pod">
-      <div class="pod-trophy">${tr}</div>
-      <div class="pod-card ${cls}">
-        <div class="pod-av ${cls}" style="background:linear-gradient(135deg,${c1},${c2})">${ini(p.name)}</div>
-        <div class="pod-name">${p.name}</div>
-        <div class="pod-km ${cls}">${p.km.toFixed(1)}</div>
-        <div class="pod-kl">KM Total</div>
-        <div class="pod-days">${p.days} days active</div>
-        <div class="pod-bar ${cls}"></div>
-      </div>
-      <div class="pod-rank ${cls}">${rk}</div>
-    </div>`;
+    return`<div class="pod"><div class="pod-trophy">${tr}</div><div class="pod-card ${cls}"><div class="pod-av ${cls}" style="background:linear-gradient(135deg,${c1},${c2})">${ini(p.name)}</div><div class="pod-name">${p.name}</div><div class="pod-km ${cls}">${p.km.toFixed(1)}</div><div class="pod-kl">KM Total</div><div class="pod-days">${p.days} days</div><div class="pod-bar ${cls}"></div></div><div class="pod-rank ${cls}">${rk}</div></div>`;
   }).join('');
 }
 
-/* ══ CATEGORY ACHIEVERS — names from sheet, top 3 ═══ */
+/* ══ CATEGORY ACHIEVERS ══ */
 function renderCatAchievers(catKm,totDays){
-  const configs={
-    w:{key:'Walking',kCls:'w',medals:['🥇','🥈','🥉'],pcls:['p1','p2','p3']},
-    r:{key:'Running',kCls:'r',medals:['🥇','🥈','🥉'],pcls:['p1','p2','p3']},
-    c:{key:'Cycling',kCls:'c',medals:['🥇','🥈','🥉'],pcls:['p1','p2','p3']},
-  };
-  Object.entries(configs).forEach(([id,{key,kCls,medals,pcls}])=>{
+  const cfg={w:{key:'Walking',kc:'w'},r:{key:'Running',kc:'r'},c:{key:'Cycling',kc:'c'}};
+  Object.entries(cfg).forEach(([id,{key,kc}])=>{
     const el=document.getElementById('cat-'+id);
     const entries=Object.entries(catKm[key]||{}).sort((a,b)=>b[1]-a[1]).slice(0,3);
-    if(!entries.length){
-      el.innerHTML=`<div class="cat-empty">No ${key} entries yet — be the first! </div>`;
-      return;
-    }
-    el.innerHTML=`<div class="cat-podium">${entries.map(([name,km],i)=>{
-      const[c1,c2]=avc(avidx(name));
-      return `<div class="cat-row ${pcls[i]}">
-        <div class="cat-medal">${medals[i]}</div>
-        <div class="cat-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(name)}</div>
-        <div class="cat-info">
-          <div class="cat-name">${name}</div>
-          <div class="cat-days">${totDays[name]||0} days active</div>
-        </div>
-        <div class="cat-km ${kCls}">${km.toFixed(1)}<span style="font-family:'DM Sans';font-size:.55rem;color:var(--muted)"> km</span></div>
-      </div>`;
-    }).join('')}</div>`;
+    if(!entries.length){el.innerHTML=`<div class="cat-empty">No ${key} entries yet</div>`;return;}
+    const medals=['🥇','🥈','🥉'],pcls=['p1','p2','p3'];
+    el.innerHTML=`<div class="cat-podium">${entries.map(([name,km],i)=>{const[c1,c2]=avc(avidx(name));return`<div class="cat-row ${pcls[i]}"><div class="cat-medal">${medals[i]}</div><div class="cat-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(name)}</div><div class="cat-info"><div class="cat-name">${name}</div><div class="cat-days">${totDays[name]||0} days</div></div><div class="cat-km ${kc}">${km.toFixed(1)}<span style="font-family:'DM Sans';font-size:.5rem;color:var(--muted)"> km</span></div></div>`;}).join('')}</div>`;
   });
 }
 
-/* ══ RANKINGS ════════════════════════════════════════ */
-function renderRankings(ranked){
-  const el=document.getElementById('rank-list');
-  const inR=new Set(ranked.map(r=>r.name.toLowerCase()));
-  const zeros=ALL_MEMBERS.filter(n=>!inR.has(n.toLowerCase())).map(n=>({name:n,km:0,days:0,lastAct:'—'}));
-  const all=[...ranked,...zeros];
-  if(!all.length){
-    el.innerHTML=`<div class="empty"><div class="empty-icon">📊</div><div class="empty-t">No Data Yet</div><div class="empty-d">Rankings appear once activities are logged</div></div>`;
-    return;
-  }
-  const bmap={Walking:'rb-w',Running:'rb-r',Cycling:'rb-c'};
-  el.innerHTML=all.map((p,i)=>{
-    const[c1,c2]=avc(avidx(p.name));
-    const isZ=p.km===0;
-    return `<div class="rank-item" style="${isZ?'opacity:.38':''}">
-      <div class="rank-num ${!isZ&&i<3?'r'+(i+1):''}">${isZ?'—':i+1}</div>
-      <div class="rank-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(p.name)}</div>
-      <div class="rank-info">
-        <div class="rank-name">${p.name}</div>
-        <div class="rank-sub">${p.days} days${p.lastAct!=='—'?` · <span class="rb ${bmap[p.lastAct]||'rb-m'}">${p.lastAct}</span>`:''}</div>
-      </div>
-      <div class="rank-km">${p.km.toFixed(1)}<small> km</small></div>
-    </div>`;
-  }).join('');
-}
-
-/* ══ BUDDY GROUPS ════════════════════════════════════ */
-function renderGroups(todayRows){
-  const todayMap={};
-  todayRows.forEach(r=>{
-    const k=r.name.toLowerCase().trim();
-    if(!todayMap[k]||r.km>todayMap[k].km) todayMap[k]=r;
-  });
-  const el=document.getElementById('groups-wrap');
-  const trophies=['🥇','🥈','🥉'];
-  el.innerHTML=GROUPS.map(g=>{
-    const doneCount=g.members.filter(m=>todayMap[m.toLowerCase().trim()]).length;
-    const pct=Math.round((doneCount/g.members.length)*100);
-    let fRank=0;
-    // Collect finishers for this group sorted by km
-    const gFinishers=g.members
-      .filter(m=>todayMap[m.toLowerCase().trim()])
-      .sort((a,b)=>(todayMap[b.toLowerCase().trim()]?.km||0)-(todayMap[a.toLowerCase().trim()]?.km||0));
-    const gFinisherSet=new Set(gFinishers.map(m=>m.toLowerCase()));
-    const membersHTML=g.members.map((name,mi)=>{
-      const key=name.toLowerCase().trim();
-      const d=todayMap[key];
-      const[c1,c2]=avc(avidx(name));
-      const n=ini(name);
-      if(!d){
-        return `<div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,${c1},${c2})">${n}</div><div class="mc-name">${name}</div><div class="mc-km">0<span style="font-size:.45rem"> km</span></div></div>`;
-      }
-      const base=actCat(d.act)==='Cycling'?5:2;
-      const isExtra=d.km>=base+0.5;
-      const cls=isExtra?'extra':'done';
-      const gRank=gFinishers.indexOf(name);
-      const trophy=gRank<3?trophies[gRank]:(isExtra?'⭐':'✅');
-      return `<div class="mc ${cls}">
-        <div class="mc-trophy">${trophy}</div>
-        <div class="mc-av" style="background:linear-gradient(135deg,${c1},${c2})">${n}</div>
-        <div class="mc-name">${name}</div>
-        <div class="mc-km">${d.km.toFixed(1)}<span style="font-size:.45rem"> km</span></div>
-        <div class="mc-act">${d.act||''}</div>
-      </div>`;
-    }).join('');
-    return `<div class="group-block">
-      <div class="group-hdr">
-        <div class="group-dot" style="background:${g.color}"></div>
-        <div class="group-name" style="color:${g.color}">${g.emoji} ${g.name}</div>
-        <div class="group-pct" style="background:${g.color}22;color:${g.color}">${doneCount === g.members.length ? '🎉 All done!' : doneCount + ' of ' + g.members.length + ' done today'}</div>
-      </div>
-      <div class="group-members">${membersHTML}</div>
-      <div class="mentor-flow">Mentor flow: <strong>${g.flow}</strong></div>
-    </div>`;
-  }).join('');
-}
-
-/* ══ CATEGORY TABS ═══════════════════════════════════ */
 function showCat(id,btn){
   document.querySelectorAll('.cat-panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('cat-'+id).classList.add('active');
   document.querySelectorAll('.cat-tab').forEach(b=>b.className='cat-tab');
-  const clsMap={w:'aw',r:'ar',c:'ac'};
-  btn.classList.add(clsMap[id]||'');
+  btn.classList.add({w:'aw',r:'ar',c:'ac'}[id]);
 }
 
-/* ══ NAME DROPDOWN ═══════════════════════════════════ */
-const MEMBERS_LIST=ALL_MEMBERS.slice().sort((a,b)=>a.localeCompare(b));
-const GC={'Group 1':'#3b82f6','Group 2':'#22c55e','Group 3':'#f97316','Group 4':'#a78bfa','Group 5':'#ef4444','Group 6':'#eab308','Group 7':'#a8805a','Group 8':'#9ca3af'};
+/* ══ BUDDY GROUPS with day nav ══ */
+function renderGroups(){
+  const viewISO=dateToISO(viewingDate);
+  const todayMap={};
+  allRows.filter(r=>isoDate(r.date)===viewISO&&r.km>0).forEach(r=>{
+    const k=r.name.toLowerCase().trim();
+    if(!todayMap[k]||r.km>todayMap[k].km)todayMap[k]=r;
+  });
+  const trophies=['🥇','🥈','🥉'];
+  document.getElementById('groups-wrap').innerHTML=GROUPS.map(g=>{
+    const doneCount=g.members.filter(m=>todayMap[m.toLowerCase().trim()]).length;
+    const gFinishers=g.members.filter(m=>todayMap[m.toLowerCase().trim()]).sort((a,b)=>(todayMap[b.toLowerCase()]?.km||0)-(todayMap[a.toLowerCase()]?.km||0));
+    const mHTML=g.members.map(name=>{
+      const k=name.toLowerCase().trim(),d=todayMap[k];
+      const[c1,c2]=avc(avidx(name));const n=ini(name);
+      if(!d)return`<div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,${c1},${c2})">${n}</div><div class="mc-name">${name}</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div>`;
+      const base=actCat(d.act)==='Cycling'?5:2,isExtra=d.km>=base+0.5,cls=isExtra?'extra':'done';
+      const gRank=gFinishers.indexOf(name);
+      const trophy=gRank<3?trophies[gRank]:isExtra?'⭐':'✅';
+      return`<div class="mc ${cls}"><div class="mc-trophy">${trophy}</div><div class="mc-av" style="background:linear-gradient(135deg,${c1},${c2})">${n}</div><div class="mc-name">${name}</div><div class="mc-km">${d.km.toFixed(1)}<span style="font-size:.42rem"> km</span></div><div class="mc-act">${d.act||''}</div></div>`;
+    }).join('');
+    const doneLabel=doneCount===g.members.length?'🎉 All done!':doneCount===0?'Not started':doneCount+' of '+g.members.length+' done';
+    return`<div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:${g.color}"></div><div class="group-name" style="color:${g.color}">${g.emoji} ${g.name}</div><div class="group-done" style="background:${g.color}18;color:${g.color}">${doneLabel}</div></div><div class="group-members">${mHTML}</div><div class="mentor-flow">Flow: <strong>${g.flow}</strong></div></div>`;
+  }).join('');
+}
 
-function showDrop(){
-  filterNames(document.getElementById('f-name-search').value);
+/* ══ RANKINGS PAGE ══ */
+function renderRankings(totKm,totDays,rows,catKm){
+  const bmap={Walking:'rb-w',Running:'rb-r',Cycling:'rb-c'};
+  const inR=new Set(Object.keys(totKm).map(n=>n.toLowerCase()));
+  const zeros=ALL_MEMBERS.filter(n=>!inR.has(n.toLowerCase())).map(n=>({name:n,km:0,days:0,lastAct:'—'}));
+  const ranked=Object.entries(totKm).map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:rows.filter(r=>r.name===name&&r.km>0).pop()?.act||'—'})).sort((a,b)=>b.km-a.km);
+  const all=[...ranked,...zeros];
+
+  function makeList(items,listId){
+    const el=document.getElementById(listId);
+    if(!items.length){el.innerHTML='<div class="empty"><div class="empty-icon">📊</div><div class="empty-t">No Data</div><div class="empty-d">Activities appear once logged</div></div>';return;}
+    el.innerHTML=items.map((p,i)=>{
+      const[c1,c2]=avc(avidx(p.name));const isZ=p.km===0;
+      const actBadge=p.lastAct!=='—'?` · <span class="rb ${bmap[p.lastAct]||'rb-m'}">${p.lastAct}</span>`:'';
+      return`<div class="rank-item" style="${isZ?'opacity:.35':''}"><div class="rank-num ${!isZ&&i<3?'r'+(i+1):''}">${isZ?'—':i+1}</div><div class="rank-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(p.name)}</div><div class="rank-info"><div class="rank-name">${p.name}</div><div class="rank-sub">${p.days} days${actBadge}</div></div><div class="rank-km">${p.km.toFixed(1)}<small> km</small></div></div>`;
+    }).join('');
+  }
+  makeList(all,'rank-list-all');
+  ['Walking','Running','Cycling'].forEach((cat,ci)=>{
+    const catId=['w','r','c'][ci];
+    const catR=Object.entries(catKm[cat]||{}).sort((a,b)=>b[1]-a[1]).map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:cat}));
+    const notInCat=ALL_MEMBERS.filter(n=>!catR.find(r=>r.name.toLowerCase()===n.toLowerCase())).map(n=>({name:n,km:0,days:0,lastAct:'—'}));
+    makeList([...catR,...notInCat],'rank-list-'+catId);
+  });
 }
-function hideDrop(){
-  document.getElementById('nd-drop').style.display='none';
+
+function showRankFilter(id,btn){
+  document.querySelectorAll('.rank-panel').forEach(p=>p.style.display='none');
+  document.getElementById('rank-'+id).style.display='block';
+  document.querySelectorAll('.rft').forEach(b=>b.className='rft');
+  btn.classList.add('active-'+id);
 }
+
+/* ══ SHARE ══ */
+function shareApp(){
+  const url=window.location.href.split('#')[0];
+  if(navigator.share)navigator.share({title:'100 Days Fitness – Keya',text:'Join our challenge!',url});
+  else navigator.clipboard.writeText(url).then(()=>alert('Link copied to clipboard! 📋'));
+}
+
+/* ══ ADMIN PIN ══ */
+function pinNext(el,nextId){
+  if(el.value.length===1&&nextId)document.getElementById(nextId).focus();
+  if(!nextId)checkPin();
+}
+function checkPin(){
+  const pin=['pin1','pin2','pin3','pin4'].map(id=>document.getElementById(id).value).join('');
+  if(pin===ADMIN_PIN){
+    document.getElementById('admin-lock').style.display='none';
+    document.getElementById('admin-form').style.display='block';
+  }else{
+    document.getElementById('pin-error').style.display='block';
+    ['pin1','pin2','pin3','pin4'].forEach(id=>{document.getElementById(id).value='';});
+    document.getElementById('pin1').focus();
+    setTimeout(()=>document.getElementById('pin-error').style.display='none',2500);
+  }
+}
+
+/* ══ NAME DROPDOWN ══ */
+const MEMBERS_LIST=[...ALL_MEMBERS].sort((a,b)=>a.localeCompare(b));
+function showDrop(){filterNames(document.getElementById('f-name-search').value);}
+function hideDrop(){document.getElementById('nd-drop').style.display='none';}
 function filterNames(q){
   const drop=document.getElementById('nd-drop');
-  const query=q.toLowerCase().trim();
-  const filtered=query?MEMBERS_LIST.filter(m=>m.toLowerCase().includes(query)):MEMBERS_LIST;
-  if(!filtered.length){
-    drop.innerHTML='<div style="padding:.7rem 1rem;font-size:.82rem;color:var(--muted)">No match found</div>';
-  } else {
+  const filtered=q?MEMBERS_LIST.filter(m=>m.toLowerCase().includes(q.toLowerCase())):MEMBERS_LIST;
+  if(!filtered.length){drop.innerHTML='<div style="padding:.7rem 1rem;font-size:.8rem;color:var(--muted)">No match found</div>';}
+  else{
     drop.innerHTML=filtered.map(name=>{
       const grp=MEMBER_GROUP[name.toLowerCase()];
       const col=grp?GC[grp.name]:'#64748b';
       const[c1,c2]=avc(avidx(name));
-      return `<div class="nd-item" onmousedown="selectName('${name.replace(/'/g,"\\'")}')">
-        <div class="nd-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(name)}</div>
-        <span>${name}</span>
-        ${grp?`<span class="nd-grp" style="color:${col}">${grp.emoji} ${grp.name}</span>`:''}
-      </div>`;
+      return`<div class="nd-item" onmousedown="selectName('${name.replace(/'/g,"\\'")}')" ><div class="nd-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(name)}</div><span>${name}</span>${grp?`<span class="nd-grp" style="color:${col}">${grp.emoji} ${grp.name}</span>`:''}</div>`;
     }).join('');
   }
   drop.style.display='block';
@@ -1300,26 +1091,23 @@ function filterNames(q){
 function selectName(name){
   document.getElementById('f-name-search').value=name;
   document.getElementById('f-name').value=name;
-  document.getElementById('f-email').value=MEMBERS_EMAIL[name]||'';
+  document.getElementById('f-email').value=EMAILS[name]||'';
   document.getElementById('nd-drop').style.display='none';
   const conf=document.getElementById('nd-confirm');
   const grp=MEMBER_GROUP[name.toLowerCase()];
   conf.textContent='✅ '+name+(grp?' · '+grp.emoji+' '+grp.name:'');
   conf.style.display='block';
 }
-
-/* ══ LOG FORM ════════════════════════════════════════ */
 function selAct(el,val){
   document.querySelectorAll('.ao').forEach(o=>o.classList.remove('sel'));
   el.classList.add('sel');
   document.getElementById('f-act').value=val;
-  document.getElementById('km-hint').textContent=val==='Cycling'?'Minimum 5 km for Cycling':'Minimum 2 km for Walking / Running';
+  document.getElementById('km-hint').textContent=val==='Cycling'?'Min 5 km for Cycling':'Min 2 km for Walking / Running';
 }
 function showStatus(type,msg){
   const el=document.getElementById('sub-status');
-  const icons={ok:'✅',err:'❌',loading:'⏳'};
   el.className='sub-status show '+type;
-  el.innerHTML=`<span>${icons[type]}</span><span>${msg}</span>`;
+  el.innerHTML=`<span>${{ok:'✅',err:'❌',loading:'⏳'}[type]}</span><span>${msg}</span>`;
   el.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 async function submitLog(){
@@ -1330,41 +1118,197 @@ async function submitLog(){
   const km=parseFloat(document.getElementById('f-km').value)||0;
   const link=document.getElementById('f-map').value.trim();
   const notes=document.getElementById('f-notes').value.trim();
-  if(!name||!date||!act){showStatus('err','Please select your Name, Date and Activity Type.');return;}
+  if(!name||!date||!act){showStatus('err','Please select Name, Date and Activity Type.');return;}
   const base=act==='Cycling'?5:2;
-  if(km<base){showStatus('err',`Minimum ${base} km for ${act}. You got this! 💪`);return;}
-  const startMid=new Date(2026,5,1);
-  const actDate=new Date(date);
-  const dayNum=actDate>=startMid?Math.floor((actDate-startMid)/86400000)+1:1;
-  const btn=document.getElementById('sub-btn');
-  btn.disabled=true;
+  if(km<base){showStatus('err',`Minimum ${base} km for ${act}. 💪`);return;}
+  const dayNum=Math.max(1,Math.floor((new Date(date)-new Date(2026,5,1))/86400000)+1);
+  const btn=document.getElementById('sub-btn');btn.disabled=true;
   showStatus('loading','Saving to Google Sheet…');
   try{
     await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name,email,flat:'',date,dayNum,activity:act,km,duration:'',mapLink:link,notes,points:0,tokenUsed:false})});
-    showStatus('ok',`${km} km of ${act} logged for ${name}! 🔥 Sheet will update in ~2 min.`);
+    showStatus('ok',`${km} km of ${act} logged for ${name}! Board updates in ~2 min. 🔥`);
     ['f-name','f-name-search','f-email','f-km','f-map','f-notes'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
     document.getElementById('f-act').value='';
     document.getElementById('f-date').valueAsDate=new Date();
     document.querySelectorAll('.ao').forEach(o=>o.classList.remove('sel'));
     document.getElementById('nd-confirm').style.display='none';
     setTimeout(()=>fetchData(false),4000);
-  }catch(err){
-    showStatus('err','Could not connect. Please use the Google Form link below.');
-  }finally{btn.disabled=false;}
+  }catch(e){showStatus('err','Connection failed. Use the Google Form below.');}
+  finally{btn.disabled=false;}
 }
 
-/* ══ FAQ ═════════════════════════════════════════════ */
+/* ══ WEEKLY AWARDS ══ */
+let currentWeekOffset = 0; // 0 = this week, -1 = last week etc
+
+function getWeekRange(offset){
+  const today = new Date();
+  const dayOfWeek = today.getDay(); // 0=Sun
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - ((dayOfWeek+6)%7) + (offset*7));
+  monday.setHours(0,0,0,0);
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate()+6);
+  sunday.setHours(23,59,59,999);
+  return {start:monday, end:sunday};
+}
+
+function formatWeekLabel(offset){
+  if(offset===0) return {title:'This Week', sub:''};
+  if(offset===-1) return {title:'Last Week', sub:''};
+  const {start,end} = getWeekRange(offset);
+  const fmt = d => d.toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+  return {title:`Week of ${fmt(start)}`, sub:`${fmt(start)} – ${fmt(end)}`};
+}
+
+function changeWeek(dir){
+  currentWeekOffset += dir;
+  renderWeeklyAwards();
+}
+
+function updateWeekNav(){
+  const {title,sub} = formatWeekLabel(currentWeekOffset);
+  const {start,end} = getWeekRange(currentWeekOffset);
+  const fmt = d => d.toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+  document.getElementById('week-nav-title').textContent = title;
+  document.getElementById('week-nav-sub').textContent = sub || `${fmt(start)} – ${fmt(end)}`;
+  // can't go beyond challenge start
+  const prevStart = getWeekRange(currentWeekOffset-1).end;
+  document.getElementById('btn-week-prev').disabled = prevStart < new Date(2026,5,1);
+  // can't go into future
+  document.getElementById('btn-week-next').disabled = currentWeekOffset >= 0;
+}
+
+function renderWeeklyAwards(){
+  updateWeekNav();
+  const {start, end} = getWeekRange(currentWeekOffset);
+  const weekISO_start = dateToISO(start);
+  const weekISO_end   = dateToISO(end);
+
+  // Filter rows for this week
+  const weekRows = allRows.filter(r => {
+    const d = isoDate(r.date);
+    return d >= weekISO_start && d <= weekISO_end && r.km > 0;
+  });
+
+  // ── AWARD 1: Distance Champion — most total km this week ──
+  const weekKm = {};
+  weekRows.forEach(r => {
+    weekKm[r.name] = (weekKm[r.name]||0) + r.km;
+  });
+  const kmRanked = Object.entries(weekKm).sort((a,b)=>b[1]-a[1]);
+  const distChamp = kmRanked[0] || null;
+
+  // ── AWARD 2: Perfect Week — logged all 7 days this week ──
+  const daysLogged = {};
+  weekRows.forEach(r => {
+    if(!daysLogged[r.name]) daysLogged[r.name] = new Set();
+    daysLogged[r.name].add(isoDate(r.date));
+  });
+  // How many days in this week have passed (up to today)
+  const today = new Date();
+  const daysInWeek = Math.min(7, Math.max(1, Math.ceil((Math.min(today,end) - start) / 86400000) + 1));
+  const perfectWeekWinners = Object.entries(daysLogged)
+    .filter(([name, days]) => days.size >= daysInWeek)
+    .sort((a,b) => (weekKm[b[0]]||0) - (weekKm[a[0]]||0));
+  const perfectChamp = perfectWeekWinners[0] || null;
+
+  // ── AWARD 3: Most Improved — biggest km increase vs previous week ──
+  const prevWeek = getWeekRange(currentWeekOffset-1);
+  const prevISO_start = dateToISO(prevWeek.start);
+  const prevISO_end   = dateToISO(prevWeek.end);
+  const prevRows = allRows.filter(r => {
+    const d = isoDate(r.date);
+    return d >= prevISO_start && d <= prevISO_end && r.km > 0;
+  });
+  const prevKm = {};
+  prevRows.forEach(r => { prevKm[r.name] = (prevKm[r.name]||0) + r.km; });
+  // Find biggest positive improvement
+  const improvements = Object.entries(weekKm).map(([name, km]) => ({
+    name,
+    current: km,
+    previous: prevKm[name] || 0,
+    diff: km - (prevKm[name] || 0)
+  })).filter(x => x.diff > 0 && x.previous >= 0).sort((a,b) => b.diff - a.diff);
+  const improvedChamp = improvements[0] || null;
+
+  // ── RENDER ──
+  const awards = [
+    {
+      id:'dist', cls:'gold', medal:'🥇',
+      title:'Distance Champion',
+      desc:'Most km this week',
+      winner: distChamp ? {name:distChamp[0], stat:distChamp[1].toFixed(1), statLabel:'KM THIS WEEK'} : null,
+    },
+    {
+      id:'perfect', cls:'green', medal:'🔥',
+      title:'Perfect Week',
+      desc:`Logged all ${daysInWeek} active days`,
+      winner: perfectChamp ? {name:perfectChamp[0], stat:daysLogged[perfectChamp[0]].size, statLabel:'DAYS LOGGED'} : null,
+      extra: perfectWeekWinners.length > 1 ? `+${perfectWeekWinners.length-1} more` : null,
+    },
+    {
+      id:'improved', cls:'purple', medal:'💪',
+      title:'Most Improved',
+      desc:'Biggest km jump vs last week',
+      winner: improvedChamp ? {name:improvedChamp.name, stat:'+'+improvedChamp.diff.toFixed(1), statLabel:'KM INCREASE'} : null,
+    },
+  ];
+
+  const el = document.getElementById('weekly-awards');
+  if(!el) return;
+
+  // Keep week nav, replace only the award cards
+  const nav = el.querySelector('.week-nav');
+  const awardsHTML = awards.map(a => {
+    if(!a.winner){
+      return `<div class="wa-award-card ${a.cls}">
+        <div class="wa-pending">
+          <div class="wa-pending-icon">${a.medal}</div>
+          <div>
+            <div class="wa-pending-title" style="color:var(--muted)">${a.title}</div>
+            <div class="wa-pending-text">${currentWeekOffset===0 ? 'Award decided at week end' : 'No data for this week'}</div>
+          </div>
+        </div>
+      </div>`;
+    }
+    const [c1,c2] = avc(avidx(a.winner.name));
+    return `<div class="wa-award-card ${a.cls}">
+      <div class="wa-card-inner">
+        <div class="wa-medal">${a.medal}</div>
+        <div class="wa-info">
+          <div class="wa-award-title">${a.title}</div>
+          <div class="wa-winner-row">
+            <div class="wa-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(a.winner.name)}</div>
+            <div>
+              <div class="wa-winner-name">${a.winner.name}</div>
+              <div class="wa-winner-stat">${a.desc}${a.extra ? ' · '+a.extra : ''}</div>
+            </div>
+          </div>
+        </div>
+        <div class="wa-stat-right">
+          <div class="wa-stat-num">${a.winner.stat}</div>
+          <div class="wa-stat-label">${a.winner.statLabel}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Replace content but keep the week-nav div
+  el.innerHTML = nav ? nav.outerHTML + awardsHTML : awardsHTML;
+}
+
+/* ══ FAQ ══ */
 const FAQS=[
-  ['What is this challenge?','A community fitness event for Keya Apartment members from <strong>1 June to 9 September 2026</strong>. Walk, run, or cycle every day and log your activity!'],
-  ['Who can join?','Anyone aged <strong>14+</strong> in our apartment community. No prior experience needed!'],
-  ['Minimum distances?','🚶 <strong>Walking</strong>: 2 km/day<br>🏃 <strong>Running</strong>: 2 km/day<br>🚴 <strong>Cycling</strong>: 5 km/day'],
-  ['How do I log my activity?','Go to <strong>Log Activity</strong>, select your name from the dropdown, pick activity type and enter distance — it saves directly to our Google Sheet!'],
-  ['What are the Buddy Groups?','8 groups of members who motivate each other! Each group has a mentor flow — when you complete your activity, you encourage the next person in the chain.'],
-  ['What are Category Achievers?','Top 3 km leaders in <strong>Walking, Running and Cycling</strong> — recognised separately. Names are pulled live from the activity sheet.'],
-  ['What does the glowing gold card mean?','Members going well beyond the minimum km earn a ✨ glowing gold card and ⭐ trophy in their group!'],
-  ['What if I miss a day?','Just get back on track the next day — consistency over perfection!'],
-  ['How is Today\'s Champion decided?','The person with the <strong>highest km logged today</strong> — updates every 2 minutes automatically.'],
+  ['What is this challenge?','Community fitness event for Keya Apartment members from <strong>1 June to 9 September 2026</strong>. Walk, run, or cycle every day!'],
+  ['Who can join?','Anyone aged <strong>14+</strong> in our apartment community. No experience needed!'],
+  ['Minimum distances?','🚶 <strong>Walking</strong>: 2 km/day · 🏃 <strong>Running</strong>: 2 km/day · 🚴 <strong>Cycling</strong>: 5 km/day'],
+  ['How is activity logged?','The organiser logs via the Admin panel (accessible via site URL + #admin). Members can also request access.'],
+  ['What are the Fitness Buddy Groups?','8 groups with mentor flows — each member encourages the next person in the chain daily.'],
+  ['What are Category Achievers?','Top 3 leaders in Walking, Running and Cycling — recognised separately with medals.'],
+  ['What does the gold glow mean?','Members going well beyond minimum km earn a ✨ gold glow card and ⭐ trophy!'],
+  ["How is Today's Champion decided?",'Highest km logged for that day — updates every 2 minutes automatically.'],
   ['How do I register?','Click <strong>Register Now</strong> on the Home page before 1 June 2026.'],
+  ['Can I see previous days?','Yes! On the Board page, use the ‹ › arrows in the Fitness Buddy Groups section to navigate day by day.'],
 ];
 function renderFAQ(){
   const el=document.getElementById('faq-list');if(!el)return;
@@ -1375,12 +1319,16 @@ function checkReg(){
   if(new Date()>new Date('2026-06-01T23:59:59')){
     const b=document.getElementById('reg-btn'),n=document.getElementById('reg-note');
     if(b){b.classList.add('closed');b.textContent='🔒 Registration Closed';b.onclick=null;}
-    if(n) n.textContent='Registration closed on 1 June 2026.';
+    if(n)n.textContent='Registration closed on 1 June 2026.';
   }
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  initDayTag();renderFAQ();checkReg();fetchData(false);
+  initDayTag();
+  renderFAQ();
+  checkReg();
+  renderWeeklyAwards();
+  fetchData(false);
 });
 </script>
 </body>
