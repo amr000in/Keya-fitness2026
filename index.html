@@ -213,20 +213,42 @@ input,textarea,select{font-family:inherit}
 .cat-tab.ar{border-color:var(--orange);color:var(--orange)}
 .cat-tab.ac{border-color:var(--sky);color:var(--sky)}
 .cat-panel{display:none}.cat-panel.active{display:block}
-.cat-podium{display:flex;flex-direction:column;gap:.45rem}
-.cat-row{display:flex;align-items:center;gap:.65rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.58rem .8rem;position:relative;overflow:hidden}
-.cat-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
-.cat-row.p1::before{background:var(--gold)}
-.cat-row.p2::before{background:var(--silver)}
-.cat-row.p3::before{background:var(--bronze)}
-.cat-medal{font-size:1.1rem;flex-shrink:0}
-.cat-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;flex-shrink:0}
-.cat-info{flex:1;min-width:0}
-.cat-name{font-weight:700;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cat-days{font-size:.6rem;color:var(--muted)}
-.cat-km{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;text-align:right;flex-shrink:0}
-.cat-km.w{color:var(--green)}.cat-km.r{color:var(--orange)}.cat-km.c{color:var(--sky)}
-.cat-empty{text-align:center;padding:1.2rem;font-size:.8rem;color:var(--muted)}
+/* Category podium — same design as main podium */
+.cat-podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.5rem;margin-bottom:.5rem}
+.cp{display:flex;flex-direction:column;align-items:center;flex:1;max-width:120px}
+.cp-trophy{font-size:1.3rem;margin-bottom:.25rem;line-height:1}
+.cp-card{width:100%;border-radius:10px 10px 0 0;padding:.85rem .5rem .7rem;text-align:center;border:1px solid var(--border);border-bottom:none;transition:transform .2s}
+.cp-card:hover{transform:translateY(-3px)}
+/* walking */
+.cp-card.wg{background:linear-gradient(180deg,rgba(34,197,94,.12),rgba(34,197,94,.03));border-color:rgba(34,197,94,.3)}
+.cp-card.ws{background:linear-gradient(180deg,rgba(34,197,94,.07),rgba(34,197,94,.02));border-color:rgba(34,197,94,.18)}
+.cp-card.wb{background:linear-gradient(180deg,rgba(34,197,94,.05),rgba(34,197,94,.01));border-color:rgba(34,197,94,.12)}
+/* running */
+.cp-card.rg{background:linear-gradient(180deg,rgba(249,115,22,.12),rgba(249,115,22,.03));border-color:rgba(249,115,22,.3)}
+.cp-card.rs{background:linear-gradient(180deg,rgba(249,115,22,.07),rgba(249,115,22,.02));border-color:rgba(249,115,22,.18)}
+.cp-card.rb2{background:linear-gradient(180deg,rgba(249,115,22,.05),rgba(249,115,22,.01));border-color:rgba(249,115,22,.12)}
+/* cycling */
+.cp-card.cg{background:linear-gradient(180deg,rgba(56,189,248,.12),rgba(56,189,248,.03));border-color:rgba(56,189,248,.3)}
+.cp-card.cs{background:linear-gradient(180deg,rgba(56,189,248,.07),rgba(56,189,248,.02));border-color:rgba(56,189,248,.18)}
+.cp-card.cb{background:linear-gradient(180deg,rgba(56,189,248,.05),rgba(56,189,248,.01));border-color:rgba(56,189,248,.12)}
+.cp-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.88rem;margin:0 auto .4rem;border:2px solid rgba(255,255,255,.1)}
+.cp-name{font-weight:700;font-size:.68rem;color:var(--white);line-height:1.2;word-break:break-word;margin-bottom:.15rem}
+.cp-km{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;line-height:1}
+.cp-kl{font-size:.48rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.cp-days{font-size:.58rem;color:var(--muted);margin-top:.18rem}
+.cp-bar{height:2px;border-radius:2px;margin-top:.7rem}
+.cp-rank{width:100%;padding:.32rem;border-radius:0 0 6px 6px;font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:2px;text-align:center}
+/* rank colors by cat */
+.cp-rank.wg{background:var(--green);color:#000}
+.cp-rank.ws{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.2)}
+.cp-rank.wb{background:rgba(34,197,94,.08);color:var(--green);border:1px solid rgba(34,197,94,.12)}
+.cp-rank.rg{background:var(--orange);color:#fff}
+.cp-rank.rs{background:rgba(249,115,22,.15);color:var(--orange);border:1px solid rgba(249,115,22,.2)}
+.cp-rank.rb2{background:rgba(249,115,22,.08);color:var(--orange);border:1px solid rgba(249,115,22,.12)}
+.cp-rank.cg{background:var(--sky);color:#000}
+.cp-rank.cs{background:rgba(56,189,248,.15);color:var(--sky);border:1px solid rgba(56,189,248,.2)}
+.cp-rank.cb{background:rgba(56,189,248,.08);color:var(--sky);border:1px solid rgba(56,189,248,.12)}
+.cat-empty{text-align:center;padding:1.5rem;font-size:.8rem;color:var(--muted)}
 
 /* day navigator */
 .day-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.4rem .6rem;margin-bottom:1rem}
@@ -262,66 +284,62 @@ input,textarea,select{font-family:inherit}
 .mentor-flow strong{color:var(--text)}
 
 /* ═══ WEEKLY AWARDS ═══ */
-.weekly-awards-wrap{display:flex;flex-direction:column;gap:.7rem;margin-bottom:.5rem}
-.wa-award-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r2);overflow:hidden;position:relative;
-  transition:transform .2s,border-color .2s;
-}
-.wa-award-card:hover{transform:translateY(-2px)}
-
-/* Gold - Distance Champion */
-.wa-award-card.gold{border-color:rgba(245,158,11,.3);background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(249,115,22,.04))}
-/* Green - Perfect Week */
-.wa-award-card.green{border-color:rgba(34,197,94,.3);background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(56,189,248,.04))}
-/* Purple - Most Improved */
-.wa-award-card.purple{border-color:rgba(167,139,250,.3);background:linear-gradient(135deg,rgba(167,139,250,.08),rgba(249,115,22,.04))}
-
-/* top accent bar */
-.wa-award-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.wa-award-card.gold::before{background:linear-gradient(90deg,var(--gold),var(--orange))}
-.wa-award-card.green::before{background:linear-gradient(90deg,var(--green),var(--sky))}
-.wa-award-card.purple::before{background:linear-gradient(90deg,var(--purple),var(--sky))}
-
-.wa-card-inner{display:flex;align-items:center;gap:.85rem;padding:.9rem 1rem}
-.wa-medal{font-size:1.8rem;flex-shrink:0;line-height:1}
-.wa-info{flex:1;min-width:0}
-.wa-award-title{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.2rem}
-.gold .wa-award-title{color:var(--gold)}
-.green .wa-award-title{color:var(--green)}
-.purple .wa-award-title{color:var(--purple)}
-.wa-winner-row{display:flex;align-items:center;gap:.6rem}
-.wa-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.72rem;flex-shrink:0;border:2px solid rgba(255,255,255,.1)}
-.gold .wa-av{border-color:var(--gold)}
-.green .wa-av{border-color:var(--green)}
-.purple .wa-av{border-color:var(--purple)}
-.wa-winner-name{font-weight:700;font-size:.88rem;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.wa-winner-stat{font-family:'Bebas Neue',sans-serif;font-size:.78rem;color:var(--muted);margin-top:.1rem}
-.wa-stat-right{text-align:right;flex-shrink:0}
-.wa-stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;line-height:1}
-.gold .wa-stat-num{color:var(--gold)}
-.green .wa-stat-num{color:var(--green)}
-.purple .wa-stat-num{color:var(--purple)}
-.wa-stat-label{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-
-/* no winner yet state */
-.wa-pending{
-  display:flex;align-items:center;gap:.7rem;
-  padding:.75rem 1rem;
-  opacity:.55;
-}
-.wa-pending-icon{font-size:1.4rem}
-.wa-pending-text{font-size:.78rem;color:var(--muted)}
-.wa-pending-title{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.15rem}
+.weekly-awards-wrap{display:flex;flex-direction:column;gap:.6rem;margin-bottom:.5rem}
+.weekly-awards-label{margin-top:1.2rem}
 
 /* week navigator */
-.week-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.35rem .55rem;margin-bottom:.8rem}
-.week-nav-btn{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--text);transition:all .15s;flex-shrink:0}
+.week-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.32rem .52rem;margin-bottom:.75rem}
+.week-nav-btn{width:27px;height:27px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--text);transition:all .15s;flex-shrink:0}
 .week-nav-btn:hover:not(:disabled){background:rgba(249,115,22,.15);color:var(--orange)}
 .week-nav-btn:disabled{opacity:.25;cursor:not-allowed}
 .week-nav-label{text-align:center;flex:1}
-.week-nav-title{font-weight:700;font-size:.82rem;color:var(--white)}
-.week-nav-sub{font-size:.6rem;color:var(--muted);letter-spacing:.5px}
+.week-nav-title{font-weight:700;font-size:.8rem;color:var(--white)}
+.week-nav-sub{font-size:.58rem;color:var(--muted);letter-spacing:.5px}
+
+/* award card — home-mini-podium style */
+.wa-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r2);overflow:hidden;position:relative;
+  transition:transform .18s,border-color .18s;
+}
+.wa-card:hover{transform:translateY(-2px)}
+.wa-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.wa-card.wac-gold::before{background:linear-gradient(90deg,var(--gold),var(--orange))}
+.wa-card.wac-gold{border-color:rgba(245,158,11,.18);background:var(--card)}
+.wa-card.wac-green::before{background:linear-gradient(90deg,var(--green),var(--sky))}
+.wa-card.wac-green{border-color:rgba(34,197,94,.18);background:var(--card)}
+.wa-card.wac-orange::before{background:linear-gradient(90deg,var(--orange),var(--purple))}
+.wa-card.wac-orange{border-color:rgba(249,115,22,.18);background:var(--card)}
+
+.wa-card-body{display:flex;align-items:center;gap:.8rem;padding:.85rem .95rem}
+.wa-icon-wrap{flex-shrink:0;text-align:center}
+.wa-big-icon{font-size:1.7rem;line-height:1;display:block}
+.wa-tag{font-size:.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:.18rem;display:block}
+.wac-gold .wa-tag{color:var(--gold)}
+.wac-green .wa-tag{color:var(--green)}
+.wac-orange .wa-tag{color:var(--orange)}
+
+.wa-middle{flex:1;min-width:0}
+.wa-title{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.3rem}
+.wac-gold .wa-title{color:var(--gold)}
+.wac-green .wa-title{color:var(--green)}
+.wac-orange .wa-title{color:var(--orange)}
+.wa-winner-name{font-weight:700;font-size:.9rem;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:.08rem}
+.wa-winner-sub{font-size:.65rem;color:var(--muted)}
+
+.wa-right{text-align:right;flex-shrink:0}
+.wa-big-num{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;line-height:1;letter-spacing:1px}
+.wac-gold .wa-big-num{color:var(--gold)}
+.wac-green .wa-big-num{color:var(--green)}
+.wac-orange .wa-big-num{color:var(--orange)}
+.wa-num-label{font-size:.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.wa-av-sm{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;vertical-align:middle;margin-right:.4rem}
+
+/* empty / pending */
+.wa-pending{display:flex;align-items:center;gap:.7rem;padding:.8rem .95rem;opacity:.52}
+.wa-pend-icon{font-size:1.5rem;flex-shrink:0}
+.wa-pend-ttl{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.12rem}
+.wa-pend-txt{font-size:.75rem;color:var(--muted)}
 
 /* ═══ RANKINGS PAGE ═══ */
 .rank-wrap{max-width:1100px;margin:0 auto}
@@ -559,10 +577,6 @@ input,textarea,select{font-family:inherit}
     <div class="board-cols">
       <!-- LEFT -->
       <div>
-        <div class="divider-label">🏆 Top 3 Podium</div>
-        <div class="podium-3" id="podium"></div>
-
-        <!-- Category Achievers -->
         <div class="divider-label">🥇 Category Achievers</div>
         <div class="cat-tabs">
           <button class="cat-tab aw" onclick="showCat('w',this)">🚶 Walking</button>
@@ -572,12 +586,9 @@ input,textarea,select{font-family:inherit}
         <div class="cat-panel active" id="cat-w"></div>
         <div class="cat-panel" id="cat-r"></div>
         <div class="cat-panel" id="cat-c"></div>
-      </div>
 
-      <!-- RIGHT — fitness buddy groups with day nav -->
-      <div>
         <!-- WEEKLY AWARDS -->
-        <div class="divider-label">🏆 Weekly Performance Awards</div>
+        <div class="divider-label weekly-awards-label">🏆 Weekly Performance Awards</div>
         <div class="weekly-awards-wrap" id="weekly-awards">
           <!-- week navigator -->
           <div class="week-nav">
@@ -590,7 +601,10 @@ input,textarea,select{font-family:inherit}
           </div>
           <!-- award cards rendered by JS -->
         </div>
+      </div>
 
+      <!-- RIGHT — fitness buddy groups with day nav -->
+      <div>
         <div class="divider-label">👥 Fitness Buddy Groups</div>
         <!-- Day navigator -->
         <div class="day-nav">
@@ -620,6 +634,10 @@ input,textarea,select{font-family:inherit}
       <button class="rft" onclick="showRankFilter('r',this)">🏃 Running</button>
       <button class="rft" onclick="showRankFilter('c',this)">🚴 Cycling</button>
     </div>
+
+    <!-- Podium on Rankings page -->
+    <div class="divider-label">🏆 Top 3 Podium</div>
+    <div class="podium-3" id="podium" style="margin-bottom:1.5rem"></div>
 
     <div id="rank-all" class="rank-panel">
       <div class="rank-list" id="rank-list-all"></div>
@@ -969,13 +987,47 @@ function renderPodium(ranked){
 
 /* ══ CATEGORY ACHIEVERS ══ */
 function renderCatAchievers(catKm,totDays){
-  const cfg={w:{key:'Walking',kc:'w'},r:{key:'Running',kc:'r'},c:{key:'Cycling',kc:'c'}};
-  Object.entries(cfg).forEach(([id,{key,kc}])=>{
+  const cfg={
+    w:{key:'Walking', trophies:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'],
+       cls:['wg','ws','wb'], barCol:'var(--green)', avBorder:['rgba(34,197,94,.6)','rgba(34,197,94,.35)','rgba(34,197,94,.2)']},
+    r:{key:'Running', trophies:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'],
+       cls:['rg','rs','rb2'], barCol:'var(--orange)', avBorder:['rgba(249,115,22,.6)','rgba(249,115,22,.35)','rgba(249,115,22,.2)']},
+    c:{key:'Cycling', trophies:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'],
+       cls:['cg','cs','cb'], barCol:'var(--sky)', avBorder:['rgba(56,189,248,.6)','rgba(56,189,248,.35)','rgba(56,189,248,.2)']},
+  };
+  Object.entries(cfg).forEach(([id,cfg2])=>{
     const el=document.getElementById('cat-'+id);
-    const entries=Object.entries(catKm[key]||{}).sort((a,b)=>b[1]-a[1]).slice(0,3);
-    if(!entries.length){el.innerHTML=`<div class="cat-empty">No ${key} entries yet</div>`;return;}
-    const medals=['🥇','🥈','🥉'],pcls=['p1','p2','p3'];
-    el.innerHTML=`<div class="cat-podium">${entries.map(([name,km],i)=>{const[c1,c2]=avc(avidx(name));return`<div class="cat-row ${pcls[i]}"><div class="cat-medal">${medals[i]}</div><div class="cat-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(name)}</div><div class="cat-info"><div class="cat-name">${name}</div><div class="cat-days">${totDays[name]||0} days</div></div><div class="cat-km ${kc}">${km.toFixed(1)}<span style="font-family:'DM Sans';font-size:.5rem;color:var(--muted)"> km</span></div></div>`;}).join('')}</div>`;
+    const entries=Object.entries(catKm[cfg2.key]||{}).sort((a,b)=>b[1]-a[1]).slice(0,3);
+    if(!entries.length){
+      el.innerHTML=`<div class="cat-empty">No ${cfg2.key} entries yet — be the first! 💪</div>`;
+      return;
+    }
+    // Pad to 3 if fewer than 3
+    while(entries.length<3) entries.push(null);
+    // Display order: 2nd · 1st · 3rd (classic podium)
+    const displayOrder=[
+      {data:entries[1], pos:1, trophy:cfg2.trophies[1], rank:cfg2.ranks[1], cls:cfg2.cls[1]},
+      {data:entries[0], pos:0, trophy:cfg2.trophies[0], rank:cfg2.ranks[0], cls:cfg2.cls[0]},
+      {data:entries[2], pos:2, trophy:cfg2.trophies[2], rank:cfg2.ranks[2], cls:cfg2.cls[2]},
+    ];
+    el.innerHTML=`<div class="cat-podium-3">${displayOrder.map(({data,pos,trophy,rank,cls})=>{
+      if(!data) return `<div class="cp"><div class="cp-trophy" style="opacity:.2">${trophy}</div><div class="cp-card ${cls}" style="opacity:.2;min-height:80px"></div><div class="cp-rank ${cls}">${rank}</div></div>`;
+      const [name,km]=data;
+      const [c1,c2]=avc(avidx(name));
+      const border=cfg2.avBorder[pos]||'rgba(255,255,255,.1)';
+      return `<div class="cp">
+        <div class="cp-trophy">${trophy}</div>
+        <div class="cp-card ${cls}">
+          <div class="cp-av" style="background:linear-gradient(135deg,${c1},${c2});border-color:${border}">${ini(name)}</div>
+          <div class="cp-name">${name}</div>
+          <div class="cp-km" style="color:${pos===0?'var(--gold)':pos===1?'var(--silver)':'var(--bronze)'}">${km.toFixed(1)}</div>
+          <div class="cp-kl">KM TOTAL</div>
+          <div class="cp-days">${totDays[name]||0} days</div>
+          <div class="cp-bar" style="background:linear-gradient(90deg,${cfg2.barCol},transparent)"></div>
+        </div>
+        <div class="cp-rank ${cls}">${rank}</div>
+      </div>`;
+    }).join('')}</div>`;
   });
 }
 
@@ -1138,163 +1190,147 @@ async function submitLog(){
 }
 
 /* ══ WEEKLY AWARDS ══ */
-let currentWeekOffset = 0; // 0 = this week, -1 = last week etc
+let currentWeekOffset = 0;
 
 function getWeekRange(offset){
-  const today = new Date();
-  const dayOfWeek = today.getDay(); // 0=Sun
-  const monday = new Date(today);
-  monday.setDate(today.getDate() - ((dayOfWeek+6)%7) + (offset*7));
+  const today=new Date();
+  const dayOfWeek=today.getDay();
+  const monday=new Date(today);
+  monday.setDate(today.getDate()-((dayOfWeek+6)%7)+(offset*7));
   monday.setHours(0,0,0,0);
-  const sunday = new Date(monday);
+  const sunday=new Date(monday);
   sunday.setDate(monday.getDate()+6);
   sunday.setHours(23,59,59,999);
-  return {start:monday, end:sunday};
+  return {start:monday,end:sunday};
 }
-
 function formatWeekLabel(offset){
-  if(offset===0) return {title:'This Week', sub:''};
-  if(offset===-1) return {title:'Last Week', sub:''};
-  const {start,end} = getWeekRange(offset);
-  const fmt = d => d.toLocaleDateString('en-IN',{day:'numeric',month:'short'});
-  return {title:`Week of ${fmt(start)}`, sub:`${fmt(start)} – ${fmt(end)}`};
+  if(offset===0)return{title:'This Week',sub:''};
+  if(offset===-1)return{title:'Last Week',sub:''};
+  const {start,end}=getWeekRange(offset);
+  const fmt=d=>d.toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+  return{title:`Week of ${fmt(start)}`,sub:`${fmt(start)} – ${fmt(end)}`};
 }
-
-function changeWeek(dir){
-  currentWeekOffset += dir;
-  renderWeeklyAwards();
-}
+function changeWeek(dir){currentWeekOffset+=dir;renderWeeklyAwards();}
 
 function updateWeekNav(){
-  const {title,sub} = formatWeekLabel(currentWeekOffset);
-  const {start,end} = getWeekRange(currentWeekOffset);
-  const fmt = d => d.toLocaleDateString('en-IN',{day:'numeric',month:'short'});
-  document.getElementById('week-nav-title').textContent = title;
-  document.getElementById('week-nav-sub').textContent = sub || `${fmt(start)} – ${fmt(end)}`;
-  // can't go beyond challenge start
-  const prevStart = getWeekRange(currentWeekOffset-1).end;
-  document.getElementById('btn-week-prev').disabled = prevStart < new Date(2026,5,1);
-  // can't go into future
-  document.getElementById('btn-week-next').disabled = currentWeekOffset >= 0;
+  const {title,sub}=formatWeekLabel(currentWeekOffset);
+  const {start,end}=getWeekRange(currentWeekOffset);
+  const fmt=d=>d.toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+  document.getElementById('week-nav-title').textContent=title;
+  document.getElementById('week-nav-sub').textContent=sub||`${fmt(start)} – ${fmt(end)}`;
+  const prevEnd=getWeekRange(currentWeekOffset-1).end;
+  document.getElementById('btn-week-prev').disabled=prevEnd<new Date(2026,5,1);
+  document.getElementById('btn-week-next').disabled=currentWeekOffset>=0;
 }
 
 function renderWeeklyAwards(){
   updateWeekNav();
-  const {start, end} = getWeekRange(currentWeekOffset);
-  const weekISO_start = dateToISO(start);
-  const weekISO_end   = dateToISO(end);
+  const {start,end}=getWeekRange(currentWeekOffset);
+  const startISO=dateToISO(start),endISO=dateToISO(end);
 
-  // Filter rows for this week
-  const weekRows = allRows.filter(r => {
-    const d = isoDate(r.date);
-    return d >= weekISO_start && d <= weekISO_end && r.km > 0;
+  const weekRows=allRows.filter(r=>{
+    const d=isoDate(r.date);
+    return d>=startISO&&d<=endISO&&r.km>0;
   });
 
-  // ── AWARD 1: Distance Champion — most total km this week ──
-  const weekKm = {};
-  weekRows.forEach(r => {
-    weekKm[r.name] = (weekKm[r.name]||0) + r.km;
-  });
-  const kmRanked = Object.entries(weekKm).sort((a,b)=>b[1]-a[1]);
-  const distChamp = kmRanked[0] || null;
+  // ── AWARD 1: Distance Champion — most total km this week (any activity) ──
+  const weekKm={};
+  weekRows.forEach(r=>{weekKm[r.name]=(weekKm[r.name]||0)+r.km;});
+  const kmRanked=Object.entries(weekKm).sort((a,b)=>b[1]-a[1]);
+  const distChamp=kmRanked[0]||null;
 
-  // ── AWARD 2: Perfect Week — logged all 7 days this week ──
-  const daysLogged = {};
-  weekRows.forEach(r => {
-    if(!daysLogged[r.name]) daysLogged[r.name] = new Set();
+  // ── AWARD 2: Perfect Week — logged every active day ──
+  const daysLogged={};
+  weekRows.forEach(r=>{
+    if(!daysLogged[r.name])daysLogged[r.name]=new Set();
     daysLogged[r.name].add(isoDate(r.date));
   });
-  // How many days in this week have passed (up to today)
-  const today = new Date();
-  const daysInWeek = Math.min(7, Math.max(1, Math.ceil((Math.min(today,end) - start) / 86400000) + 1));
-  const perfectWeekWinners = Object.entries(daysLogged)
-    .filter(([name, days]) => days.size >= daysInWeek)
-    .sort((a,b) => (weekKm[b[0]]||0) - (weekKm[a[0]]||0));
-  const perfectChamp = perfectWeekWinners[0] || null;
+  const today=new Date();
+  const daysInWeek=Math.min(7,Math.max(1,Math.ceil((Math.min(today,end)-start)/86400000)+1));
+  const perfectWinners=Object.entries(daysLogged)
+    .filter(([n,days])=>days.size>=daysInWeek)
+    .sort((a,b)=>(weekKm[b[0]]||0)-(weekKm[a[0]]||0));
+  const perfectChamp=perfectWinners[0]||null;
 
-  // ── AWARD 3: Most Improved — biggest km increase vs previous week ──
-  const prevWeek = getWeekRange(currentWeekOffset-1);
-  const prevISO_start = dateToISO(prevWeek.start);
-  const prevISO_end   = dateToISO(prevWeek.end);
-  const prevRows = allRows.filter(r => {
-    const d = isoDate(r.date);
-    return d >= prevISO_start && d <= prevISO_end && r.km > 0;
+  // ── AWARD 3: Progressive Mover — Walk/Run only, km INCREASING day by day ──
+  // For Walk/Run members, check if their km went up each day logged this week
+  // Score = total increase across consecutive days (cycling excluded)
+  const walkRunRows=weekRows.filter(r=>actCat(r.act)!=='Cycling');
+  // Group by name → sorted daily km
+  const memberDays={};
+  walkRunRows.forEach(r=>{
+    if(!memberDays[r.name])memberDays[r.name]=[];
+    memberDays[r.name].push({date:isoDate(r.date),km:r.km});
   });
-  const prevKm = {};
-  prevRows.forEach(r => { prevKm[r.name] = (prevKm[r.name]||0) + r.km; });
-  // Find biggest positive improvement
-  const improvements = Object.entries(weekKm).map(([name, km]) => ({
-    name,
-    current: km,
-    previous: prevKm[name] || 0,
-    diff: km - (prevKm[name] || 0)
-  })).filter(x => x.diff > 0 && x.previous >= 0).sort((a,b) => b.diff - a.diff);
-  const improvedChamp = improvements[0] || null;
+  const progressScores=Object.entries(memberDays).map(([name,days])=>{
+    days.sort((a,b)=>a.date.localeCompare(b.date));
+    if(days.length<2)return{name,score:0,days:days.length,growth:0};
+    let totalGrowth=0,streak=0;
+    for(let i=1;i<days.length;i++){
+      const diff=days[i].km-days[i-1].km;
+      if(diff>0){totalGrowth+=diff;streak++;}
+    }
+    return{name,score:totalGrowth,days:days.length,growth:totalGrowth,streak};
+  }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score);
+  const progressChamp=progressScores[0]||null;
 
   // ── RENDER ──
-  const awards = [
+  const awards=[
     {
-      id:'dist', cls:'gold', medal:'🥇',
+      cls:'wac-gold',icon:'🥇',tag:'CHAMPION',
       title:'Distance Champion',
-      desc:'Most km this week',
-      winner: distChamp ? {name:distChamp[0], stat:distChamp[1].toFixed(1), statLabel:'KM THIS WEEK'} : null,
+      winner:distChamp?{name:distChamp[0],sub:`Total this week · All activities`,num:distChamp[1].toFixed(1),label:'KM THIS WEEK'}:null,
     },
     {
-      id:'perfect', cls:'green', medal:'🔥',
+      cls:'wac-green',icon:'🔥',tag:'PERFECT',
       title:'Perfect Week',
-      desc:`Logged all ${daysInWeek} active days`,
-      winner: perfectChamp ? {name:perfectChamp[0], stat:daysLogged[perfectChamp[0]].size, statLabel:'DAYS LOGGED'} : null,
-      extra: perfectWeekWinners.length > 1 ? `+${perfectWeekWinners.length-1} more` : null,
+      winner:perfectChamp?{name:perfectChamp[0],sub:`Logged all ${daysInWeek} active day${daysInWeek>1?'s':''}${perfectWinners.length>1?' · +'+(perfectWinners.length-1)+' more':''}`,num:daysLogged[perfectChamp[0]].size,label:'DAYS LOGGED'}:null,
+      emptyMsg:currentWeekOffset===0?`Need all ${daysInWeek} days logged`:'No one achieved this',
     },
     {
-      id:'improved', cls:'purple', medal:'💪',
-      title:'Most Improved',
-      desc:'Biggest km jump vs last week',
-      winner: improvedChamp ? {name:improvedChamp.name, stat:'+'+improvedChamp.diff.toFixed(1), statLabel:'KM INCREASE'} : null,
+      cls:'wac-orange',icon:'📈',tag:'PROGRESSIVE',
+      title:'Progressive Mover',
+      winner:progressChamp?{name:progressChamp.name,sub:`Walk/Run km growing day by day · ${progressChamp.days} days`,num:'+'+progressChamp.growth.toFixed(1),label:'KM GROWTH'}:null,
+      emptyMsg:'Log Walk/Run on multiple days',
     },
   ];
 
-  const el = document.getElementById('weekly-awards');
-  if(!el) return;
+  const el=document.getElementById('weekly-awards');
+  if(!el)return;
+  const nav=el.querySelector('.week-nav');
 
-  // Keep week nav, replace only the award cards
-  const nav = el.querySelector('.week-nav');
-  const awardsHTML = awards.map(a => {
+  const awardsHTML=awards.map(a=>{
     if(!a.winner){
-      return `<div class="wa-award-card ${a.cls}">
+      return `<div class="wa-card ${a.cls}">
         <div class="wa-pending">
-          <div class="wa-pending-icon">${a.medal}</div>
-          <div>
-            <div class="wa-pending-title" style="color:var(--muted)">${a.title}</div>
-            <div class="wa-pending-text">${currentWeekOffset===0 ? 'Award decided at week end' : 'No data for this week'}</div>
-          </div>
-        </div>
-      </div>`;
+          <div class="wa-pend-icon">${a.icon}</div>
+          <div><div class="wa-pend-ttl">${a.title}</div>
+          <div class="wa-pend-txt">${a.emptyMsg||'Award decided at week end'}</div></div>
+        </div></div>`;
     }
-    const [c1,c2] = avc(avidx(a.winner.name));
-    return `<div class="wa-award-card ${a.cls}">
-      <div class="wa-card-inner">
-        <div class="wa-medal">${a.medal}</div>
-        <div class="wa-info">
-          <div class="wa-award-title">${a.title}</div>
-          <div class="wa-winner-row">
-            <div class="wa-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(a.winner.name)}</div>
-            <div>
-              <div class="wa-winner-name">${a.winner.name}</div>
-              <div class="wa-winner-stat">${a.desc}${a.extra ? ' · '+a.extra : ''}</div>
-            </div>
+    const [c1,c2]=avc(avidx(a.winner.name));
+    return `<div class="wa-card ${a.cls}">
+      <div class="wa-card-body">
+        <div class="wa-icon-wrap">
+          <span class="wa-big-icon">${a.icon}</span>
+          <span class="wa-tag">${a.tag}</span>
+        </div>
+        <div class="wa-middle">
+          <div class="wa-title">${a.title}</div>
+          <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.1rem">
+            <div class="wa-av-sm" style="background:linear-gradient(135deg,${c1},${c2})">${ini(a.winner.name)}</div>
+            <div class="wa-winner-name">${a.winner.name}</div>
           </div>
+          <div class="wa-winner-sub">${a.winner.sub}</div>
         </div>
-        <div class="wa-stat-right">
-          <div class="wa-stat-num">${a.winner.stat}</div>
-          <div class="wa-stat-label">${a.winner.statLabel}</div>
+        <div class="wa-right">
+          <div class="wa-big-num">${a.winner.num}</div>
+          <div class="wa-num-label">${a.winner.label}</div>
         </div>
-      </div>
-    </div>`;
+      </div></div>`;
   }).join('');
 
-  // Replace content but keep the week-nav div
-  el.innerHTML = nav ? nav.outerHTML + awardsHTML : awardsHTML;
+  el.innerHTML=(nav?nav.outerHTML:'')+awardsHTML;
 }
 
 /* ══ FAQ ══ */
