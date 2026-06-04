@@ -8,11 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#080c12;--bg2:#0f1420;--bg3:#141926;--card:#181f2e;--card2:#1e2638;
+  --bg:#0b0e14;--bg2:#111520;--bg3:#141926;--card:#1a2030;--card2:#1e2638;
   --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.12);
   --orange:#f97316;--gold:#f59e0b;--silver:#94a3b8;--bronze:#b87333;
   --green:#22c55e;--sky:#38bdf8;--red:#ef4444;--purple:#a78bfa;
-  --white:#f1f5f9;--muted:#4e6280;--text:#8fa3be;
+  --white:#f8fafc;--muted:#4e6280;--text:#8fa3be;
   --r:10px;--r2:16px;--r3:22px;
   --g1:#3b82f6;--g2:#22c55e;--g3:#f97316;--g4:#a78bfa;
   --g5:#ef4444;--g6:#eab308;--g7:#a8805a;--g8:#6b7280;
@@ -176,8 +176,8 @@ input,textarea,select{font-family:inherit}
 .champ-km-l{font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:right}
 
 /* board two-col */
-.board-cols{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start}
-@media(max-width:960px){.board-cols{grid-template-columns:1fr}}
+.board-cols{display:flex;justify-content:center;align-items:start;gap:1.5rem}
+@media(max-width:960px){.board-cols{flex-direction:column;align-items:stretch}}
 
 /* podium — full 3 */
 .podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.8rem;margin-bottom:1.2rem}
@@ -212,7 +212,7 @@ input,textarea,select{font-family:inherit}
 .cat-tab.aw{border-color:var(--green);color:var(--green)}
 .cat-tab.ar{border-color:var(--orange);color:var(--orange)}
 .cat-tab.ac{border-color:var(--sky);color:var(--sky)}
-.cat-panel{display:none}.cat-panel.active{display:block}
+.cat-panel{display:none;width:100%}.cat-panel.active{display:block;width:100%}
 /* Category podium — same design as main podium */
 .cat-podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.5rem;margin-bottom:.5rem}
 .cp{display:flex;flex-direction:column;align-items:center;flex:1;max-width:120px}
@@ -255,7 +255,7 @@ input,textarea,select{font-family:inherit}
 .cat-empty{text-align:center;padding:1.5rem;font-size:.8rem;color:var(--muted)}
 
 /* day navigator */
-.day-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.4rem .6rem;margin-bottom:1rem}
+.day-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.4rem .6rem;margin-bottom:1rem;width:100%}
 .day-nav-btn{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--text);transition:all .15s;flex-shrink:0}
 .day-nav-btn:hover:not(:disabled){background:rgba(249,115,22,.15);color:var(--orange)}
 .day-nav-btn:disabled{opacity:.25;cursor:not-allowed}
@@ -265,12 +265,12 @@ input,textarea,select{font-family:inherit}
 
 /* buddy groups */
 .groups-stack{display:flex;flex-direction:column;gap:.7rem}
-.group-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden}
+.group-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;width:100%}
 .group-hdr{display:flex;align-items:center;gap:.6rem;padding:.62rem .9rem;border-bottom:1px solid var(--border)}
 .group-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .group-name{font-weight:700;font-size:.8rem}
 .group-done{margin-left:auto;font-size:.62rem;font-weight:700;padding:.12rem .5rem;border-radius:50px}
-.group-members{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:.4rem;padding:.65rem}
+.group-members{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:.4rem;padding:.65rem;justify-items:center}
 .mc{border-radius:9px;padding:.58rem .38rem .48rem;text-align:center;position:relative;border:1.5px solid var(--border);background:rgba(255,255,255,.02);transition:all .18s}
 .mc:hover{transform:translateY(-2px)}
 .mc.done{border-color:var(--green);background:rgba(34,197,94,.06)}
@@ -450,42 +450,62 @@ input,textarea,select{font-family:inherit}
   border-radius:var(--r2);
   overflow:hidden;
   margin-bottom:1.4rem;
-  border:1px solid rgba(249,115,22,.25);
-  background:linear-gradient(135deg,rgba(249,115,22,.08),rgba(245,158,11,.05));
   position:relative;
+  min-height:110px;
   animation:bannerIn .4s ease;
+  background:linear-gradient(135deg,rgba(200,64,240,.2),rgba(255,107,53,.15)),var(--card);
+  border:1px solid rgba(200,64,240,.25);
 }
 @keyframes bannerIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-.motiv-banner.show{display:flex;align-items:center;gap:0}
-.motiv-banner-img{
-  width:90px;height:90px;flex-shrink:0;
-  object-fit:cover;
+.motiv-banner.show{display:block}
+/* Background image layer */
+.motiv-banner-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  border-radius:var(--r2);
+  transition:opacity .3s;
 }
-.motiv-banner-img-placeholder{
-  width:90px;height:90px;flex-shrink:0;
-  background:rgba(249,115,22,.12);
-  display:flex;align-items:center;justify-content:center;
-  font-size:2rem;
+/* Gradient overlay so text stays readable */
+.motiv-banner-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(7,11,16,.85) 0%,rgba(7,11,16,.6) 50%,rgba(7,11,16,.3) 100%);
+  border-radius:var(--r2);
 }
+/* Text on top */
 .motiv-banner-text{
-  flex:1;padding:.85rem 1rem;
+  position:relative;z-index:2;
+  padding:1.1rem 1.4rem;
+  min-height:110px;
+  display:flex;flex-direction:column;justify-content:center;
+  max-width:85%;
+}
+.motiv-banner-tag{
+  font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--orange);margin-bottom:.35rem;
+  display:inline-flex;align-items:center;gap:.3rem;
 }
 .motiv-banner-quote{
   font-family:'Caveat',cursive;
-  font-size:1.1rem;color:var(--white);
-  line-height:1.4;margin-bottom:.2rem;
+  font-size:clamp(1rem,2.5vw,1.25rem);color:var(--white);
+  line-height:1.4;margin-bottom:.3rem;
+  text-shadow:0 1px 8px rgba(0,0,0,.6);
 }
 .motiv-banner-author{
   font-size:.68rem;font-weight:700;letter-spacing:2px;
   text-transform:uppercase;color:var(--orange);
+  text-shadow:0 0 12px rgba(200,64,240,.4);
 }
-.motiv-banner-accent{
-  position:absolute;top:0;left:0;bottom:0;width:3px;
-  background:linear-gradient(180deg,var(--orange),var(--gold));
+/* NEW badge in top-right */
+.motiv-banner-badge{
+  position:absolute;top:.7rem;right:.9rem;z-index:3;
+  background:var(--orange);color:#fff;
+  font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  padding:.2rem .6rem;border-radius:50px;
+  box-shadow:0 0 12px rgba(200,64,240,.5);
 }
 @media(max-width:500px){
-  .motiv-banner-img,.motiv-banner-img-placeholder{width:70px;height:70px}
-  .motiv-banner-quote{font-size:.98rem}
+  .motiv-banner-text{padding:.9rem 1rem;max-width:100%}
+  .motiv-banner-quote{font-size:.96rem}
 }
 
 /* ═══ ADMIN BANNER CONTROL ═══ */
@@ -545,6 +565,7 @@ input,textarea,select{font-family:inherit}
   box-shadow:0 4px 16px rgba(249,115,22,.25);transition:all .2s;margin-top:.3rem;
 }
 .btn-save-banner:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(249,115,22,.4)}
+
 </style>
 </head>
 <body>
@@ -580,11 +601,12 @@ input,textarea,select{font-family:inherit}
         <div class="hero-pill"><div class="live-dot"></div> Challenge Live — 1 June 2026</div>
         <!-- Motivation Banner (shown only when admin enables it) -->
         <div class="motiv-banner" id="motiv-banner">
-          <div class="motiv-banner-accent"></div>
-          <div class="motiv-banner-img-placeholder" id="banner-img-wrap">🌟</div>
-          <img class="motiv-banner-img" id="banner-img-el" src="" alt="" style="display:none">
+          <div class="motiv-banner-bg" id="banner-bg"></div>
+          <div class="motiv-banner-overlay"></div>
+          <div class="motiv-banner-badge" id="banner-badge-el">✨ Today</div>
           <div class="motiv-banner-text">
-            <div class="motiv-banner-quote" id="banner-quote-el">"Every step forward is a step toward achieving something bigger and better than your current situation."</div>
+            <div class="motiv-banner-tag"><div class="live-dot"></div> Daily Motivation</div>
+            <div class="motiv-banner-quote" id="banner-quote-el">Every step forward is a step toward achieving something bigger and better.</div>
             <div class="motiv-banner-author" id="banner-author-el">— Daily Motivation</div>
           </div>
         </div>
@@ -678,7 +700,20 @@ input,textarea,select{font-family:inherit}
       <div class="stat-box"><span class="stat-n" id="lb-logs">0</span><div class="stat-l">Activities</div></div>
     </div>
 
-    <div id="champ-card" class="champ-card" style="display:none">
+    <!-- Weekly Awards — TOP of board, below stats -->
+    <div class="divider-label" style="margin-top:.2rem">🏅 Weekly Performance Awards</div>
+    <div class="weekly-awards-wrap" id="weekly-awards">
+      <div class="week-nav">
+        <button class="week-nav-btn" id="btn-week-prev" onclick="changeWeek(-1)">‹</button>
+        <div class="week-nav-label">
+          <div class="week-nav-title" id="week-nav-title">This Week</div>
+          <div class="week-nav-sub" id="week-nav-sub">Loading…</div>
+        </div>
+        <button class="week-nav-btn" id="btn-week-next" onclick="changeWeek(1)" disabled>›</button>
+      </div>
+    </div>
+
+  <div id="champ-card" class="champ-card" style="display:none">
       <div>
         <div class="champ-tag">⚡ Today's Distance Champion</div>
         <div class="champ-name" id="champ-name">—</div>
@@ -691,10 +726,34 @@ input,textarea,select{font-family:inherit}
     </div>
 
     <div class="board-cols">
-      <!-- LEFT -->
+      <!-- LEFT
       <div>
-        <div class="divider-label">🥇 Category Achievers</div>
-        <div class="cat-tabs">
+        <div class="divider-label">🏆 Top 3 Podium</div>
+        <div class="podium-3" id="podium">
+          <div class="empty" style="width:100%"><div class="empty-icon">🏁</div><div class="empty-t">No Data Yet</div><div class="empty-d">Activities appear from 1 June 2026</div></div>
+        </div>
+      </div> -->
+
+      <!-- RIGHT — fitness buddy groups with day nav -->
+      <div style="text-align:center;max-width:700px;margin:0 auto;width:100%">
+        <!-- WEEKLY AWARDS -->
+
+
+        <div class="divider-label" style="width:100%;justify-content:center">👥 Fitness Buddy Groups</div>
+
+        <!-- Day navigator -->
+        <div class="day-nav">
+          <button class="day-nav-btn" id="btn-prev" onclick="changeDay(-1)">‹</button>
+          <div class="day-nav-label">
+            <div class="day-nav-date" id="nav-date-label">Today</div>
+            <div class="day-nav-day" id="nav-day-num">Day 1 of 100</div>
+          </div>
+          <button class="day-nav-btn" id="btn-next" onclick="changeDay(1)" disabled>›</button>
+        </div>
+
+        <!-- Category Achievers — updates with day navigation -->
+        <div class="divider-label" style="margin-top:1rem;width:100%;justify-content:center">🥇 Category Achievers</div>
+        <div class="cat-tabs" style="justify-content:center;width:100%">
           <button class="cat-tab aw" onclick="showCat('w',this)">🚶 Walking</button>
           <button class="cat-tab" onclick="showCat('r',this)">🏃 Running</button>
           <button class="cat-tab" onclick="showCat('c',this)">🚴 Cycling</button>
@@ -702,27 +761,7 @@ input,textarea,select{font-family:inherit}
         <div class="cat-panel active" id="cat-w"></div>
         <div class="cat-panel" id="cat-r"></div>
         <div class="cat-panel" id="cat-c"></div>
-      </div>
-
-      <!-- RIGHT — fitness buddy groups with day nav -->
-      <div>
-        <!-- WEEKLY AWARDS -->
-        <div class="divider-label">🏆 Weekly Performance Awards</div>
-        <div class="weekly-awards-wrap" id="weekly-awards">
-          <!-- week navigator -->
-          <div class="week-nav">
-            <button class="week-nav-btn" id="btn-week-prev" onclick="changeWeek(-1)">‹</button>
-            <div class="week-nav-label">
-              <div class="week-nav-title" id="week-nav-title">This Week</div>
-              <div class="week-nav-sub" id="week-nav-sub">Loading…</div>
-            </div>
-            <button class="week-nav-btn" id="btn-week-next" onclick="changeWeek(1)" disabled>›</button>
-          </div>
-          <!-- award cards rendered by JS -->
-        </div>
-
-        <div class="divider-label">👥 Fitness Buddy Groups</div>
-
+        <div class="groups-stack" id="groups-wrap" style="width:100%"></div>
         <!-- Fitness Buddy Concept -->
         <div style="background:var(--card);border:1px solid rgba(249,115,22,.2);border-radius:var(--r2);padding:1rem 1.1rem;margin-bottom:.9rem;position:relative;overflow:hidden">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--gold))"></div>
@@ -745,16 +784,6 @@ input,textarea,select{font-family:inherit}
           </div>
           <div style="text-align:center;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:2px;color:var(--orange)">Discipline + Consistency = Results</div>
         </div>
-        <!-- Day navigator -->
-        <div class="day-nav">
-          <button class="day-nav-btn" id="btn-prev" onclick="changeDay(-1)">‹</button>
-          <div class="day-nav-label">
-            <div class="day-nav-date" id="nav-date-label">Today</div>
-            <div class="day-nav-day" id="nav-day-num">Day 1 of 100</div>
-          </div>
-          <button class="day-nav-btn" id="btn-next" onclick="changeDay(1)" disabled>›</button>
-        </div>
-        <div class="groups-stack" id="groups-wrap"></div>
       </div>
     </div>
     <div class="page-footer"><div class="footer-copy">100 Days Fitness Challenge 2026 · Keya Apartments</div></div>
@@ -1023,17 +1052,21 @@ function showBannerOnHome(data){
     banner.classList.remove('show');
     return;
   }
-  document.getElementById('banner-quote-el').textContent='"'+data.quote+'"';
-  document.getElementById('banner-author-el').textContent=data.author||'— Daily Motivation';
-  const imgEl=document.getElementById('banner-img-el');
-  const placeholder=document.getElementById('banner-img-wrap');
-  if(data.img){
-    imgEl.src=data.img;
-    imgEl.style.display='block';
-    placeholder.style.display='none';
-  } else {
-    imgEl.style.display='none';
-    placeholder.style.display='flex';
+  // Set quote and author
+  const qEl=document.getElementById('banner-quote-el');
+  const aEl=document.getElementById('banner-author-el');
+  if(qEl) qEl.textContent=data.quote;
+  if(aEl) aEl.textContent=data.author||'— Daily Motivation';
+  // Set background image
+  const bgEl=document.getElementById('banner-bg');
+  if(bgEl){
+    if(data.img){
+      bgEl.style.backgroundImage='url('+data.img+')';
+      bgEl.style.opacity='1';
+    } else {
+      // fallback gradient if no image
+      bgEl.style.backgroundImage='linear-gradient(135deg,rgba(200,64,240,.3),rgba(255,107,53,.2))';
+    }
   }
   banner.classList.add('show');
 }
@@ -1147,6 +1180,8 @@ function changeDay(dir){
   viewingDate=new Date(viewingDate);
   viewingDate.setDate(viewingDate.getDate()+dir);
   updateDayNav();
+  // Re-render cat achievers for the selected day
+  renderCatForDay();
 }
 
 function isoDate(str){
@@ -1216,7 +1251,8 @@ function renderAll(rows){
   const ranked=Object.entries(totKm).map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:rows.filter(r=>r.name===name&&r.km>0).pop()?.act||'—'})).sort((a,b)=>b.km-a.km);
   renderHomePodium(ranked);
   renderPodium(ranked);
-  renderCatAchievers(catKm,totDays);
+  // Cat achievers uses day-filtered data
+  renderCatForDay();
   renderGroups();
   renderRankings(totKm,totDays,rows,catKm);
   renderWeeklyAwards();
@@ -1249,6 +1285,20 @@ function renderPodium(ranked){
 }
 
 /* ══ CATEGORY ACHIEVERS ══ */
+function renderCatForDay(){
+  // Build catKm for the currently viewed day
+  const viewISO=dateToISO(viewingDate);
+  const dayRows=allRows.filter(r=>isoDate(r.date)===viewISO&&r.km>0);
+  const dayCatKm={Walking:{},Running:{},Cycling:{}};
+  const dayDays={};
+  dayRows.forEach(r=>{
+    const cat=actCat(r.act);
+    dayCatKm[cat][r.name]=(dayCatKm[cat][r.name]||0)+r.km;
+    dayDays[r.name]=(dayDays[r.name]||0)+1;
+  });
+  renderCatAchievers(dayCatKm,dayDays);
+}
+
 function renderCatAchievers(catKm,totDays){
   const cfg={
     w:{key:'Walking', trophies:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'],
@@ -1347,8 +1397,15 @@ function renderRankings(totKm,totDays,rows,catKm){
   makeList(all,'rank-list-all');
   ['Walking','Running','Cycling'].forEach((cat,ci)=>{
     const catId=['w','r','c'][ci];
-    const catR=Object.entries(catKm[cat]||{}).sort((a,b)=>b[1]-a[1]).map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:cat}));
-    const notInCat=ALL_MEMBERS.filter(n=>!catR.find(r=>r.name.toLowerCase()===n.toLowerCase())).map(n=>({name:n,km:0,days:0,lastAct:'—'}));
+    // Participants who did this activity, sorted by km
+    const catR=Object.entries(catKm[cat]||{})
+      .sort((a,b)=>b[1]-a[1])
+      .map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:cat}));
+    // All registered members not in this category shown at bottom with 0 km
+    const inCat=new Set(catR.map(r=>r.name.toLowerCase()));
+    const notInCat=ALL_MEMBERS
+      .filter(n=>!inCat.has(n.toLowerCase()))
+      .map(n=>({name:n,km:0,days:0,lastAct:'—'}));
     makeList([...catR,...notInCat],'rank-list-'+catId);
   });
 }
