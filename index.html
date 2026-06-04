@@ -1228,7 +1228,6 @@ function renderAll(rows){
   }else{document.getElementById('champ-card').style.display='none';}
   const ranked=Object.entries(totKm).map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:rows.filter(r=>r.name===name&&r.km>0).pop()?.act||'—'})).sort((a,b)=>b.km-a.km);
   renderHomePodium(ranked);
-  renderPodium(ranked);
   // Cat achievers — always use full all-time data
   renderCatAchievers(catKm,totDays);
   // Also call renderCatForDay to keep day-nav state in sync
@@ -1254,6 +1253,7 @@ function renderHomePodium(ranked){
 /* ══ BOARD PODIUM ══ */
 function renderPodium(ranked){
   const el=document.getElementById('podium');
+  if(!el) return; // element removed from board - skip gracefully
   if(!ranked.length){el.innerHTML=`<div class="empty" style="width:100%"><div class="empty-icon">🏁</div><div class="empty-t">No Data Yet</div></div>`;return;}
   const t=[ranked[0]||null,ranked[1]||null,ranked[2]||null];
   const order=[{p:t[1],cls:'s',tr:'🥈',rk:'2ND'},{p:t[0],cls:'g',tr:'🥇',rk:'1ST'},{p:t[2],cls:'b',tr:'🥉',rk:'3RD'}];
