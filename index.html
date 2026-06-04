@@ -217,8 +217,12 @@ input,textarea,select{font-family:inherit}
 .cat-podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.5rem;margin-bottom:.5rem}
 .cp{display:flex;flex-direction:column;align-items:center;flex:1;max-width:120px}
 .cp-trophy{font-size:1.3rem;margin-bottom:.25rem;line-height:1}
-.cp-card{width:100%;border-radius:10px 10px 0 0;padding:.85rem .5rem .7rem;text-align:center;border:1px solid var(--border);border-bottom:none;transition:transform .2s}
+.cp-card{width:100%;border-radius:10px 10px 0 0;padding:.85rem .5rem .7rem;text-align:center;border:1px solid var(--border);border-bottom:none;transition:transform .2s;min-height:100px}
 .cp-card:hover{transform:translateY(-3px)}
+/* 1st place taller */
+.cp:nth-child(2) .cp-card{min-height:130px;padding-top:1.1rem}
+/* mobile cat tabs center */
+@media(max-width:768px){.cat-tabs{justify-content:center}}
 /* walking */
 .cp-card.wg{background:linear-gradient(180deg,rgba(34,197,94,.12),rgba(34,197,94,.03));border-color:rgba(34,197,94,.3)}
 .cp-card.ws{background:linear-gradient(180deg,rgba(34,197,94,.07),rgba(34,197,94,.02));border-color:rgba(34,197,94,.18)}
@@ -439,6 +443,108 @@ input,textarea,select{font-family:inherit}
 .faq-a strong{color:var(--sky)}
 .page-footer{padding:1.8rem 0 .8rem;border-top:1px solid var(--border);margin-top:2rem;text-align:center}
 .footer-copy{font-size:.62rem;color:rgba(100,116,139,.35)}
+
+/* ═══ MOTIVATION BANNER ═══ */
+.motiv-banner{
+  display:none;
+  border-radius:var(--r2);
+  overflow:hidden;
+  margin-bottom:1.4rem;
+  border:1px solid rgba(249,115,22,.25);
+  background:linear-gradient(135deg,rgba(249,115,22,.08),rgba(245,158,11,.05));
+  position:relative;
+  animation:bannerIn .4s ease;
+}
+@keyframes bannerIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.motiv-banner.show{display:flex;align-items:center;gap:0}
+.motiv-banner-img{
+  width:90px;height:90px;flex-shrink:0;
+  object-fit:cover;
+}
+.motiv-banner-img-placeholder{
+  width:90px;height:90px;flex-shrink:0;
+  background:rgba(249,115,22,.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;
+}
+.motiv-banner-text{
+  flex:1;padding:.85rem 1rem;
+}
+.motiv-banner-quote{
+  font-family:'Caveat',cursive;
+  font-size:1.1rem;color:var(--white);
+  line-height:1.4;margin-bottom:.2rem;
+}
+.motiv-banner-author{
+  font-size:.68rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--orange);
+}
+.motiv-banner-accent{
+  position:absolute;top:0;left:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--orange),var(--gold));
+}
+@media(max-width:500px){
+  .motiv-banner-img,.motiv-banner-img-placeholder{width:70px;height:70px}
+  .motiv-banner-quote{font-size:.98rem}
+}
+
+/* ═══ ADMIN BANNER CONTROL ═══ */
+.admin-section-hdr{
+  font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--orange);padding-bottom:.45rem;
+  border-bottom:1px solid var(--border);margin-bottom:.85rem;margin-top:1.8rem;
+}
+.banner-toggle-row{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:.75rem 1rem;margin-bottom:.8rem;
+}
+.banner-toggle-label{font-size:.88rem;font-weight:600;color:var(--text)}
+.banner-toggle-sub{font-size:.7rem;color:var(--muted);margin-top:.1rem}
+/* toggle switch */
+.toggle-sw{position:relative;width:42px;height:24px;flex-shrink:0}
+.toggle-sw input{opacity:0;width:0;height:0;position:absolute}
+.toggle-sl{
+  position:absolute;inset:0;border-radius:12px;
+  background:var(--muted);cursor:pointer;transition:background .25s;
+}
+.toggle-sl::before{
+  content:'';position:absolute;width:18px;height:18px;border-radius:50%;
+  background:#fff;left:3px;top:3px;transition:transform .25s;
+}
+.toggle-sw input:checked + .toggle-sl{background:var(--orange)}
+.toggle-sw input:checked + .toggle-sl::before{transform:translateX(18px)}
+.banner-preview{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:.8rem 1rem;margin-bottom:.8rem;
+}
+.banner-preview-label{font-size:.68rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
+.bp-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.bp-img-preview{
+  width:56px;height:56px;border-radius:var(--r);
+  object-fit:cover;border:1px solid var(--border);display:none;
+}
+.bp-img-placeholder{
+  width:56px;height:56px;border-radius:var(--r);
+  background:rgba(255,255,255,.04);border:1px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+}
+.btn-img-upload{
+  display:inline-flex;align-items:center;gap:.35rem;
+  background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);
+  border-radius:50px;padding:.3rem .85rem;
+  font-size:.72rem;font-weight:700;color:var(--sky);cursor:pointer;transition:all .15s;
+}
+.btn-img-upload:hover{background:rgba(56,189,248,.2)}
+.btn-save-banner{
+  width:100%;padding:.72rem;border:none;border-radius:var(--r);
+  background:var(--orange);color:#fff;font-weight:700;
+  font-size:.88rem;letter-spacing:1px;text-transform:uppercase;
+  box-shadow:0 4px 16px rgba(249,115,22,.25);transition:all .2s;margin-top:.3rem;
+}
+.btn-save-banner:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(249,115,22,.4)}
 </style>
 </head>
 <body>
@@ -472,6 +578,17 @@ input,textarea,select{font-family:inherit}
       <!-- LEFT -->
       <div class="hero-left">
         <div class="hero-pill"><div class="live-dot"></div> Challenge Live — 1 June 2026</div>
+        <!-- Motivation Banner (shown only when admin enables it) -->
+        <div class="motiv-banner" id="motiv-banner">
+          <div class="motiv-banner-accent"></div>
+          <div class="motiv-banner-img-placeholder" id="banner-img-wrap">🌟</div>
+          <img class="motiv-banner-img" id="banner-img-el" src="" alt="" style="display:none">
+          <div class="motiv-banner-text">
+            <div class="motiv-banner-quote" id="banner-quote-el">"Every step forward is a step toward achieving something bigger and better than your current situation."</div>
+            <div class="motiv-banner-author" id="banner-author-el">— Daily Motivation</div>
+          </div>
+        </div>
+
         <h1 class="hero-h1">
           <span class="n1">100</span>
           <span class="n2">DAYS</span>
@@ -605,6 +722,29 @@ input,textarea,select{font-family:inherit}
         </div>
 
         <div class="divider-label">👥 Fitness Buddy Groups</div>
+
+        <!-- Fitness Buddy Concept -->
+        <div style="background:var(--card);border:1px solid rgba(249,115,22,.2);border-radius:var(--r2);padding:1rem 1.1rem;margin-bottom:.9rem;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--gold))"></div>
+          <div style="font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:.55rem">WHAT IS A FITNESS BUDDY?</div>
+          <div style="font-size:.78rem;color:var(--text);line-height:1.62;margin-bottom:.55rem">
+            To make this journey more engaging, we introduce a <strong style="color:var(--white)">Fitness Buddy Circle</strong>. Each participant has one buddy to motivate and one who checks in on them.
+          </div>
+          <div style="background:rgba(249,115,22,.06);border-radius:8px;padding:.55rem .8rem;margin-bottom:.55rem;text-align:center">
+            <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:.2rem">Accountability Circle</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:3px;color:var(--white)">A &rarr; B &rarr; C &rarr; D &rarr; A</div>
+          </div>
+          <div style="font-size:.74rem;color:var(--text);line-height:1.65;margin-bottom:.5rem">
+            <span style="color:var(--green)">&#10004;</span> Check if your buddy completed their activity<br>
+            <span style="color:var(--sky)">&#10004;</span> Encourage them when feeling low<br>
+            <span style="color:var(--gold)">&#10004;</span> Remind them if they forget<br>
+            <span style="color:var(--purple)">&#10004;</span> Celebrate their achievements
+          </div>
+          <div style="background:rgba(56,189,248,.06);border-radius:8px;padding:.5rem .8rem;font-size:.73rem;color:var(--sky);font-style:italic;margin-bottom:.5rem;text-align:center">
+            "Did you complete today's activity?" — A simple message makes a huge difference
+          </div>
+          <div style="text-align:center;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:2px;color:var(--orange)">Discipline + Consistency = Results</div>
+        </div>
         <!-- Day navigator -->
         <div class="day-nav">
           <button class="day-nav-btn" id="btn-prev" onclick="changeDay(-1)">‹</button>
@@ -633,10 +773,6 @@ input,textarea,select{font-family:inherit}
       <button class="rft" onclick="showRankFilter('r',this)">🏃 Running</button>
       <button class="rft" onclick="showRankFilter('c',this)">🚴 Cycling</button>
     </div>
-
-    <!-- Podium on Rankings page -->
-    <div class="divider-label">🏆 Top 3 Podium</div>
-    <div class="podium-3" id="podium" style="margin-bottom:1.5rem"></div>
 
     <div id="rank-all" class="rank-panel">
       <div class="rank-list" id="rank-list-all"></div>
@@ -676,11 +812,46 @@ input,textarea,select{font-family:inherit}
   <!-- ADMIN FORM (shown after unlock) -->
   <div class="admin-wrap" id="admin-form">
     <div class="admin-hdr">
-      <div class="sec-label">Admin · Log Entry</div>
-      <h2>Log <span>Activity</span></h2>
-      <p>Saves directly to Google Sheet · auto-reflects on leaderboard</p>
+      <div class="sec-label">Admin · Control Panel</div>
+      <h2>Admin <span>Panel</span></h2>
+      <p>Manage banner, log activities · reflects on site instantly</p>
     </div>
 
+    <!-- ── BANNER CONTROL ── -->
+    <div class="admin-section-hdr">🌟 Motivation Banner</div>
+    <div class="banner-toggle-row">
+      <div>
+        <div class="banner-toggle-label">Show Banner on Home Page</div>
+        <div class="banner-toggle-sub">Toggle to show/hide the motivation banner</div>
+      </div>
+      <label class="toggle-sw">
+        <input type="checkbox" id="banner-toggle" onchange="toggleBanner(this.checked)">
+        <span class="toggle-sl"></span>
+      </label>
+    </div>
+    <div class="banner-preview">
+      <div class="banner-preview-label">Banner Content</div>
+      <div class="bp-row">
+        <div class="bp-img-placeholder" id="bp-placeholder">🖼️</div>
+        <img class="bp-img-preview" id="bp-preview" src="" alt="">
+        <div>
+          <div class="btn-img-upload" onclick="document.getElementById('banner-img-input').click()">📷 Upload Image</div>
+          <input type="file" id="banner-img-input" accept="image/*" style="display:none" onchange="handleBannerImg(this)">
+          <div style="font-size:.65rem;color:var(--muted);margin-top:.35rem">PNG, JPG · shows beside quote</div>
+        </div>
+      </div>
+      <div class="fg" style="margin-bottom:.6rem">
+        <label class="fl">Motivational Quote *</label>
+        <textarea class="fta fi" id="banner-quote" rows="2" placeholder="e.g. Every step counts. Keep moving forward!" style="min-height:60px"></textarea>
+      </div>
+      <div class="fg" style="margin-bottom:.6rem">
+        <label class="fl">Author / Source</label>
+        <input class="fi" id="banner-author" type="text" placeholder="e.g. — Daily Motivation">
+      </div>
+      <button class="btn-save-banner" onclick="saveBanner()">💾 Save & Update Banner</button>
+    </div>
+
+    <div class="admin-section-hdr">📋 Activity Entry</div>
     <div class="sub-status" id="sub-status"></div>
 
     <div class="fs">
@@ -820,6 +991,99 @@ function showAdmin(){
   document.getElementById('pg-admin').classList.add('active');
   document.querySelectorAll('.page').forEach(p=>{ if(p.id!=='pg-admin') p.classList.remove('active'); });
   document.getElementById('pg-admin').classList.add('active');
+}
+
+
+/* ══ MOTIVATION BANNER ══ */
+const BANNER_KEY = 'keya100_banner';
+
+function loadBanner(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(BANNER_KEY)||'{}');
+    if(saved.active && saved.quote){
+      showBannerOnHome(saved);
+    }
+    // pre-fill admin fields
+    if(saved.quote){
+      const q=document.getElementById('banner-quote');
+      const a=document.getElementById('banner-author');
+      const t=document.getElementById('banner-toggle');
+      if(q) q.value=saved.quote||'';
+      if(a) a.value=saved.author||'';
+      if(t) t.checked=!!saved.active;
+      if(saved.img) loadAdminImgPreview(saved.img);
+    }
+  }catch(e){}
+}
+
+function showBannerOnHome(data){
+  const banner=document.getElementById('motiv-banner');
+  if(!banner) return;
+  if(!data||!data.active||!data.quote){
+    banner.classList.remove('show');
+    return;
+  }
+  document.getElementById('banner-quote-el').textContent='"'+data.quote+'"';
+  document.getElementById('banner-author-el').textContent=data.author||'— Daily Motivation';
+  const imgEl=document.getElementById('banner-img-el');
+  const placeholder=document.getElementById('banner-img-wrap');
+  if(data.img){
+    imgEl.src=data.img;
+    imgEl.style.display='block';
+    placeholder.style.display='none';
+  } else {
+    imgEl.style.display='none';
+    placeholder.style.display='flex';
+  }
+  banner.classList.add('show');
+}
+
+function toggleBanner(on){
+  try{
+    const saved=JSON.parse(localStorage.getItem(BANNER_KEY)||'{}');
+    saved.active=on;
+    localStorage.setItem(BANNER_KEY,JSON.stringify(saved));
+    showBannerOnHome(saved);
+  }catch(e){}
+}
+
+function saveBanner(){
+  const quote=(document.getElementById('banner-quote')||{}).value||'';
+  const author=(document.getElementById('banner-author')||{}).value||'';
+  const active=(document.getElementById('banner-toggle')||{}).checked||false;
+  const saved=JSON.parse(localStorage.getItem(BANNER_KEY)||'{}');
+  const data={quote,author,active,img:saved.img||''};
+  localStorage.setItem(BANNER_KEY,JSON.stringify(data));
+  showBannerOnHome(data);
+  // Show brief confirmation
+  const btn=document.querySelector('.btn-save-banner');
+  if(btn){const orig=btn.textContent;btn.textContent='✅ Saved!';setTimeout(()=>btn.textContent=orig,2000);}
+}
+
+function handleBannerImg(input){
+  const file=input.files[0];
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const dataUrl=e.target.result;
+    loadAdminImgPreview(dataUrl);
+    // save img to stored data
+    try{
+      const saved=JSON.parse(localStorage.getItem(BANNER_KEY)||'{}');
+      saved.img=dataUrl;
+      localStorage.setItem(BANNER_KEY,JSON.stringify(saved));
+    }catch(err){}
+  };
+  reader.readAsDataURL(file);
+}
+
+function loadAdminImgPreview(src){
+  const prev=document.getElementById('bp-preview');
+  const placeholder=document.getElementById('bp-placeholder');
+  if(prev&&placeholder){
+    prev.src=src;prev.style.display='block';
+    placeholder.style.display='none';
+  }
 }
 
 /* ══ ADMIN PIN ══ */
@@ -1238,18 +1502,30 @@ function renderWeeklyAwards(){
   const kmRanked=Object.entries(weekKm).sort((a,b)=>b[1]-a[1]);
   const distChamp=kmRanked[0]||null;
 
-  // ── AWARD 2: Perfect Week — logged every active day ──
-  const daysLogged={};
-  weekRows.forEach(r=>{
-    if(!daysLogged[r.name])daysLogged[r.name]=new Set();
-    daysLogged[r.name].add(isoDate(r.date));
+  // ── AWARD 2: Iron Streak — longest consecutive days logged overall ──
+  // Group all logged dates per person from ALL rows (not just this week)
+  const allDaysMap={};
+  allRows.filter(r=>r.km>0).forEach(r=>{
+    if(!allDaysMap[r.name])allDaysMap[r.name]=new Set();
+    allDaysMap[r.name].add(isoDate(r.date));
   });
-  const today=new Date();
-  const daysInWeek=Math.min(7,Math.max(1,Math.ceil((Math.min(today,end)-start)/86400000)+1));
-  const perfectWinners=Object.entries(daysLogged)
-    .filter(([n,days])=>days.size>=daysInWeek)
-    .sort((a,b)=>(weekKm[b[0]]||0)-(weekKm[a[0]]||0));
-  const perfectChamp=perfectWinners[0]||null;
+  function longestStreak(datesSet){
+    if(!datesSet||datesSet.size===0)return 0;
+    const sorted=[...datesSet].sort();
+    let best=1,cur=1;
+    for(let i=1;i<sorted.length;i++){
+      const prev=new Date(sorted[i-1]),curr=new Date(sorted[i]);
+      const diff=(curr-prev)/86400000;
+      if(diff===1){cur++;best=Math.max(best,cur);}
+      else cur=1;
+    }
+    return best;
+  }
+  const streakRanked=Object.entries(allDaysMap)
+    .map(([name,dates])=>({name,streak:longestStreak(dates),total:dates.size}))
+    .filter(x=>x.streak>0)
+    .sort((a,b)=>b.streak-a.streak||b.total-a.total);
+  const streakChamp=streakRanked[0]||null;
 
   // ── AWARD 3: Progressive Mover — Walk/Run only, km INCREASING day by day ──
   // For Walk/Run members, check if their km went up each day logged this week
@@ -1281,10 +1557,10 @@ function renderWeeklyAwards(){
       winner:distChamp?{name:distChamp[0],sub:`Total this week · All activities`,num:distChamp[1].toFixed(1),label:'KM THIS WEEK'}:null,
     },
     {
-      cls:'wac-green',icon:'🔥',tag:'PERFECT',
-      title:'Perfect Week',
-      winner:perfectChamp?{name:perfectChamp[0],sub:`Logged all ${daysInWeek} active day${daysInWeek>1?'s':''}${perfectWinners.length>1?' · +'+(perfectWinners.length-1)+' more':''}`,num:daysLogged[perfectChamp[0]].size,label:'DAYS LOGGED'}:null,
-      emptyMsg:currentWeekOffset===0?`Need all ${daysInWeek} days logged`:'No one achieved this',
+      cls:'wac-green',icon:'🔥',tag:'IRON STREAK',
+      title:'Iron Streak',
+      winner:streakChamp?{name:streakChamp.name,sub:`Longest consecutive days logged · ${streakChamp.total} total days`,num:streakChamp.streak,label:'DAY STREAK'}:null,
+      emptyMsg:'Log activities on consecutive days',
     },
     {
       cls:'wac-orange',icon:'📈',tag:'PROGRESSIVE',
@@ -1298,35 +1574,18 @@ function renderWeeklyAwards(){
   if(!el)return;
   const nav=el.querySelector('.week-nav');
 
-  const awardsHTML=awards.map(a=>{
+  const awardColors=[
+    {border:'rgba(245,158,11,.3)',glow:'rgba(245,158,11,.08)',num:'var(--gold)'},
+    {border:'rgba(34,197,94,.3)',glow:'rgba(34,197,94,.08)',num:'var(--green)'},
+    {border:'rgba(249,115,22,.3)',glow:'rgba(249,115,22,.08)',num:'var(--orange)'},
+  ];
+  const awardsHTML=awards.map((a,ai)=>{
+    const ac=awardColors[ai];
     if(!a.winner){
-      return `<div class="wa-card ${a.cls}">
-        <div class="wa-pending">
-          <div class="wa-pend-icon">${a.icon}</div>
-          <div><div class="wa-pend-ttl">${a.title}</div>
-          <div class="wa-pend-txt">${a.emptyMsg||'Award decided at week end'}</div></div>
-        </div></div>`;
+      return '<div class="wa-card '+a.cls+'" style="border-color:'+ac.border+'"><div class="wa-pending"><div class="wa-pend-icon">'+a.icon+'</div><div><div class="wa-pend-ttl" style="color:'+ac.num+'">'+a.title+'</div><div class="wa-pend-txt">'+(a.emptyMsg||'Award decided at week end')+'</div></div></div></div>';
     }
     const [c1,c2]=avc(avidx(a.winner.name));
-    return `<div class="wa-card ${a.cls}">
-      <div class="wa-card-body">
-        <div class="wa-icon-wrap">
-          <span class="wa-big-icon">${a.icon}</span>
-          <span class="wa-tag">${a.tag}</span>
-        </div>
-        <div class="wa-middle">
-          <div class="wa-title">${a.title}</div>
-          <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.1rem">
-            <div class="wa-av-sm" style="background:linear-gradient(135deg,${c1},${c2})">${ini(a.winner.name)}</div>
-            <div class="wa-winner-name">${a.winner.name}</div>
-          </div>
-          <div class="wa-winner-sub">${a.winner.sub}</div>
-        </div>
-        <div class="wa-right">
-          <div class="wa-big-num">${a.winner.num}</div>
-          <div class="wa-num-label">${a.winner.label}</div>
-        </div>
-      </div></div>`;
+    return '<div class="wa-card '+a.cls+'" style="border-color:'+ac.border+';background:'+ac.glow+'"><div class="wa-card-body"><div class="wa-icon-wrap"><span class="wa-big-icon">'+a.icon+'</span><span class="wa-tag" style="color:'+ac.num+'">'+a.tag+'</span></div><div class="wa-middle"><div class="wa-title" style="color:'+ac.num+'">'+a.title+'</div><div style="display:flex;align-items:center;gap:.5rem;margin:.18rem 0 .12rem"><div class="wa-av-sm" style="background:linear-gradient(135deg,'+c1+','+c2+');border:2px solid '+ac.border+'">'+ini(a.winner.name)+'</div><div class="wa-winner-name">'+a.winner.name+'</div></div><div class="wa-winner-sub">'+a.winner.sub+'</div></div><div class="wa-right"><div class="wa-big-num" style="color:'+ac.num+'">'+a.winner.num+'</div><div class="wa-num-label">'+a.winner.label+'</div></div></div></div>';
   }).join('');
 
   el.innerHTML=(nav?nav.outerHTML:'')+awardsHTML;
@@ -1362,6 +1621,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   initDayTag();
   renderFAQ();
   checkReg();
+  loadBanner();
   renderWeeklyAwards();
   fetchData(false);
 });
