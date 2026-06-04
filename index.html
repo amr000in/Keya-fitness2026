@@ -176,7 +176,7 @@ input,textarea,select{font-family:inherit}
 .champ-km-l{font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:right}
 
 /* board two-col */
-.board-cols{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start}
+.board-cols{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:start}
 @media(max-width:960px){.board-cols{grid-template-columns:1fr}}
 
 /* podium — full 3 */
@@ -206,7 +206,7 @@ input,textarea,select{font-family:inherit}
 .pod-rank.b{background:rgba(180,83,9,.2);color:#f97316;border:1px solid rgba(180,83,9,.28)}
 
 /* category achievers — outlined tags, no solid bg */
-.cat-tabs{display:flex;gap:.4rem;margin-bottom:.85rem;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
+.cat-tabs{display:flex;gap:.4rem;margin-bottom:.85rem;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap;justify-content:center}
 .cat-tabs::-webkit-scrollbar{display:none}
 .cat-tab{flex-shrink:0;padding:.32rem .85rem;border-radius:50px;font-size:.72rem;font-weight:700;letter-spacing:.3px;border:1.5px solid var(--border);color:var(--muted);background:transparent;transition:all .18s;cursor:pointer}
 .cat-tab.aw{border-color:var(--green);color:var(--green)}
@@ -214,7 +214,7 @@ input,textarea,select{font-family:inherit}
 .cat-tab.ac{border-color:var(--sky);color:var(--sky)}
 .cat-panel{display:none;width:100%}.cat-panel.active{display:block;width:100%}
 /* Category podium — same design as main podium */
-.cat-podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.5rem;margin-bottom:.5rem}
+.cat-podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.5rem;margin-bottom:.5rem;width:100%}
 .cp{display:flex;flex-direction:column;align-items:center;flex:1;max-width:120px}
 .cp-trophy{font-size:1.3rem;margin-bottom:.25rem;line-height:1}
 .cp-card{width:100%;border-radius:10px 10px 0 0;padding:.85rem .5rem .7rem;text-align:center;border:1px solid var(--border);border-bottom:none;transition:transform .2s;min-height:100px}
@@ -474,21 +474,18 @@ input,textarea,select{font-family:inherit}
 /* Text on top */
 .motiv-banner-text{
   position:relative;z-index:2;
-  padding:1.1rem 1.4rem;
+  padding:1.2rem 1.8rem;
   min-height:110px;
-  display:flex;flex-direction:column;justify-content:center;
-  max-width:85%;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  width:100%;text-align:center;
 }
-.motiv-banner-tag{
-  font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
-  color:var(--orange);margin-bottom:.35rem;
-  display:inline-flex;align-items:center;gap:.3rem;
-}
+/* .motiv-banner-tag removed */
 .motiv-banner-quote{
   font-family:'Caveat',cursive;
-  font-size:clamp(1rem,2.5vw,1.25rem);color:var(--white);
-  line-height:1.4;margin-bottom:.3rem;
-  text-shadow:0 1px 8px rgba(0,0,0,.6);
+  font-size:clamp(1.1rem,2.8vw,1.45rem);color:var(--white);
+  line-height:1.4;
+  text-shadow:0 1px 8px rgba(0,0,0,.7);
+  font-weight:600;
 }
 .motiv-banner-author{
   font-size:.68rem;font-weight:700;letter-spacing:2px;
@@ -496,13 +493,7 @@ input,textarea,select{font-family:inherit}
   text-shadow:0 0 12px rgba(200,64,240,.4);
 }
 /* NEW badge in top-right */
-.motiv-banner-badge{
-  position:absolute;top:.7rem;right:.9rem;z-index:3;
-  background:var(--orange);color:#fff;
-  font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
-  padding:.2rem .6rem;border-radius:50px;
-  box-shadow:0 0 12px rgba(200,64,240,.5);
-}
+/* .motiv-banner-badge removed */
 @media(max-width:500px){
   .motiv-banner-text{padding:.9rem 1rem;max-width:100%}
   .motiv-banner-quote{font-size:.96rem}
@@ -603,11 +594,8 @@ input,textarea,select{font-family:inherit}
         <div class="motiv-banner" id="motiv-banner">
           <div class="motiv-banner-bg" id="banner-bg"></div>
           <div class="motiv-banner-overlay"></div>
-          <div class="motiv-banner-badge" id="banner-badge-el">✨ Today</div>
-          <div class="motiv-banner-text">
-            <div class="motiv-banner-tag"><div class="live-dot"></div> Daily Motivation</div>
+          <div class="motiv-banner-text" style="text-align:center;max-width:100%;padding:1.2rem 1.8rem">
             <div class="motiv-banner-quote" id="banner-quote-el">Every step forward is a step toward achieving something bigger and better.</div>
-            <div class="motiv-banner-author" id="banner-author-el">— Daily Motivation</div>
           </div>
         </div>
 
@@ -726,14 +714,6 @@ input,textarea,select{font-family:inherit}
     </div>
 
     <div class="board-cols">
-      <!-- LEFT -->
-      <div>
-        <div class="divider-label">🏆 Top 3 Podium</div>
-        <div class="podium-3" id="podium">
-          <div class="empty" style="width:100%"><div class="empty-icon">🏁</div><div class="empty-t">No Data Yet</div><div class="empty-d">Activities appear from 1 June 2026</div></div>
-        </div>
-      </div>
-
       <!-- RIGHT — fitness buddy groups with day nav -->
       <div style="text-align:center">
         <!-- WEEKLY AWARDS -->
@@ -1054,9 +1034,7 @@ function showBannerOnHome(data){
   }
   // Set quote and author
   const qEl=document.getElementById('banner-quote-el');
-  const aEl=document.getElementById('banner-author-el');
   if(qEl) qEl.textContent=data.quote;
-  if(aEl) aEl.textContent=data.author||'— Daily Motivation';
   // Set background image
   const bgEl=document.getElementById('banner-bg');
   if(bgEl){
@@ -1251,7 +1229,9 @@ function renderAll(rows){
   const ranked=Object.entries(totKm).map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:rows.filter(r=>r.name===name&&r.km>0).pop()?.act||'—'})).sort((a,b)=>b.km-a.km);
   renderHomePodium(ranked);
   renderPodium(ranked);
-  // Cat achievers uses day-filtered data
+  // Cat achievers — always use full all-time data
+  renderCatAchievers(catKm,totDays);
+  // Also call renderCatForDay to keep day-nav state in sync
   renderCatForDay();
   renderGroups();
   renderRankings(totKm,totDays,rows,catKm);
@@ -1286,12 +1266,18 @@ function renderPodium(ranked){
 
 /* ══ CATEGORY ACHIEVERS ══ */
 function renderCatForDay(){
-  // Build catKm for the currently viewed day
+  // Check if viewing today — if yes use ALL-TIME totals
+  // If viewing a past day — filter to that day only
   const viewISO=dateToISO(viewingDate);
-  const dayRows=allRows.filter(r=>isoDate(r.date)===viewISO&&r.km>0);
+  const todayISO_val=todayISO();
+  const isToday=viewISO===todayISO_val;
+
+  // For category achievers: always use ALL rows (cumulative totals)
+  // Day nav only affects the buddy group member cards
+  const sourceRows=allRows.filter(r=>r.km>0);
   const dayCatKm={Walking:{},Running:{},Cycling:{}};
   const dayDays={};
-  dayRows.forEach(r=>{
+  sourceRows.forEach(r=>{
     const cat=actCat(r.act);
     dayCatKm[cat][r.name]=(dayCatKm[cat][r.name]||0)+r.km;
     dayDays[r.name]=(dayDays[r.name]||0)+1;
@@ -1300,47 +1286,56 @@ function renderCatForDay(){
 }
 
 function renderCatAchievers(catKm,totDays){
-  const cfg={
-    w:{key:'Walking', trophies:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'],
-       cls:['wg','ws','wb'], barCol:'var(--green)', avBorder:['rgba(34,197,94,.6)','rgba(34,197,94,.35)','rgba(34,197,94,.2)']},
-    r:{key:'Running', trophies:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'],
-       cls:['rg','rs','rb2'], barCol:'var(--orange)', avBorder:['rgba(249,115,22,.6)','rgba(249,115,22,.35)','rgba(249,115,22,.2)']},
-    c:{key:'Cycling', trophies:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'],
-       cls:['cg','cs','cb'], barCol:'var(--sky)', avBorder:['rgba(56,189,248,.6)','rgba(56,189,248,.35)','rgba(56,189,248,.2)']},
+  var catCfg={
+    w:{key:'Walking',  medals:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'], cls:['wg','ws','wb'], bar:'var(--green)',  borders:['rgba(34,197,94,.6)','rgba(34,197,94,.35)','rgba(34,197,94,.2)']},
+    r:{key:'Running',  medals:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'], cls:['rg','rs','rb2'],bar:'var(--orange)', borders:['rgba(249,115,22,.6)','rgba(249,115,22,.35)','rgba(249,115,22,.2)']},
+    c:{key:'Cycling',  medals:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'], cls:['cg','cs','cb'], bar:'var(--sky)',    borders:['rgba(56,189,248,.6)','rgba(56,189,248,.35)','rgba(56,189,248,.2)']}
   };
-  Object.entries(cfg).forEach(([id,cfg2])=>{
-    const el=document.getElementById('cat-'+id);
-    const entries=Object.entries(catKm[cfg2.key]||{}).sort((a,b)=>b[1]-a[1]).slice(0,3);
+  var kmColors=['var(--gold)','var(--silver)','var(--bronze)'];
+
+  Object.keys(catCfg).forEach(function(id){
+    var cfg=catCfg[id];
+    var el=document.getElementById('cat-'+id);
+    if(!el) return;
+    var entries=Object.entries(catKm[cfg.key]||{}).sort(function(a,b){return b[1]-a[1];}).slice(0,3);
     if(!entries.length){
-      el.innerHTML=`<div class="cat-empty">No ${cfg2.key} entries yet — be the first! 💪</div>`;
+      el.innerHTML='<div class="cat-empty">No '+cfg.key+' entries yet — be the first! 💪</div>';
       return;
     }
-    // Pad to 3 if fewer than 3
     while(entries.length<3) entries.push(null);
-    // Display order: 2nd · 1st · 3rd (classic podium)
-    const displayOrder=[
-      {data:entries[1], pos:1, trophy:cfg2.trophies[1], rank:cfg2.ranks[1], cls:cfg2.cls[1]},
-      {data:entries[0], pos:0, trophy:cfg2.trophies[0], rank:cfg2.ranks[0], cls:cfg2.cls[0]},
-      {data:entries[2], pos:2, trophy:cfg2.trophies[2], rank:cfg2.ranks[2], cls:cfg2.cls[2]},
+    // Classic podium display order: 2nd | 1st | 3rd
+    var displayOrder=[
+      {data:entries[1], pos:1, medal:cfg.medals[1], rank:cfg.ranks[1], cls:cfg.cls[1]},
+      {data:entries[0], pos:0, medal:cfg.medals[0], rank:cfg.ranks[0], cls:cfg.cls[0]},
+      {data:entries[2], pos:2, medal:cfg.medals[2], rank:cfg.ranks[2], cls:cfg.cls[2]}
     ];
-    el.innerHTML=`<div class="cat-podium-3">${displayOrder.map(({data,pos,trophy,rank,cls})=>{
-      if(!data) return `<div class="cp"><div class="cp-trophy" style="opacity:.2">${trophy}</div><div class="cp-card ${cls}" style="opacity:.2;min-height:80px"></div><div class="cp-rank ${cls}">${rank}</div></div>`;
-      const [name,km]=data;
-      const [c1,c2]=avc(avidx(name));
-      const border=cfg2.avBorder[pos]||'rgba(255,255,255,.1)';
-      return `<div class="cp">
-        <div class="cp-trophy">${trophy}</div>
-        <div class="cp-card ${cls}">
-          <div class="cp-av" style="background:linear-gradient(135deg,${c1},${c2});border-color:${border}">${ini(name)}</div>
-          <div class="cp-name">${name}</div>
-          <div class="cp-km" style="color:${pos===0?'var(--gold)':pos===1?'var(--silver)':'var(--bronze)'}">${km.toFixed(1)}</div>
-          <div class="cp-kl">KM TOTAL</div>
-          <div class="cp-days">${totDays[name]||0} days</div>
-          <div class="cp-bar" style="background:linear-gradient(90deg,${cfg2.barCol},transparent)"></div>
-        </div>
-        <div class="cp-rank ${cls}">${rank}</div>
-      </div>`;
-    }).join('')}</div>`;
+    var html='<div class="cat-podium-3">';
+    displayOrder.forEach(function(item){
+      if(!item.data){
+        html+='<div class="cp"><div class="cp-trophy" style="opacity:.2">'+item.medal+'</div><div class="cp-card '+item.cls+'" style="opacity:.2;min-height:80px"></div><div class="cp-rank '+item.cls+'">'+item.rank+'</div></div>';
+        return;
+      }
+      var name=item.data[0], km=item.data[1];
+      var av=avc(avidx(name));
+      var c1=av[0],c2=av[1];
+      var border=cfg.borders[item.pos]||'rgba(255,255,255,.1)';
+      var kmColor=kmColors[item.pos];
+      var cardHeight=item.pos===0?'min-height:155px':'min-height:105px';
+      html+='<div class="cp">';
+      html+='<div class="cp-trophy">'+item.medal+'</div>';
+      html+='<div class="cp-card '+item.cls+'" style="'+cardHeight+'">';
+      html+='<div class="cp-av" style="background:linear-gradient(135deg,'+c1+','+c2+');border-color:'+border+'">'+ini(name)+'</div>';
+      html+='<div class="cp-name">'+name+'</div>';
+      html+='<div class="cp-km" style="color:'+kmColor+'">'+km.toFixed(1)+'</div>';
+      html+='<div class="cp-kl">KM TOTAL</div>';
+      html+='<div class="cp-days">'+(totDays[name]||0)+' days</div>';
+      html+='<div class="cp-bar" style="background:linear-gradient(90deg,'+cfg.bar+',transparent)"></div>';
+      html+='</div>';
+      html+='<div class="cp-rank '+item.cls+'">'+item.rank+'</div>';
+      html+='</div>';
+    });
+    html+='</div>';
+    el.innerHTML=html;
   });
 }
 
