@@ -285,7 +285,6 @@ input,textarea,select{font-family:inherit}
 
 /* ═══ WEEKLY AWARDS ═══ */
 .weekly-awards-wrap{display:flex;flex-direction:column;gap:.6rem;margin-bottom:.5rem}
-.weekly-awards-label{margin-top:1.2rem}
 
 /* week navigator */
 .week-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.32rem .52rem;margin-bottom:.75rem}
@@ -305,11 +304,11 @@ input,textarea,select{font-family:inherit}
 .wa-card:hover{transform:translateY(-2px)}
 .wa-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .wa-card.wac-gold::before{background:linear-gradient(90deg,var(--gold),var(--orange))}
-.wa-card.wac-gold{border-color:rgba(245,158,11,.18);background:var(--card)}
+.wa-card.wac-gold{border-color:rgba(245,158,11,.25);background:linear-gradient(135deg,rgba(245,158,11,.07),rgba(249,115,22,.03))}
 .wa-card.wac-green::before{background:linear-gradient(90deg,var(--green),var(--sky))}
-.wa-card.wac-green{border-color:rgba(34,197,94,.18);background:var(--card)}
+.wa-card.wac-green{border-color:rgba(34,197,94,.25);background:linear-gradient(135deg,rgba(34,197,94,.07),rgba(56,189,248,.03))}
 .wa-card.wac-orange::before{background:linear-gradient(90deg,var(--orange),var(--purple))}
-.wa-card.wac-orange{border-color:rgba(249,115,22,.18);background:var(--card)}
+.wa-card.wac-orange{border-color:rgba(249,115,22,.25);background:linear-gradient(135deg,rgba(249,115,22,.07),rgba(167,139,250,.03))}
 
 .wa-card-body{display:flex;align-items:center;gap:.8rem;padding:.85rem .95rem}
 .wa-icon-wrap{flex-shrink:0;text-align:center}
@@ -586,9 +585,12 @@ input,textarea,select{font-family:inherit}
         <div class="cat-panel active" id="cat-w"></div>
         <div class="cat-panel" id="cat-r"></div>
         <div class="cat-panel" id="cat-c"></div>
+      </div>
 
+      <!-- RIGHT — fitness buddy groups with day nav -->
+      <div>
         <!-- WEEKLY AWARDS -->
-        <div class="divider-label weekly-awards-label">🏆 Weekly Performance Awards</div>
+        <div class="divider-label">🏆 Weekly Performance Awards</div>
         <div class="weekly-awards-wrap" id="weekly-awards">
           <!-- week navigator -->
           <div class="week-nav">
@@ -601,10 +603,7 @@ input,textarea,select{font-family:inherit}
           </div>
           <!-- award cards rendered by JS -->
         </div>
-      </div>
 
-      <!-- RIGHT — fitness buddy groups with day nav -->
-      <div>
         <div class="divider-label">👥 Fitness Buddy Groups</div>
         <!-- Day navigator -->
         <div class="day-nav">
