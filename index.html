@@ -213,6 +213,7 @@ input,textarea,select{font-family:inherit}
 .cat-tab.ar{border-color:var(--orange);color:var(--orange)}
 .cat-tab.ac{border-color:var(--sky);color:var(--sky)}
 .cat-panel{display:none;width:100%}.cat-panel.active{display:block;width:100%}
+.rcat-panel{width:100%}
 /* Category podium — same design as main podium */
 .cat-podium-3{display:flex;justify-content:center;align-items:flex-end;gap:.5rem;margin-bottom:.5rem;width:100%}
 .cp{display:flex;flex-direction:column;align-items:center;flex:1;max-width:120px}
@@ -732,7 +733,7 @@ input,textarea,select{font-family:inherit}
         </div>
 
         <!-- Category Achievers — updates with day navigation -->
-        <div class="divider-label" style="margin-top:1rem;width:100%;justify-content:center">🥇 Category Achievers</div>
+        <div class="divider-label" style="margin-top:1rem;width:100%;justify-content:center">🥇 Today's Category Leaders</div>
         <div class="cat-tabs" style="justify-content:center;width:100%">
           <button class="cat-tab aw" onclick="showCat('w',this)">🚶 Walking</button>
           <button class="cat-tab" onclick="showCat('r',this)">🏃 Running</button>
@@ -783,6 +784,27 @@ input,textarea,select{font-family:inherit}
       <button class="rft" onclick="showRankFilter('c',this)">🚴 Cycling</button>
     </div>
 
+    <!-- CATEGORY ACHIEVERS — linked to tab selection -->
+    <div style="margin-top:1.2rem;margin-bottom:1.2rem">
+      <div id="rcat-panel-all" class="rcat-linked-panel">
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div class="cat-podium-3" id="rcat-podium-all-w"></div>
+          <div class="cat-podium-3" id="rcat-podium-all-r"></div>
+          <div class="cat-podium-3" id="rcat-podium-all-c"></div>
+        </div>
+      </div>
+      <div id="rcat-panel-w" class="rcat-linked-panel" style="display:none">
+        <div class="cat-podium-3" id="rcat-podium-w"></div>
+      </div>
+      <div id="rcat-panel-r" class="rcat-linked-panel" style="display:none">
+        <div class="cat-podium-3" id="rcat-podium-r"></div>
+      </div>
+      <div id="rcat-panel-c" class="rcat-linked-panel" style="display:none">
+        <div class="cat-podium-3" id="rcat-podium-c"></div>
+      </div>
+    </div>
+
+
     <div id="rank-all" class="rank-panel">
       <div class="rank-list" id="rank-list-all"></div>
     </div>
@@ -795,6 +817,7 @@ input,textarea,select{font-family:inherit}
     <div id="rank-c" class="rank-panel" style="display:none">
       <div class="rank-list" id="rank-list-c"></div>
     </div>
+
 
     <div class="page-footer"><div class="footer-copy">100 Days Fitness Challenge 2026 · Keya Apartments</div></div>
   </div>
@@ -960,12 +983,12 @@ const GROUPS=[
   {id:'g5',name:'Group 5',color:'#ef4444',emoji:'🔴',members:['Praveen Choudhary','Shyamala','Jyotika Bhurani','Saksham Tandone','Kali Tripathy'],flow:'Praveen → Shyamala → Jyotika → Saksham → Kali → Praveen'},
   {id:'g6',name:'Group 6',color:'#eab308',emoji:'🟡',members:['Aparna Shinde','Aman Gupta','Kumar Abhishek','Shikha Tandon','Mayuri Hegde'],flow:'Aparna → Aman → Abhishek → Shikha → Mayuri → Aparna'},
   {id:'g7',name:'Group 7',color:'#a8805a',emoji:'🟤',members:['Renu Goel','BIBEK LAL','Dikshant Ohri','Surabhi Telang','Pooja'],flow:'Renu → Bibek → Dikshant → Surabhi → Pooja → Renu'},
-  {id:'g8',name:'Group 8',color:'#9ca3af',emoji:'⚫',members:['Saswati Mahapatra','Amar','Richa Johar','Shubham Lakhotia','Thavakumar Swaminathan','Parita Kachhela'],flow:'Saswati → Amar → Richa → Shubham → Thavakumar → Parita → Saswati'},
+  {id:'g8',name:'Group 8',color:'#9ca3af',emoji:'⚫',members:['Saswati Mahapatra','Amar','Richa Johar','Thavakumar Swaminathan','Parita Kachhela'],flow:'Saswati → Amar → Richa → Thavakumar → Parita → Saswati'},
 ];
 const ALL_MEMBERS=[...new Set(GROUPS.flatMap(g=>g.members))];
 
 /* ══ EMAILS ══ */
-const EMAILS={'Amar':'amr.000in@gmail.com','Shobha':'shobhak2012@gmail.com','Aakash Rayate':'rayate2410@gmail.com','Poulomi Mukherjee':'mukherjee.poulomi09@gmail.com','Sipra Tripathy':'sipra.dsh@gmail.com','Shibani Pattnaik':'shibani.pattnaik@gmail.com','Puneet Ahuja':'ahujapuneet65@gmail.com','Shubham Singh':'singh.shubh647@gmail.com','Shubham Lakhotia':'Shubhamlaks92@gmail.com','Praveen Choudhary':'prvnchdry@gmail.com','Surabhi Telang':'surabhitelang@gmail.com','Aparna Shinde':'aparna.pattadar@gmail.com','Renu Goel':'renugoel393@gmail.com','Saswati Mahapatra':'saswatier@gmail.com','Sonam Agnihotri':'sonam.agnihotri.1705@gmail.com','Jyotika Bhurani':'jbhurani87@gmail.com','Yogesh Karira':'karira.yogesh@gmail.com','Mayuri Hegde':'mayuri.athavale88@gmail.com','Asmita Tiwari':'tiwai@gmail.com','Jaya Bharti':'jayabharti2006@gmail.com','Pritam Kumari':'','Aman Gupta':'gupta.aman2332@gmail.com','BIBEK LAL':'bibeklal@gmail.com','Richa Johar':'richajohar1992@gmail.com','Dikshant Ohri':'ohridikshant3@gmail.com','Shyamala':'shyamlas@yahoo.com'};
+const EMAILS={'Amar':'amr.000in@gmail.com','Shobha':'shobhak2012@gmail.com','Aakash Rayate':'rayate2410@gmail.com','Poulomi Mukherjee':'mukherjee.poulomi09@gmail.com','Sipra Tripathy':'sipra.dsh@gmail.com','Shibani Pattnaik':'shibani.pattnaik@gmail.com','Puneet Ahuja':'ahujapuneet65@gmail.com','Shubham Singh':'singh.shubh647@gmail.com','Praveen Choudhary':'prvnchdry@gmail.com','Surabhi Telang':'surabhitelang@gmail.com','Aparna Shinde':'aparna.pattadar@gmail.com','Renu Goel':'renugoel393@gmail.com','Saswati Mahapatra':'saswatier@gmail.com','Sonam Agnihotri':'sonam.agnihotri.1705@gmail.com','Jyotika Bhurani':'jbhurani87@gmail.com','Yogesh Karira':'karira.yogesh@gmail.com','Mayuri Hegde':'mayuri.athavale88@gmail.com','Asmita Tiwari':'tiwai@gmail.com','Jaya Bharti':'jayabharti2006@gmail.com','Pritam Kumari':'','Aman Gupta':'gupta.aman2332@gmail.com','BIBEK LAL':'bibeklal@gmail.com','Richa Johar':'richajohar1992@gmail.com','Dikshant Ohri':'ohridikshant3@gmail.com','Shyamala':'shyamlas@yahoo.com'};
 
 /* ══ MEMBER GROUP LOOKUP ══ */
 const MEMBER_GROUP={};
@@ -1229,9 +1252,10 @@ function renderAll(rows){
   const ranked=Object.entries(totKm).map(([name,km])=>({name,km,days:totDays[name]||0,lastAct:rows.filter(r=>r.name===name&&r.km>0).pop()?.act||'—'})).sort((a,b)=>b.km-a.km);
   renderHomePodium(ranked);
   // Cat achievers — always use full all-time data
-  renderCatAchievers(catKm,totDays);
-  // Also call renderCatForDay to keep day-nav state in sync
+  // Board: today's leaders (via day nav)
   renderCatForDay();
+  // Rankings: all-time category achievers
+  renderRankCatAchievers(catKm,totDays,totKm);
   renderGroups();
   renderRankings(totKm,totDays,rows,catKm);
   renderWeeklyAwards();
@@ -1266,18 +1290,12 @@ function renderPodium(ranked){
 
 /* ══ CATEGORY ACHIEVERS ══ */
 function renderCatForDay(){
-  // Check if viewing today — if yes use ALL-TIME totals
-  // If viewing a past day — filter to that day only
+  // Category Achievers on Board = TODAY's KM for the selected day
   const viewISO=dateToISO(viewingDate);
-  const todayISO_val=todayISO();
-  const isToday=viewISO===todayISO_val;
-
-  // For category achievers: always use ALL rows (cumulative totals)
-  // Day nav only affects the buddy group member cards
-  const sourceRows=allRows.filter(r=>r.km>0);
+  const dayRows=allRows.filter(r=>isoDate(r.date)===viewISO&&r.km>0);
   const dayCatKm={Walking:{},Running:{},Cycling:{}};
   const dayDays={};
-  sourceRows.forEach(r=>{
+  dayRows.forEach(r=>{
     const cat=actCat(r.act);
     dayCatKm[cat][r.name]=(dayCatKm[cat][r.name]||0)+r.km;
     dayDays[r.name]=(dayDays[r.name]||0)+1;
@@ -1406,10 +1424,110 @@ function renderRankings(totKm,totDays,rows,catKm){
 }
 
 function showRankFilter(id,btn){
+  // Switch rank list panel
   document.querySelectorAll('.rank-panel').forEach(p=>p.style.display='none');
   document.getElementById('rank-'+id).style.display='block';
+  // Switch achievers panel to match
+  document.querySelectorAll('.rcat-linked-panel').forEach(p=>p.style.display='none');
+  var achPanel=document.getElementById('rcat-panel-'+id);
+  if(achPanel) achPanel.style.display='block';
+  // Update tab styles
   document.querySelectorAll('.rft').forEach(b=>b.className='rft');
   btn.classList.add('active-'+id);
+}
+
+function renderRankCatAchievers(catKm, totDays, totKm){
+  var catCfg={
+    w:{key:'Walking',  medals:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'], cls:['wg','ws','wb'], bar:'var(--green)',  borders:['rgba(34,197,94,.6)','rgba(34,197,94,.35)','rgba(34,197,94,.2)']},
+    r:{key:'Running',  medals:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'], cls:['rg','rs','rb2'],bar:'var(--orange)', borders:['rgba(249,115,22,.6)','rgba(249,115,22,.35)','rgba(249,115,22,.2)']},
+    c:{key:'Cycling',  medals:['🥇','🥈','🥉'], ranks:['1ST','2ND','3RD'], cls:['cg','cs','cb'], bar:'var(--sky)',    borders:['rgba(56,189,248,.6)','rgba(56,189,248,.35)','rgba(56,189,248,.2)']}
+  };
+  var kmColors=['var(--gold)','var(--silver)','var(--bronze)'];
+
+  function buildPodium(cfg, targetId){
+    var el=document.getElementById(targetId);
+    if(!el) return;
+    var entries=Object.entries(catKm[cfg.key]||{}).sort(function(a,b){return b[1]-a[1];}).slice(0,3);
+    if(!entries.length){
+      el.innerHTML='<div class="cat-empty" style="width:100%">No '+cfg.key+' entries yet 💪</div>';
+      return;
+    }
+    while(entries.length<3) entries.push(null);
+    var cardCls=cfg.cls[0]; // single theme for all cards
+    var displayOrder=[
+      {data:entries[1], pos:1, medal:cfg.medals[1], rank:cfg.ranks[1], rankCls:cfg.cls[1]},
+      {data:entries[0], pos:0, medal:cfg.medals[0], rank:cfg.ranks[0], rankCls:cfg.cls[0]},
+      {data:entries[2], pos:2, medal:cfg.medals[2], rank:cfg.ranks[2], rankCls:cfg.cls[2]}
+    ];
+    var html='';
+    displayOrder.forEach(function(item){
+      if(!item.data){
+        html+='<div class="cp"><div class="cp-trophy" style="opacity:.2">'+item.medal+'</div><div class="cp-card '+cardCls+'" style="opacity:.2;min-height:80px"></div><div class="cp-rank '+item.rankCls+'">'+item.rank+'</div></div>';
+        return;
+      }
+      var name=item.data[0], km=item.data[1];
+      var av=avc(avidx(name)); var c1=av[0],c2=av[1];
+      var border=cfg.borders[0];
+      var kmColor=kmColors[item.pos];
+      var cardH=item.pos===0?'min-height:155px':'min-height:105px';
+      html+='<div class="cp">';
+      html+='<div class="cp-trophy">'+item.medal+'</div>';
+      html+='<div class="cp-card '+cardCls+'" style="'+cardH+'">';
+      html+='<div class="cp-av" style="background:linear-gradient(135deg,'+c1+','+c2+');border-color:'+border+'">'+ini(name)+'</div>';
+      html+='<div class="cp-name">'+name+'</div>';
+      html+='<div class="cp-km" style="color:'+kmColor+'">'+km.toFixed(1)+'</div>';
+      html+='<div class="cp-kl">KM TOTAL</div>';
+      html+='<div class="cp-days">'+(totDays[name]||0)+' days</div>';
+      html+='<div class="cp-bar" style="background:linear-gradient(90deg,'+cfg.bar+',transparent)"></div>';
+      html+='</div>';
+      html+='<div class="cp-rank '+item.rankCls+'">'+item.rank+'</div>';
+      html+='</div>';
+    });
+    el.innerHTML=html;
+  }
+
+  // Overall panel — combined KM across all activities
+  if(totKm){
+    var overallEntries=Object.entries(totKm).sort(function(a,b){return b[1]-a[1];}).slice(0,3);
+    while(overallEntries.length<3) overallEntries.push(null);
+    var overallCfg={key:'Overall',medals:['🥇','🥈','🥉'],ranks:['1ST','2ND','3RD'],cls:['wg','ws','wb'],bar:'var(--orange)',borders:['rgba(249,115,22,.6)','rgba(249,115,22,.35)','rgba(249,115,22,.2)']};
+    var displayOrder=[
+      {data:overallEntries[1],pos:1,medal:overallCfg.medals[1],rank:overallCfg.ranks[1],cls:overallCfg.cls[1]},
+      {data:overallEntries[0],pos:0,medal:overallCfg.medals[0],rank:overallCfg.ranks[0],cls:overallCfg.cls[0]},
+      {data:overallEntries[2],pos:2,medal:overallCfg.medals[2],rank:overallCfg.ranks[2],cls:overallCfg.cls[2]}
+    ];
+    var overallEl=document.getElementById('rcat-podium-all-w');
+    if(overallEl){
+      var html='';
+      displayOrder.forEach(function(item){
+        if(!item.data){html+='<div class="cp"><div class="cp-trophy" style="opacity:.2">'+item.medal+'</div><div class="cp-card wg" style="opacity:.2;min-height:80px"></div><div class="cp-rank wg">'+item.rank+'</div></div>';return;}
+        var name=item.data[0],km=item.data[1];
+        var av=avc(avidx(name));var c1=av[0],c2=av[1];
+        var border=overallCfg.borders[item.pos]||'rgba(255,255,255,.1)';
+        var kmColor=['var(--gold)','var(--silver)','var(--bronze)'][item.pos];
+        var cardH=item.pos===0?'min-height:155px':'min-height:105px';
+        html+='<div class="cp"><div class="cp-trophy">'+item.medal+'</div>';
+        html+='<div class="cp-card wg" style="'+cardH+'">';
+        html+='<div class="cp-av" style="background:linear-gradient(135deg,'+c1+','+c2+');border-color:'+border+'">'+ini(name)+'</div>';
+        html+='<div class="cp-name">'+name+'</div>';
+        html+='<div class="cp-km" style="color:'+kmColor+'">'+km.toFixed(1)+'</div>';
+        html+='<div class="cp-kl">TOTAL KM</div>';
+        html+='<div class="cp-days">'+(totDays[name]||0)+' days</div>';
+        html+='<div class="cp-bar" style="background:linear-gradient(90deg,var(--orange),transparent)"></div>';
+        html+='</div><div class="cp-rank wg">'+item.rank+'</div></div>';
+      });
+      overallEl.innerHTML=html;
+    }
+    // Clear the other two overall panels (not used for overall)
+    var allR=document.getElementById('rcat-podium-all-r');
+    var allC=document.getElementById('rcat-podium-all-c');
+    if(allR) allR.innerHTML='';
+    if(allC) allC.innerHTML='';
+  }
+  // Individual tab panels
+  buildPodium(catCfg.w,'rcat-podium-w');
+  buildPodium(catCfg.r,'rcat-podium-r');
+  buildPodium(catCfg.c,'rcat-podium-c');
 }
 
 /* ══ SHARE ══ */
