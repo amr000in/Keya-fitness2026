@@ -1017,6 +1017,27 @@ function goto(id,el){
 
 // Hidden admin access — type "admin" in URL hash or triple-tap logo
 window.addEventListener('hashchange',()=>{ if(location.hash==='#admin') showAdmin(); });
+/* ══ DEBUG HELPER ══ */
+window.debugFetch = async function(){
+  console.log('Testing CSV fetch...');
+  try{
+    const res = await fetch(MY_CSV+'&t='+Date.now(), {cache:'no-store'});
+    const text = await res.text();
+    const lines = text.trim().split('\n');
+    console.log('CSV lines:', lines.length);
+    console.log('Header:', lines[0]);
+    console.log('Row 1:', lines[1]);
+    console.log('Row 2:', lines[2]);
+    const rows = normalise(parseCSV(text));
+    console.log('Parsed rows:', rows.length);
+    if(rows.length) console.log('First row:', rows[0]);
+  } catch(e){
+    console.error('FETCH ERROR:', e.message);
+  }
+};
+window.debugVersion = 'v16-jun-2026';
+console.log('Keya Fitness', window.debugVersion, '- Type debugFetch() to test CSV');
+
 document.addEventListener('DOMContentLoaded',()=>{ if(location.hash==='#admin') showAdmin(); });
 function showAdmin(){
   // add admin to nav temporarily
