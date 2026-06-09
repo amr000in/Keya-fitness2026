@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0043)file:///C:/Users/Amr/Downloads/index_3.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>100 Days Fitness Challenge 2026 — Keya</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index-v17_files/css2" rel="stylesheet">
 <style>
 :root{
   --bg:#0b0e14;--bg2:#111520;--bg3:#141926;--card:#1a2030;--card2:#1e2638;
@@ -558,6 +558,67 @@ input,textarea,select{font-family:inherit}
 }
 .btn-save-banner:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(249,115,22,.4)}
 
+
+/* ═══ AI SCANNER TAB ═══ */
+.admin-tabs{display:flex;gap:.4rem;margin-bottom:1.4rem;border-bottom:1px solid var(--border);padding-bottom:.6rem}
+.admin-tab{padding:.42rem 1rem;border-radius:50px;font-size:.78rem;font-weight:700;color:var(--muted);cursor:pointer;transition:all .18s;border:1.5px solid transparent}
+.admin-tab.active{color:var(--orange);background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.25)}
+.admin-tab:hover:not(.active){color:var(--text);background:rgba(255,255,255,.04)}
+.admin-panel{display:none}.admin-panel.active{display:block}
+
+/* upload zone */
+.upload-zone{
+  border:2px dashed var(--border2);border-radius:var(--r2);
+  padding:2rem 1rem;text-align:center;cursor:pointer;
+  transition:all .2s;background:rgba(255,255,255,.02);
+  position:relative;
+}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--orange);background:rgba(249,115,22,.04)}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.uz-icon{font-size:2.2rem;margin-bottom:.5rem;display:block}
+.uz-title{font-weight:700;font-size:.9rem;color:var(--white);margin-bottom:.2rem}
+.uz-sub{font-size:.75rem;color:var(--muted)}
+
+/* preview */
+.scan-preview{display:none;margin-top:1rem}
+.scan-img-wrap{position:relative;border-radius:var(--r);overflow:hidden;margin-bottom:1rem;max-height:280px;display:flex;align-items:center;justify-content:center;background:var(--card2)}
+.scan-img-wrap img{max-width:100%;max-height:280px;object-fit:contain;border-radius:var(--r)}
+.scan-img-clear{position:absolute;top:.4rem;right:.4rem;background:rgba(0,0,0,.6);border:none;color:#fff;width:26px;height:26px;border-radius:50%;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* AI result */
+.ai-result{background:var(--card2);border:1px solid var(--border);border-radius:var(--r2);padding:1rem 1.1rem;margin-bottom:1rem}
+.air-title{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:.7rem}
+.air-fields{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.air-field{display:flex;flex-direction:column;gap:.22rem}
+.air-label{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.air-val{font-weight:700;font-size:.95rem;color:var(--white)}
+.air-val.ok{color:var(--green)}.air-val.warn{color:var(--gold)}.air-val.err{color:var(--red)}
+.air-conf{display:flex;align-items:center;gap:.4rem;margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--border);font-size:.72rem;color:var(--muted)}
+.conf-bar{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.conf-fill{height:100%;border-radius:2px;background:var(--green);transition:width .4s ease}
+
+/* scan button */
+.btn-scan{
+  width:100%;padding:.82rem;border:none;border-radius:var(--r);
+  background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;
+  font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;
+  box-shadow:0 6px 20px rgba(124,58,237,.3);transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+}
+.btn-scan:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(124,58,237,.45)}
+.btn-scan:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* scan status */
+.scan-status{display:none;border-radius:var(--r);padding:.78rem 1rem;margin:.8rem 0;font-size:.82rem;font-weight:600;align-items:center;gap:.5rem}
+.scan-status.show{display:flex}
+.scan-status.loading{background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.25);color:#a78bfa}
+.scan-status.ok{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);color:var(--green)}
+.scan-status.err{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);color:var(--red)}
+.scan-status.loading .spin{display:inline-block;animation:spin .8s linear infinite}
+
+/* edit extracted fields */
+.extracted-form{margin-top:.8rem}
+
 </style>
 </head>
 <body>
@@ -567,17 +628,17 @@ input,textarea,select{font-family:inherit}
 <nav class="topnav">
   <div class="nav-brand">
     <div class="nav-logo">🏃 100D FITNESS · KEYA</div>
-    <div class="nav-day"><div class="live-dot"></div><span id="nav-day">Loading…</span></div>
+    <div class="nav-day"><div class="live-dot"></div><span id="nav-day">Day 9 of 100</span></div>
   </div>
   <div class="nav-links">
-    <div class="nav-link active" onclick="goto('home',this)"><span>🏠</span> Home</div>
-    <div class="nav-link" onclick="goto('board',this)"><span>🏆</span> Board</div>
-    <div class="nav-link" onclick="goto('rankings',this)"><span>📋</span> Rankings</div>
-    <div class="nav-link" onclick="goto('faq',this)"><span>❓</span> FAQ</div>
+    <div class="nav-link active" onclick="goto(&#39;home&#39;,this)"><span>🏠</span> Home</div>
+    <div class="nav-link" onclick="goto(&#39;board&#39;,this)"><span>🏆</span> Board</div>
+    <div class="nav-link" onclick="goto(&#39;rankings&#39;,this)"><span>📋</span> Rankings</div>
+    <div class="nav-link" onclick="goto(&#39;faq&#39;,this)"><span>❓</span> FAQ</div>
   </div>
   <div class="nav-right">
     <div class="sync-txt" id="last-sync"></div>
-    <button class="btn-refresh" onclick="fetchData(true)"><span id="ref-icon">↻</span> Refresh</button>
+    <button class="btn-refresh" onclick="fetchData(true)"><span id="ref-icon" class="">↻</span> Refresh</button>
   </div>
 </nav>
 
@@ -620,28 +681,26 @@ input,textarea,select{font-family:inherit}
           <span class="vp">✅ Group Motivation</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center">
-          <button id="reg-btn" class="btn-reg" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdY91lYQoPHhXdzPybz9tkPuYIbuo5faE29KEdCHYfI0Mtqrg/viewform?usp=dialog','_blank')">🎯 Register Now — Free</button>
-          <p class="reg-note" id="reg-note">Registration open until 1 June 2026 · Age 14+</p>
+          <button id="reg-btn" class="btn-reg closed" onclick="window.open(&#39;https://docs.google.com/forms/d/e/1FAIpQLSdY91lYQoPHhXdzPybz9tkPuYIbuo5faE29KEdCHYfI0Mtqrg/viewform?usp=dialog&#39;,&#39;_blank&#39;)">🔒 Registration Closed</button>
+          <p class="reg-note" id="reg-note">Registration closed on 1 June 2026.</p>
         </div>
       </div>
 
       <!-- RIGHT -->
       <div class="hero-right">
         <div class="sec-label" style="margin-bottom:.4rem">Top Achievers</div>
-        <div class="home-podium" id="home-podium">
-          <div class="empty" style="width:100%;padding:1.2rem"><div class="empty-icon">🏁</div><div class="empty-d">Activities from 1 June</div></div>
-        </div>
+        <div class="home-podium" id="home-podium"><div class="empty" style="width:100%;padding:1.2rem"><div class="empty-icon">🏁</div><div class="empty-d">Activities from 1 June 2026</div></div></div>
         <div class="sec-label" style="margin-bottom:.6rem">Challenge Details</div>
         <div class="cs-row"><span class="cs-label">Duration</span><span class="cs-val or">100 Days</span></div>
         <div class="cs-row"><span class="cs-label">Start</span><span class="cs-val">1 June 2026</span></div>
         <div class="cs-row"><span class="cs-label">End</span><span class="cs-val">9 September 2026</span></div>
         <div class="cs-row"><span class="cs-label">Members</span><span class="cs-val gr" id="hero-members">40</span></div>
-        <div class="cs-row"><span class="cs-label">Total KM</span><span class="cs-val sk" id="hero-km">0</span></div>
+        <div class="cs-row"><span class="cs-label">Total KM</span><span class="cs-val sk" id="hero-km">0.0 km</span></div>
         <div class="cs-row"><span class="cs-label">Today</span><span class="cs-val or" id="hero-today">0 logged</span></div>
         <div class="sec-label" style="margin:.8rem 0 .4rem">Progress</div>
-        <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width: 9%;"></div></div>
         <div style="display:flex;justify-content:space-between;margin-top:.35rem;font-size:.62rem;color:var(--muted)">
-          <span>Day <span id="prog-day">1</span></span><span>Day 100</span>
+          <span>Day <span id="prog-day">9</span></span><span>Day 100</span>
         </div>
         <div class="wa-row">
           <div class="wa-icon">📲</div>
@@ -660,7 +719,7 @@ input,textarea,select{font-family:inherit}
     <div class="items-grid" style="margin-bottom:2.5rem">
       <div class="item-card"><span class="item-icon">🎯</span><div class="item-title">Build Discipline</div><div class="item-desc">Show up every day. Small actions compound into extraordinary results.</div></div>
       <div class="item-card"><span class="item-icon">🔁</span><div class="item-title">Stay Consistent</div><div class="item-desc">100 days builds a lifelong fitness habit you'll carry forever.</div></div>
-      <div class="item-card"><span class="item-icon">😄</span><div class="item-title">Fun & Fitness</div><div class="item-desc">Walk, run, or cycle — keep it joyful every single day.</div></div>
+      <div class="item-card"><span class="item-icon">😄</span><div class="item-title">Fun &amp; Fitness</div><div class="item-desc">Walk, run, or cycle — keep it joyful every single day.</div></div>
       <div class="item-card"><span class="item-icon">🏅</span><div class="item-title">Marathon Ready</div><div class="item-desc">Build endurance toward your first 5K, 10K, or half marathon.</div></div>
       <div class="item-card"><span class="item-icon">🤝</span><div class="item-title">Grow Together</div><div class="item-desc">Our apartment community moves and celebrates together.</div></div>
     </div>
@@ -684,23 +743,21 @@ input,textarea,select{font-family:inherit}
 <div id="pg-board" class="page">
   <div class="board-wrap">
     <div class="stats-row">
-      <div class="stat-box"><span class="stat-n" id="lb-p">40</span><div class="stat-l">Members</div></div>
-      <div class="stat-box"><span class="stat-n" id="lb-km">0</span><div class="stat-l">Total KM</div></div>
+      <div class="stat-box"><span class="stat-n" id="lb-p">41</span><div class="stat-l">Members</div></div>
+      <div class="stat-box"><span class="stat-n" id="lb-km">0.0</span><div class="stat-l">Total KM</div></div>
       <div class="stat-box"><span class="stat-n" id="lb-logs">0</span><div class="stat-l">Activities</div></div>
     </div>
 
     <!-- Weekly Awards — TOP of board, below stats -->
     <div class="divider-label" style="margin-top:.2rem">🏅 Weekly Performance Awards</div>
-    <div class="weekly-awards-wrap" id="weekly-awards">
-      <div class="week-nav">
+    <div class="weekly-awards-wrap" id="weekly-awards"><div class="week-nav">
         <button class="week-nav-btn" id="btn-week-prev" onclick="changeWeek(-1)">‹</button>
         <div class="week-nav-label">
           <div class="week-nav-title" id="week-nav-title">This Week</div>
-          <div class="week-nav-sub" id="week-nav-sub">Loading…</div>
+          <div class="week-nav-sub" id="week-nav-sub">8 Jun – 14 Jun</div>
         </div>
-        <button class="week-nav-btn" id="btn-week-next" onclick="changeWeek(1)" disabled>›</button>
-      </div>
-    </div>
+        <button class="week-nav-btn" id="btn-week-next" onclick="changeWeek(1)" disabled="">›</button>
+      </div><div class="wa-card wac-gold" style="border-color:rgba(245,158,11,.3)"><div class="wa-pending"><div class="wa-pend-icon">🥇</div><div><div class="wa-pend-ttl" style="color:var(--gold)">Distance Champion</div><div class="wa-pend-txt">Award decided at week end</div></div></div></div><div class="wa-card wac-green" style="border-color:rgba(34,197,94,.3)"><div class="wa-pending"><div class="wa-pend-icon">🔥</div><div><div class="wa-pend-ttl" style="color:var(--green)">Iron Streak</div><div class="wa-pend-txt">Log activities on consecutive days</div></div></div></div><div class="wa-card wac-orange" style="border-color:rgba(249,115,22,.3)"><div class="wa-pending"><div class="wa-pend-icon">📈</div><div><div class="wa-pend-ttl" style="color:var(--orange)">Progressive Mover</div><div class="wa-pend-txt">Log Walk/Run on multiple days</div></div></div></div></div>
 
   <div id="champ-card" class="champ-card" style="display:none">
       <div>
@@ -727,22 +784,22 @@ input,textarea,select{font-family:inherit}
           <button class="day-nav-btn" id="btn-prev" onclick="changeDay(-1)">‹</button>
           <div class="day-nav-label">
             <div class="day-nav-date" id="nav-date-label">Today</div>
-            <div class="day-nav-day" id="nav-day-num">Day 1 of 100</div>
+            <div class="day-nav-day" id="nav-day-num">Day 9 of 100</div>
           </div>
-          <button class="day-nav-btn" id="btn-next" onclick="changeDay(1)" disabled>›</button>
+          <button class="day-nav-btn" id="btn-next" onclick="changeDay(1)" disabled="">›</button>
         </div>
 
         <!-- Category Achievers — updates with day navigation -->
         <div class="divider-label" style="margin-top:1rem;width:100%;justify-content:center">🥇 Today's Category Leaders</div>
         <div class="cat-tabs" style="justify-content:center;width:100%">
-          <button class="cat-tab aw" onclick="showCat('w',this)">🚶 Walking</button>
-          <button class="cat-tab" onclick="showCat('r',this)">🏃 Running</button>
-          <button class="cat-tab" onclick="showCat('c',this)">🚴 Cycling</button>
+          <button class="cat-tab aw" onclick="showCat(&#39;w&#39;,this)">🚶 Walking</button>
+          <button class="cat-tab" onclick="showCat(&#39;r&#39;,this)">🏃 Running</button>
+          <button class="cat-tab" onclick="showCat(&#39;c&#39;,this)">🚴 Cycling</button>
         </div>
-        <div class="cat-panel active" id="cat-w"></div>
-        <div class="cat-panel" id="cat-r"></div>
-        <div class="cat-panel" id="cat-c"></div>
-        <div class="groups-stack" id="groups-wrap" style="width:100%"></div>
+        <div class="cat-panel active" id="cat-w"><div class="cat-empty">No Walking entries yet — be the first! 💪</div></div>
+        <div class="cat-panel" id="cat-r"><div class="cat-empty">No Running entries yet — be the first! 💪</div></div>
+        <div class="cat-panel" id="cat-c"><div class="cat-empty">No Cycling entries yet — be the first! 💪</div></div>
+        <div class="groups-stack" id="groups-wrap" style="width:100%"><div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:#3b82f6"></div><div class="group-name" style="color:#3b82f6">🔵 Group 1</div><div class="group-done" style="background:#3b82f618;color:#3b82f6">Not started</div></div><div class="group-members"><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">AT</div><div class="mc-name">Asmita Tiwari</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#c62828,#b71c1c)">ST</div><div class="mc-name">Sipra Tripathy</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)">YK</div><div class="mc-name">Yogesh Karira</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">GS</div><div class="mc-name">Geeta Sharma</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#00695c,#004d40)">PB</div><div class="mc-name">Parveen Bansal</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div></div><div class="mentor-flow">Flow: <strong>Asmita → Sipra → Yogesh → Geeta → Parveen → Asmita</strong></div></div><div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:#22c55e"></div><div class="group-name" style="color:#22c55e">🟢 Group 2</div><div class="group-done" style="background:#22c55e18;color:#22c55e">Not started</div></div><div class="group-members"><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#1b5e20,#33691e)">S</div><div class="mc-name">Shobha</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#0277bd,#01579b)">AR</div><div class="mc-name">Aakash Rayate</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#558b2f,#33691e)">SA</div><div class="mc-name">Sonam Agnihotri</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#f57f17,#e65100)">NG</div><div class="mc-name">Neha Goel</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#37474f,#263238)">BL</div><div class="mc-name">Binay Lal</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div></div><div class="mentor-flow">Flow: <strong>Shobha → Aakash → Sonam → Neha → Binay → Shobha</strong></div></div><div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:#f97316"></div><div class="group-name" style="color:#f97316">🟠 Group 3</div><div class="group-done" style="background:#f9731618;color:#f97316">Not started</div></div><div class="group-members"><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#4527a0,#311b92)">PM</div><div class="mc-name">Poulomi Mukherjee</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#2e7d32,#1b5e20)">PA</div><div class="mc-name">Puneet Ahuja</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#ad1457,#880e4f)">JB</div><div class="mc-name">Jaya Bharti</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#0288d1,#01579b)">A</div><div class="mc-name">Ankit</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#bf360c,#7f0000)">PG</div><div class="mc-name">Pooja Gupta</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div></div><div class="mentor-flow">Flow: <strong>Poulomi → Puneet → Jaya → Ankit → Pooja → Poulomi</strong></div></div><div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:#a78bfa"></div><div class="group-name" style="color:#a78bfa">🟣 Group 4</div><div class="group-done" style="background:#a78bfa18;color:#a78bfa">Not started</div></div><div class="group-members"><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#1a237e,#283593)">SP</div><div class="mc-name">Shibani Pattnaik</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#33691e,#1b5e20)">SS</div><div class="mc-name">Shubham Singh</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#006064,#00838f)">PK</div><div class="mc-name">Pritam Kumari</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#4a148c,#6a1b9a)">SP</div><div class="mc-name">Shilpy Pateriya</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#e65100,#f57f17)">GV</div><div class="mc-name">Gaurav Verma</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div></div><div class="mentor-flow">Flow: <strong>Shibani → Shubham → Pritam → Shilpy → Gaurav → Shibani</strong></div></div><div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:#ef4444"></div><div class="group-name" style="color:#ef4444">🔴 Group 5</div><div class="group-done" style="background:#ef444418;color:#ef4444">Not started</div></div><div class="group-members"><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#1b5e20,#388e3c)">PC</div><div class="mc-name">Praveen Choudhary</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#880e4f,#c2185b)">S</div><div class="mc-name">Shyamala</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#bf360c,#e64a19)">JB</div><div class="mc-name">Jyotika Bhurani</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#37474f,#546e7a)">ST</div><div class="mc-name">Saksham Tandone</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#0d47a1,#1976d2)">KT</div><div class="mc-name">Kali Tripathy</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div></div><div class="mentor-flow">Flow: <strong>Praveen → Shyamala → Jyotika → Saksham → Kali → Praveen</strong></div></div><div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:#eab308"></div><div class="group-name" style="color:#eab308">🟡 Group 6</div><div class="group-done" style="background:#eab30818;color:#eab308">Not started</div></div><div class="group-members"><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#2e7d32,#388e3c)">AS</div><div class="mc-name">Aparna Shinde</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#6a1b9a,#7b1fa2)">AG</div><div class="mc-name">Aman Gupta</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#b71c1c,#c62828)">KA</div><div class="mc-name">Kumar Abhishek</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#01579b,#0277bd)">ST</div><div class="mc-name">Shikha Tandon</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">MH</div><div class="mc-name">Mayuri Hegde</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div></div><div class="mentor-flow">Flow: <strong>Aparna → Aman → Abhishek → Shikha → Mayuri → Aparna</strong></div></div><div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:#a8805a"></div><div class="group-name" style="color:#a8805a">🟤 Group 7</div><div class="group-done" style="background:#a8805a18;color:#a8805a">Not started</div></div><div class="group-members"><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#004d40,#00695c)">RG</div><div class="mc-name">Renu Goel</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#33691e,#558b2f)">BL</div><div class="mc-name">BIBEK LAL</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#263238,#37474f)">DO</div><div class="mc-name">Dikshant Ohri</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#311b92,#4527a0)">ST</div><div class="mc-name">Surabhi Telang</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#880e4f,#ad1457)">P</div><div class="mc-name">Pooja</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div></div><div class="mentor-flow">Flow: <strong>Renu → Bibek → Dikshant → Surabhi → Pooja → Renu</strong></div></div><div class="group-block"><div class="group-hdr"><div class="group-dot" style="background:#9ca3af"></div><div class="group-name" style="color:#9ca3af">⚫ Group 8</div><div class="group-done" style="background:#9ca3af18;color:#9ca3af">Not started</div></div><div class="group-members"><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#7f0000,#bf360c)">SM</div><div class="mc-name">Saswati Mahapatra</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#283593,#1a237e)">A</div><div class="mc-name">Amar</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#00838f,#006064)">RJ</div><div class="mc-name">Richa Johar</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#f57f17,#f9a825)">TS</div><div class="mc-name">Thavakumar Swaminathan</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#388e3c,#2e7d32)">SL</div><div class="mc-name">Shubham Lakhotia</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div><div class="mc pending"><div class="mc-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">PK</div><div class="mc-name">Parita Kachhela</div><div class="mc-km">0<span style="font-size:.42rem"> km</span></div></div></div><div class="mentor-flow">Flow: <strong>Saswati → Amar → Richa → Thavakumar → Shubham → Parita → Saswati</strong></div></div></div>
         <!-- Fitness Buddy Concept -->
         <div style="background:var(--card);border:1px solid rgba(249,115,22,.2);border-radius:var(--r2);padding:1rem 1.1rem;margin-bottom:.9rem;position:relative;overflow:hidden">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--gold))"></div>
@@ -752,18 +809,18 @@ input,textarea,select{font-family:inherit}
           </div>
           <div style="background:rgba(249,115,22,.06);border-radius:8px;padding:.55rem .8rem;margin-bottom:.55rem;text-align:center">
             <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:.2rem">Accountability Circle</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:3px;color:var(--white)">A &rarr; B &rarr; C &rarr; D &rarr; A</div>
+            <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.05rem;letter-spacing:3px;color:var(--white)">A → B → C → D → A</div>
           </div>
           <div style="font-size:.74rem;color:var(--text);line-height:1.65;margin-bottom:.5rem">
-            <span style="color:var(--green)">&#10004;</span> Check if your buddy completed their activity<br>
-            <span style="color:var(--sky)">&#10004;</span> Encourage them when feeling low<br>
-            <span style="color:var(--gold)">&#10004;</span> Remind them if they forget<br>
-            <span style="color:var(--purple)">&#10004;</span> Celebrate their achievements
+            <span style="color:var(--green)">✔</span> Check if your buddy completed their activity<br>
+            <span style="color:var(--sky)">✔</span> Encourage them when feeling low<br>
+            <span style="color:var(--gold)">✔</span> Remind them if they forget<br>
+            <span style="color:var(--purple)">✔</span> Celebrate their achievements
           </div>
           <div style="background:rgba(56,189,248,.06);border-radius:8px;padding:.5rem .8rem;font-size:.73rem;color:var(--sky);font-style:italic;margin-bottom:.5rem;text-align:center">
             "Did you complete today's activity?" — A simple message makes a huge difference
           </div>
-          <div style="text-align:center;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:2px;color:var(--orange)">Discipline + Consistency = Results</div>
+          <div style="text-align:center;font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:.95rem;letter-spacing:2px;color:var(--orange)">Discipline + Consistency = Results</div>
         </div>
       </div>
     </div>
@@ -778,44 +835,44 @@ input,textarea,select{font-family:inherit}
     <h2 class="sec-title">Full <span>Rankings</span></h2>
 
     <div class="rank-filter-tabs">
-      <button class="rft active-all" onclick="showRankFilter('all',this)">🏅 Overall</button>
-      <button class="rft" onclick="showRankFilter('w',this)">🚶 Walking</button>
-      <button class="rft" onclick="showRankFilter('r',this)">🏃 Running</button>
-      <button class="rft" onclick="showRankFilter('c',this)">🚴 Cycling</button>
+      <button class="rft active-all" onclick="showRankFilter(&#39;all&#39;,this)">🏅 Overall</button>
+      <button class="rft" onclick="showRankFilter(&#39;w&#39;,this)">🚶 Walking</button>
+      <button class="rft" onclick="showRankFilter(&#39;r&#39;,this)">🏃 Running</button>
+      <button class="rft" onclick="showRankFilter(&#39;c&#39;,this)">🚴 Cycling</button>
     </div>
 
     <!-- CATEGORY ACHIEVERS — linked to tab selection -->
     <div style="margin-top:1.2rem;margin-bottom:1.2rem">
       <div id="rcat-panel-all" class="rcat-linked-panel">
         <div style="display:flex;flex-direction:column;gap:1rem">
-          <div class="cat-podium-3" id="rcat-podium-all-w"></div>
+          <div class="cat-podium-3" id="rcat-podium-all-w"><div class="cp"><div class="cp-trophy" style="opacity:.2">🥈</div><div class="cp-card wg" style="opacity:.2;min-height:80px"></div><div class="cp-rank wg">2ND</div></div><div class="cp"><div class="cp-trophy" style="opacity:.2">🥇</div><div class="cp-card wg" style="opacity:.2;min-height:80px"></div><div class="cp-rank wg">1ST</div></div><div class="cp"><div class="cp-trophy" style="opacity:.2">🥉</div><div class="cp-card wg" style="opacity:.2;min-height:80px"></div><div class="cp-rank wg">3RD</div></div></div>
           <div class="cat-podium-3" id="rcat-podium-all-r"></div>
           <div class="cat-podium-3" id="rcat-podium-all-c"></div>
         </div>
       </div>
       <div id="rcat-panel-w" class="rcat-linked-panel" style="display:none">
-        <div class="cat-podium-3" id="rcat-podium-w"></div>
+        <div class="cat-podium-3" id="rcat-podium-w"><div class="cat-empty" style="width:100%">No Walking entries yet 💪</div></div>
       </div>
       <div id="rcat-panel-r" class="rcat-linked-panel" style="display:none">
-        <div class="cat-podium-3" id="rcat-podium-r"></div>
+        <div class="cat-podium-3" id="rcat-podium-r"><div class="cat-empty" style="width:100%">No Running entries yet 💪</div></div>
       </div>
       <div id="rcat-panel-c" class="rcat-linked-panel" style="display:none">
-        <div class="cat-podium-3" id="rcat-podium-c"></div>
+        <div class="cat-podium-3" id="rcat-podium-c"><div class="cat-empty" style="width:100%">No Cycling entries yet 💪</div></div>
       </div>
     </div>
 
 
     <div id="rank-all" class="rank-panel">
-      <div class="rank-list" id="rank-list-all"></div>
+      <div class="rank-list" id="rank-list-all"><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">AT</div><div class="rank-info"><div class="rank-name">Asmita Tiwari</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#c62828,#b71c1c)">ST</div><div class="rank-info"><div class="rank-name">Sipra Tripathy</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)">YK</div><div class="rank-info"><div class="rank-name">Yogesh Karira</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">GS</div><div class="rank-info"><div class="rank-name">Geeta Sharma</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#00695c,#004d40)">PB</div><div class="rank-info"><div class="rank-name">Parveen Bansal</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1b5e20,#33691e)">S</div><div class="rank-info"><div class="rank-name">Shobha</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0277bd,#01579b)">AR</div><div class="rank-info"><div class="rank-name">Aakash Rayate</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#558b2f,#33691e)">SA</div><div class="rank-info"><div class="rank-name">Sonam Agnihotri</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#f57f17,#e65100)">NG</div><div class="rank-info"><div class="rank-name">Neha Goel</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#37474f,#263238)">BL</div><div class="rank-info"><div class="rank-name">Binay Lal</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#4527a0,#311b92)">PM</div><div class="rank-info"><div class="rank-name">Poulomi Mukherjee</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#2e7d32,#1b5e20)">PA</div><div class="rank-info"><div class="rank-name">Puneet Ahuja</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#ad1457,#880e4f)">JB</div><div class="rank-info"><div class="rank-name">Jaya Bharti</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0288d1,#01579b)">A</div><div class="rank-info"><div class="rank-name">Ankit</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#bf360c,#7f0000)">PG</div><div class="rank-info"><div class="rank-name">Pooja Gupta</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1a237e,#283593)">SP</div><div class="rank-info"><div class="rank-name">Shibani Pattnaik</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#33691e,#1b5e20)">SS</div><div class="rank-info"><div class="rank-name">Shubham Singh</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#006064,#00838f)">PK</div><div class="rank-info"><div class="rank-name">Pritam Kumari</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#4a148c,#6a1b9a)">SP</div><div class="rank-info"><div class="rank-name">Shilpy Pateriya</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#f57f17)">GV</div><div class="rank-info"><div class="rank-name">Gaurav Verma</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1b5e20,#388e3c)">PC</div><div class="rank-info"><div class="rank-name">Praveen Choudhary</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#880e4f,#c2185b)">S</div><div class="rank-info"><div class="rank-name">Shyamala</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#bf360c,#e64a19)">JB</div><div class="rank-info"><div class="rank-name">Jyotika Bhurani</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#37474f,#546e7a)">ST</div><div class="rank-info"><div class="rank-name">Saksham Tandone</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0d47a1,#1976d2)">KT</div><div class="rank-info"><div class="rank-name">Kali Tripathy</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#2e7d32,#388e3c)">AS</div><div class="rank-info"><div class="rank-name">Aparna Shinde</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#6a1b9a,#7b1fa2)">AG</div><div class="rank-info"><div class="rank-name">Aman Gupta</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#b71c1c,#c62828)">KA</div><div class="rank-info"><div class="rank-name">Kumar Abhishek</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#01579b,#0277bd)">ST</div><div class="rank-info"><div class="rank-name">Shikha Tandon</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">MH</div><div class="rank-info"><div class="rank-name">Mayuri Hegde</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#004d40,#00695c)">RG</div><div class="rank-info"><div class="rank-name">Renu Goel</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#33691e,#558b2f)">BL</div><div class="rank-info"><div class="rank-name">BIBEK LAL</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#263238,#37474f)">DO</div><div class="rank-info"><div class="rank-name">Dikshant Ohri</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#311b92,#4527a0)">ST</div><div class="rank-info"><div class="rank-name">Surabhi Telang</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#880e4f,#ad1457)">P</div><div class="rank-info"><div class="rank-name">Pooja</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#7f0000,#bf360c)">SM</div><div class="rank-info"><div class="rank-name">Saswati Mahapatra</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#283593,#1a237e)">A</div><div class="rank-info"><div class="rank-name">Amar</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#00838f,#006064)">RJ</div><div class="rank-info"><div class="rank-name">Richa Johar</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#f57f17,#f9a825)">TS</div><div class="rank-info"><div class="rank-name">Thavakumar Swaminathan</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#388e3c,#2e7d32)">SL</div><div class="rank-info"><div class="rank-name">Shubham Lakhotia</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">PK</div><div class="rank-info"><div class="rank-name">Parita Kachhela</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div></div>
     </div>
     <div id="rank-w" class="rank-panel" style="display:none">
-      <div class="rank-list" id="rank-list-w"></div>
+      <div class="rank-list" id="rank-list-w"><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">AT</div><div class="rank-info"><div class="rank-name">Asmita Tiwari</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#c62828,#b71c1c)">ST</div><div class="rank-info"><div class="rank-name">Sipra Tripathy</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)">YK</div><div class="rank-info"><div class="rank-name">Yogesh Karira</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">GS</div><div class="rank-info"><div class="rank-name">Geeta Sharma</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#00695c,#004d40)">PB</div><div class="rank-info"><div class="rank-name">Parveen Bansal</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1b5e20,#33691e)">S</div><div class="rank-info"><div class="rank-name">Shobha</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0277bd,#01579b)">AR</div><div class="rank-info"><div class="rank-name">Aakash Rayate</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#558b2f,#33691e)">SA</div><div class="rank-info"><div class="rank-name">Sonam Agnihotri</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#f57f17,#e65100)">NG</div><div class="rank-info"><div class="rank-name">Neha Goel</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#37474f,#263238)">BL</div><div class="rank-info"><div class="rank-name">Binay Lal</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#4527a0,#311b92)">PM</div><div class="rank-info"><div class="rank-name">Poulomi Mukherjee</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#2e7d32,#1b5e20)">PA</div><div class="rank-info"><div class="rank-name">Puneet Ahuja</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#ad1457,#880e4f)">JB</div><div class="rank-info"><div class="rank-name">Jaya Bharti</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0288d1,#01579b)">A</div><div class="rank-info"><div class="rank-name">Ankit</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#bf360c,#7f0000)">PG</div><div class="rank-info"><div class="rank-name">Pooja Gupta</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1a237e,#283593)">SP</div><div class="rank-info"><div class="rank-name">Shibani Pattnaik</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#33691e,#1b5e20)">SS</div><div class="rank-info"><div class="rank-name">Shubham Singh</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#006064,#00838f)">PK</div><div class="rank-info"><div class="rank-name">Pritam Kumari</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#4a148c,#6a1b9a)">SP</div><div class="rank-info"><div class="rank-name">Shilpy Pateriya</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#f57f17)">GV</div><div class="rank-info"><div class="rank-name">Gaurav Verma</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1b5e20,#388e3c)">PC</div><div class="rank-info"><div class="rank-name">Praveen Choudhary</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#880e4f,#c2185b)">S</div><div class="rank-info"><div class="rank-name">Shyamala</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#bf360c,#e64a19)">JB</div><div class="rank-info"><div class="rank-name">Jyotika Bhurani</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#37474f,#546e7a)">ST</div><div class="rank-info"><div class="rank-name">Saksham Tandone</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0d47a1,#1976d2)">KT</div><div class="rank-info"><div class="rank-name">Kali Tripathy</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#2e7d32,#388e3c)">AS</div><div class="rank-info"><div class="rank-name">Aparna Shinde</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#6a1b9a,#7b1fa2)">AG</div><div class="rank-info"><div class="rank-name">Aman Gupta</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#b71c1c,#c62828)">KA</div><div class="rank-info"><div class="rank-name">Kumar Abhishek</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#01579b,#0277bd)">ST</div><div class="rank-info"><div class="rank-name">Shikha Tandon</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">MH</div><div class="rank-info"><div class="rank-name">Mayuri Hegde</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#004d40,#00695c)">RG</div><div class="rank-info"><div class="rank-name">Renu Goel</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#33691e,#558b2f)">BL</div><div class="rank-info"><div class="rank-name">BIBEK LAL</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#263238,#37474f)">DO</div><div class="rank-info"><div class="rank-name">Dikshant Ohri</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#311b92,#4527a0)">ST</div><div class="rank-info"><div class="rank-name">Surabhi Telang</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#880e4f,#ad1457)">P</div><div class="rank-info"><div class="rank-name">Pooja</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#7f0000,#bf360c)">SM</div><div class="rank-info"><div class="rank-name">Saswati Mahapatra</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#283593,#1a237e)">A</div><div class="rank-info"><div class="rank-name">Amar</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#00838f,#006064)">RJ</div><div class="rank-info"><div class="rank-name">Richa Johar</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#f57f17,#f9a825)">TS</div><div class="rank-info"><div class="rank-name">Thavakumar Swaminathan</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#388e3c,#2e7d32)">SL</div><div class="rank-info"><div class="rank-name">Shubham Lakhotia</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">PK</div><div class="rank-info"><div class="rank-name">Parita Kachhela</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div></div>
     </div>
     <div id="rank-r" class="rank-panel" style="display:none">
-      <div class="rank-list" id="rank-list-r"></div>
+      <div class="rank-list" id="rank-list-r"><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">AT</div><div class="rank-info"><div class="rank-name">Asmita Tiwari</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#c62828,#b71c1c)">ST</div><div class="rank-info"><div class="rank-name">Sipra Tripathy</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)">YK</div><div class="rank-info"><div class="rank-name">Yogesh Karira</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">GS</div><div class="rank-info"><div class="rank-name">Geeta Sharma</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#00695c,#004d40)">PB</div><div class="rank-info"><div class="rank-name">Parveen Bansal</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1b5e20,#33691e)">S</div><div class="rank-info"><div class="rank-name">Shobha</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0277bd,#01579b)">AR</div><div class="rank-info"><div class="rank-name">Aakash Rayate</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#558b2f,#33691e)">SA</div><div class="rank-info"><div class="rank-name">Sonam Agnihotri</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#f57f17,#e65100)">NG</div><div class="rank-info"><div class="rank-name">Neha Goel</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#37474f,#263238)">BL</div><div class="rank-info"><div class="rank-name">Binay Lal</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#4527a0,#311b92)">PM</div><div class="rank-info"><div class="rank-name">Poulomi Mukherjee</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#2e7d32,#1b5e20)">PA</div><div class="rank-info"><div class="rank-name">Puneet Ahuja</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#ad1457,#880e4f)">JB</div><div class="rank-info"><div class="rank-name">Jaya Bharti</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0288d1,#01579b)">A</div><div class="rank-info"><div class="rank-name">Ankit</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#bf360c,#7f0000)">PG</div><div class="rank-info"><div class="rank-name">Pooja Gupta</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1a237e,#283593)">SP</div><div class="rank-info"><div class="rank-name">Shibani Pattnaik</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#33691e,#1b5e20)">SS</div><div class="rank-info"><div class="rank-name">Shubham Singh</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#006064,#00838f)">PK</div><div class="rank-info"><div class="rank-name">Pritam Kumari</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#4a148c,#6a1b9a)">SP</div><div class="rank-info"><div class="rank-name">Shilpy Pateriya</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#f57f17)">GV</div><div class="rank-info"><div class="rank-name">Gaurav Verma</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1b5e20,#388e3c)">PC</div><div class="rank-info"><div class="rank-name">Praveen Choudhary</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#880e4f,#c2185b)">S</div><div class="rank-info"><div class="rank-name">Shyamala</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#bf360c,#e64a19)">JB</div><div class="rank-info"><div class="rank-name">Jyotika Bhurani</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#37474f,#546e7a)">ST</div><div class="rank-info"><div class="rank-name">Saksham Tandone</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0d47a1,#1976d2)">KT</div><div class="rank-info"><div class="rank-name">Kali Tripathy</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#2e7d32,#388e3c)">AS</div><div class="rank-info"><div class="rank-name">Aparna Shinde</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#6a1b9a,#7b1fa2)">AG</div><div class="rank-info"><div class="rank-name">Aman Gupta</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#b71c1c,#c62828)">KA</div><div class="rank-info"><div class="rank-name">Kumar Abhishek</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#01579b,#0277bd)">ST</div><div class="rank-info"><div class="rank-name">Shikha Tandon</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">MH</div><div class="rank-info"><div class="rank-name">Mayuri Hegde</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#004d40,#00695c)">RG</div><div class="rank-info"><div class="rank-name">Renu Goel</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#33691e,#558b2f)">BL</div><div class="rank-info"><div class="rank-name">BIBEK LAL</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#263238,#37474f)">DO</div><div class="rank-info"><div class="rank-name">Dikshant Ohri</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#311b92,#4527a0)">ST</div><div class="rank-info"><div class="rank-name">Surabhi Telang</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#880e4f,#ad1457)">P</div><div class="rank-info"><div class="rank-name">Pooja</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#7f0000,#bf360c)">SM</div><div class="rank-info"><div class="rank-name">Saswati Mahapatra</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#283593,#1a237e)">A</div><div class="rank-info"><div class="rank-name">Amar</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#00838f,#006064)">RJ</div><div class="rank-info"><div class="rank-name">Richa Johar</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#f57f17,#f9a825)">TS</div><div class="rank-info"><div class="rank-name">Thavakumar Swaminathan</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#388e3c,#2e7d32)">SL</div><div class="rank-info"><div class="rank-name">Shubham Lakhotia</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">PK</div><div class="rank-info"><div class="rank-name">Parita Kachhela</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div></div>
     </div>
     <div id="rank-c" class="rank-panel" style="display:none">
-      <div class="rank-list" id="rank-list-c"></div>
+      <div class="rank-list" id="rank-list-c"><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">AT</div><div class="rank-info"><div class="rank-name">Asmita Tiwari</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#c62828,#b71c1c)">ST</div><div class="rank-info"><div class="rank-name">Sipra Tripathy</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)">YK</div><div class="rank-info"><div class="rank-name">Yogesh Karira</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">GS</div><div class="rank-info"><div class="rank-name">Geeta Sharma</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#00695c,#004d40)">PB</div><div class="rank-info"><div class="rank-name">Parveen Bansal</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1b5e20,#33691e)">S</div><div class="rank-info"><div class="rank-name">Shobha</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0277bd,#01579b)">AR</div><div class="rank-info"><div class="rank-name">Aakash Rayate</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#558b2f,#33691e)">SA</div><div class="rank-info"><div class="rank-name">Sonam Agnihotri</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#f57f17,#e65100)">NG</div><div class="rank-info"><div class="rank-name">Neha Goel</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#37474f,#263238)">BL</div><div class="rank-info"><div class="rank-name">Binay Lal</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#4527a0,#311b92)">PM</div><div class="rank-info"><div class="rank-name">Poulomi Mukherjee</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#2e7d32,#1b5e20)">PA</div><div class="rank-info"><div class="rank-name">Puneet Ahuja</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#ad1457,#880e4f)">JB</div><div class="rank-info"><div class="rank-name">Jaya Bharti</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0288d1,#01579b)">A</div><div class="rank-info"><div class="rank-name">Ankit</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#bf360c,#7f0000)">PG</div><div class="rank-info"><div class="rank-name">Pooja Gupta</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1a237e,#283593)">SP</div><div class="rank-info"><div class="rank-name">Shibani Pattnaik</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#33691e,#1b5e20)">SS</div><div class="rank-info"><div class="rank-name">Shubham Singh</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#006064,#00838f)">PK</div><div class="rank-info"><div class="rank-name">Pritam Kumari</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#4a148c,#6a1b9a)">SP</div><div class="rank-info"><div class="rank-name">Shilpy Pateriya</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#f57f17)">GV</div><div class="rank-info"><div class="rank-name">Gaurav Verma</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1b5e20,#388e3c)">PC</div><div class="rank-info"><div class="rank-name">Praveen Choudhary</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#880e4f,#c2185b)">S</div><div class="rank-info"><div class="rank-name">Shyamala</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#bf360c,#e64a19)">JB</div><div class="rank-info"><div class="rank-name">Jyotika Bhurani</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#37474f,#546e7a)">ST</div><div class="rank-info"><div class="rank-name">Saksham Tandone</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#0d47a1,#1976d2)">KT</div><div class="rank-info"><div class="rank-name">Kali Tripathy</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#2e7d32,#388e3c)">AS</div><div class="rank-info"><div class="rank-name">Aparna Shinde</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#6a1b9a,#7b1fa2)">AG</div><div class="rank-info"><div class="rank-name">Aman Gupta</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#b71c1c,#c62828)">KA</div><div class="rank-info"><div class="rank-name">Kumar Abhishek</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#01579b,#0277bd)">ST</div><div class="rank-info"><div class="rank-name">Shikha Tandon</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#e65100,#bf360c)">MH</div><div class="rank-info"><div class="rank-name">Mayuri Hegde</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#004d40,#00695c)">RG</div><div class="rank-info"><div class="rank-name">Renu Goel</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#33691e,#558b2f)">BL</div><div class="rank-info"><div class="rank-name">BIBEK LAL</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#263238,#37474f)">DO</div><div class="rank-info"><div class="rank-name">Dikshant Ohri</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#311b92,#4527a0)">ST</div><div class="rank-info"><div class="rank-name">Surabhi Telang</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#880e4f,#ad1457)">P</div><div class="rank-info"><div class="rank-name">Pooja</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#7f0000,#bf360c)">SM</div><div class="rank-info"><div class="rank-name">Saswati Mahapatra</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#283593,#1a237e)">A</div><div class="rank-info"><div class="rank-name">Amar</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#00838f,#006064)">RJ</div><div class="rank-info"><div class="rank-name">Richa Johar</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#f57f17,#f9a825)">TS</div><div class="rank-info"><div class="rank-name">Thavakumar Swaminathan</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#388e3c,#2e7d32)">SL</div><div class="rank-info"><div class="rank-name">Shubham Lakhotia</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div><div class="rank-item" style="opacity:.35"><div class="rank-num ">—</div><div class="rank-av" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">PK</div><div class="rank-info"><div class="rank-name">Parita Kachhela</div><div class="rank-sub">0 days</div></div><div class="rank-km">0.0<small> km</small></div></div></div>
     </div>
 
 
@@ -832,9 +889,9 @@ input,textarea,select{font-family:inherit}
     <div class="lock-title">Admin Access</div>
     <div class="lock-desc">Enter the 4-digit PIN to access the activity log</div>
     <div class="pin-wrap">
-      <input class="pin-input" id="pin1" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,'pin2')">
-      <input class="pin-input" id="pin2" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,'pin3')">
-      <input class="pin-input" id="pin3" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,'pin4')">
+      <input class="pin-input" id="pin1" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,&#39;pin2&#39;)">
+      <input class="pin-input" id="pin2" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,&#39;pin3&#39;)">
+      <input class="pin-input" id="pin3" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,&#39;pin4&#39;)">
       <input class="pin-input" id="pin4" type="password" maxlength="1" inputmode="numeric" oninput="pinNext(this,null)">
     </div>
     <button class="btn-unlock" onclick="checkPin()">Unlock</button>
@@ -846,10 +903,107 @@ input,textarea,select{font-family:inherit}
     <div class="admin-hdr">
       <div class="sec-label">Admin · Control Panel</div>
       <h2>Admin <span>Panel</span></h2>
-      <p>Manage banner, log activities · reflects on site instantly</p>
+      <p>Manage banner · scan screenshots · log activities</p>
     </div>
 
-    <!-- ── BANNER CONTROL ── -->
+    <!-- TABS -->
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchAdminTab(&#39;scan&#39;,this)">📸 Scan Screenshot</button>
+      <button class="admin-tab" onclick="switchAdminTab(&#39;log&#39;,this)">✏️ Manual Entry</button>
+      <button class="admin-tab" onclick="switchAdminTab(&#39;banner&#39;,this)">🌟 Banner</button>
+    </div>
+
+    <!-- ══ SCAN SCREENSHOT PANEL ══ -->
+    <div id="admin-panel-scan" class="admin-panel active">
+      <div class="fs-title">Upload Activity Screenshot</div>
+
+      <div class="upload-zone" id="scan-upload-zone" ondragover="event.preventDefault();this.classList.add(&#39;drag&#39;)" ondragleave="this.classList.remove(&#39;drag&#39;)" ondrop="handleScanDrop(event)">
+        <input type="file" id="scan-file-input" accept="image/*" onchange="handleScanFile(this)">
+        <span class="uz-icon">📷</span>
+        <div class="uz-title">Tap to upload or drag screenshot here</div>
+        <div class="uz-sub">Strava · Apple Health · Garmin · Google Fit · Nike Run · Watch photo</div>
+      </div>
+
+      <div class="scan-preview" id="scan-preview">
+        <div class="scan-img-wrap">
+          <img id="scan-img" src="file:///C:/Users/Amr/Downloads/index_3.html" alt="Activity screenshot">
+          <button class="scan-img-clear" onclick="clearScan()" title="Remove">✕</button>
+        </div>
+
+        <div class="scan-status" id="scan-status"></div>
+
+        <button class="btn-scan" id="btn-scan" onclick="runScan()">
+          <span id="scan-btn-icon">✨</span> Read with AI
+        </button>
+
+        <!-- Extracted result + editable form -->
+        <div id="scan-result" style="display:none">
+          <div class="ai-result">
+            <div class="air-title">✅ AI Extracted Data</div>
+            <div class="air-fields">
+              <div class="air-field"><div class="air-label">Activity</div><div class="air-val ok" id="air-act">—</div></div>
+              <div class="air-field"><div class="air-label">Distance</div><div class="air-val ok" id="air-km">—</div></div>
+              <div class="air-field"><div class="air-label">Date</div><div class="air-val" id="air-date">—</div></div>
+              <div class="air-field"><div class="air-label">Source App</div><div class="air-val" id="air-app">—</div></div>
+            </div>
+            <div class="air-conf">
+              <span>AI Confidence</span>
+              <div class="conf-bar"><div class="conf-fill" id="conf-fill" style="width:0%"></div></div>
+              <span id="conf-pct">0%</span>
+            </div>
+          </div>
+
+          <!-- Editable fields to confirm before saving -->
+          <div class="extracted-form">
+            <div class="fs-title">Confirm &amp; Save</div>
+            <div class="fg">
+              <label class="fl">Member Name *</label>
+              <div class="nd-wrap">
+                <input class="fi" id="sc-name-search" type="text" placeholder="🔍 Search member name…" autocomplete="off" oninput="filterScanNames(this.value)" onfocus="showScanDrop()" onblur="setTimeout(hideScanDrop,200)">
+                <input type="hidden" id="sc-name">
+                <div class="nd-drop" id="sc-nd-drop"></div>
+              </div>
+              <div class="nd-confirm" id="sc-nd-confirm"></div>
+            </div>
+            <div class="fr2">
+              <div class="fg">
+                <label class="fl">Activity Type *</label>
+                <select class="fi" id="sc-act">
+                  <option value="">Select…</option>
+                  <option value="Walking">🚶 Walking</option>
+                  <option value="Running">🏃 Running</option>
+                  <option value="Cycling">🚴 Cycling</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="fl">Distance (km) *</label>
+                <input class="fi" id="sc-km" type="number" step="0.01" min="0" placeholder="e.g. 4.2" inputmode="decimal">
+              </div>
+            </div>
+            <div class="fr2">
+              <div class="fg">
+                <label class="fl">Date *</label>
+                <input class="fi" id="sc-date" type="date">
+              </div>
+              <div class="fg">
+                <label class="fl">Notes</label>
+                <input class="fi" id="sc-notes" type="text" placeholder="Optional notes">
+              </div>
+            </div>
+            <div class="sub-status" id="sc-sub-status"></div>
+            <button class="btn-sub" id="sc-sub-btn" onclick="submitScan()">🚀 Save to Google Sheet</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ MANUAL ENTRY PANEL ══ -->
+    <div id="admin-panel-log" class="admin-panel">
+
+    </div><!-- end manual entry panel -->
+
+    <!-- ══ BANNER PANEL ══ -->
+    <div id="admin-panel-banner" class="admin-panel">
     <div class="admin-section-hdr">🌟 Motivation Banner</div>
     <div class="banner-toggle-row">
       <div>
@@ -865,9 +1019,9 @@ input,textarea,select{font-family:inherit}
       <div class="banner-preview-label">Banner Content</div>
       <div class="bp-row">
         <div class="bp-img-placeholder" id="bp-placeholder">🖼️</div>
-        <img class="bp-img-preview" id="bp-preview" src="" alt="">
+        <img class="bp-img-preview" id="bp-preview" src="file:///C:/Users/Amr/Downloads/index_3.html" alt="">
         <div>
-          <div class="btn-img-upload" onclick="document.getElementById('banner-img-input').click()">📷 Upload Image</div>
+          <div class="btn-img-upload" onclick="document.getElementById(&#39;banner-img-input&#39;).click()">📷 Upload Image</div>
           <input type="file" id="banner-img-input" accept="image/*" style="display:none" onchange="handleBannerImg(this)">
           <div style="font-size:.65rem;color:var(--muted);margin-top:.35rem">PNG, JPG · shows beside quote</div>
         </div>
@@ -880,7 +1034,7 @@ input,textarea,select{font-family:inherit}
         <label class="fl">Author / Source</label>
         <input class="fi" id="banner-author" type="text" placeholder="e.g. — Daily Motivation">
       </div>
-      <button class="btn-save-banner" onclick="saveBanner()">💾 Save & Update Banner</button>
+      <button class="btn-save-banner" onclick="saveBanner()">💾 Save &amp; Update Banner</button>
     </div>
 
     <div class="admin-section-hdr">📋 Activity Entry</div>
@@ -898,7 +1052,7 @@ input,textarea,select{font-family:inherit}
         <div class="nd-confirm" id="nd-confirm"></div>
       </div>
       <div class="fr2">
-        <div class="fg"><label class="fl">Email</label><input class="fi" id="f-email" type="email" placeholder="Auto-filled" readonly></div>
+        <div class="fg"><label class="fl">Email</label><input class="fi" id="f-email" type="email" placeholder="Auto-filled" readonly=""></div>
         <div class="fg"><label class="fl">Date *</label><input class="fi" id="f-date" type="date"></div>
       </div>
     </div>
@@ -908,9 +1062,9 @@ input,textarea,select{font-family:inherit}
       <div class="fg">
         <label class="fl">Activity Type *</label>
         <div class="act-grid">
-          <div class="ao" onclick="selAct(this,'Walking')"><span class="ao-icon">🚶</span><div class="ao-label">Walking</div><div class="ao-min">min 2 km</div></div>
-          <div class="ao" onclick="selAct(this,'Running')"><span class="ao-icon">🏃</span><div class="ao-label">Running</div><div class="ao-min">min 2 km</div></div>
-          <div class="ao" onclick="selAct(this,'Cycling')"><span class="ao-icon">🚴</span><div class="ao-label">Cycling</div><div class="ao-min">min 5 km</div></div>
+          <div class="ao" onclick="selAct(this,&#39;Walking&#39;)"><span class="ao-icon">🚶</span><div class="ao-label">Walking</div><div class="ao-min">min 2 km</div></div>
+          <div class="ao" onclick="selAct(this,&#39;Running&#39;)"><span class="ao-icon">🏃</span><div class="ao-label">Running</div><div class="ao-min">min 2 km</div></div>
+          <div class="ao" onclick="selAct(this,&#39;Cycling&#39;)"><span class="ao-icon">🚴</span><div class="ao-label">Cycling</div><div class="ao-min">min 5 km</div></div>
         </div>
         <input type="hidden" id="f-act">
       </div>
@@ -922,7 +1076,7 @@ input,textarea,select{font-family:inherit}
     </div>
 
     <div class="fs">
-      <div class="fs-title">Proof & Notes</div>
+      <div class="fs-title">Proof &amp; Notes</div>
       <div class="fg">
         <label class="fl">Activity Link <span style="color:var(--muted);font-weight:400">(Strava / Apple / Garmin…)</span></label>
         <input class="fi" id="f-map" type="url" placeholder="https://strava.com/activities/…">
@@ -936,10 +1090,11 @@ input,textarea,select{font-family:inherit}
     <button class="btn-sub" id="sub-btn" onclick="submitLog()">🚀 Save to Google Sheet</button>
     <div class="or-sep">or use Google Form</div>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSds1RRlK7L2R2MroDnZz4ZkbAKHg1_akgI62o1Bv_MJWpEdoQ/viewform?usp=dialog" target="_blank" class="gf-btn">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
       Open Google Activity Form
     </a>
     <div style="height:1rem"></div>
+    </div><!-- end banner panel -->
   </div>
 </div>
 
@@ -947,11 +1102,11 @@ input,textarea,select{font-family:inherit}
 <div id="pg-faq" class="page">
   <div class="faq-wrap">
     <div class="faq-hdr">
-      <div class="sec-label">Help & Info</div>
+      <div class="sec-label">Help &amp; Info</div>
       <h2>Frequently Asked <span>Questions</span></h2>
       <p>Everything about the 100-day challenge</p>
     </div>
-    <div id="faq-list"></div>
+    <div id="faq-list"><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">What is this challenge?<span class="faq-ico">+</span></button><div class="faq-a">Community fitness event for Keya Apartment members from <strong>1 June to 9 September 2026</strong>. Walk, run, or cycle every day!</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">Who can join?<span class="faq-ico">+</span></button><div class="faq-a">Anyone aged <strong>14+</strong> in our apartment community. No experience needed!</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">Minimum distances?<span class="faq-ico">+</span></button><div class="faq-a">🚶 <strong>Walking</strong>: 2 km/day · 🏃 <strong>Running</strong>: 2 km/day · 🚴 <strong>Cycling</strong>: 5 km/day</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">How is activity logged?<span class="faq-ico">+</span></button><div class="faq-a">The organiser logs via the Admin panel (accessible via site URL + #admin). Members can also request access.</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">What are the Fitness Buddy Groups?<span class="faq-ico">+</span></button><div class="faq-a">8 groups with mentor flows — each member encourages the next person in the chain daily.</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">What are Category Achievers?<span class="faq-ico">+</span></button><div class="faq-a">Top 3 leaders in Walking, Running and Cycling — recognised separately with medals.</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">What does the gold glow mean?<span class="faq-ico">+</span></button><div class="faq-a">Members going well beyond minimum km earn a ✨ gold glow card and ⭐ trophy!</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">How is Today's Champion decided?<span class="faq-ico">+</span></button><div class="faq-a">Highest km logged for that day — updates every 2 minutes automatically.</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">How do I register?<span class="faq-ico">+</span></button><div class="faq-a">Click <strong>Register Now</strong> on the Home page before 1 June 2026.</div></div><div class="faq-item"><button class="faq-q" onclick="this.closest(&#39;.faq-item&#39;).classList.toggle(&#39;open&#39;)">Can I see previous days?<span class="faq-ico">+</span></button><div class="faq-a">Yes! On the Board page, use the ‹ › arrows in the Fitness Buddy Groups section to navigate day by day.</div></div></div>
     <div class="page-footer"><div class="footer-copy">100 Days Fitness Challenge 2026 · Keya Apartments</div></div>
   </div>
 </div>
@@ -961,10 +1116,10 @@ input,textarea,select{font-family:inherit}
 
 <!-- MOBILE TAB BAR -->
 <div class="tab-bar">
-  <button class="tab active" onclick="goto('home',this)"><span class="tab-icon">🏠</span><span>Home</span></button>
-  <button class="tab" onclick="goto('board',this)"><span class="tab-icon">🏆</span><span>Board</span></button>
-  <button class="tab" onclick="goto('rankings',this)"><span class="tab-icon">📋</span><span>Ranks</span></button>
-  <button class="tab" onclick="goto('faq',this)"><span class="tab-icon">❓</span><span>FAQ</span></button>
+  <button class="tab active" onclick="goto(&#39;home&#39;,this)"><span class="tab-icon">🏠</span><span>Home</span></button>
+  <button class="tab" onclick="goto(&#39;board&#39;,this)"><span class="tab-icon">🏆</span><span>Board</span></button>
+  <button class="tab" onclick="goto(&#39;rankings&#39;,this)"><span class="tab-icon">📋</span><span>Ranks</span></button>
+  <button class="tab" onclick="goto(&#39;faq&#39;,this)"><span class="tab-icon">❓</span><span>FAQ</span></button>
 </div>
 
 <script>
@@ -983,12 +1138,12 @@ const GROUPS=[
   {id:'g5',name:'Group 5',color:'#ef4444',emoji:'🔴',members:['Praveen Choudhary','Shyamala','Jyotika Bhurani','Saksham Tandone','Kali Tripathy'],flow:'Praveen → Shyamala → Jyotika → Saksham → Kali → Praveen'},
   {id:'g6',name:'Group 6',color:'#eab308',emoji:'🟡',members:['Aparna Shinde','Aman Gupta','Kumar Abhishek','Shikha Tandon','Mayuri Hegde'],flow:'Aparna → Aman → Abhishek → Shikha → Mayuri → Aparna'},
   {id:'g7',name:'Group 7',color:'#a8805a',emoji:'🟤',members:['Renu Goel','BIBEK LAL','Dikshant Ohri','Surabhi Telang','Pooja'],flow:'Renu → Bibek → Dikshant → Surabhi → Pooja → Renu'},
-  {id:'g8',name:'Group 8',color:'#9ca3af',emoji:'⚫',members:['Saswati Mahapatra','Amar','Richa Johar','Thavakumar Swaminathan','Parita Kachhela'],flow:'Saswati → Amar → Richa → Thavakumar → Parita → Saswati'},
+  {id:'g8',name:'Group 8',color:'#9ca3af',emoji:'⚫',members:['Saswati Mahapatra','Amar','Richa Johar','Thavakumar Swaminathan','Shubham Lakhotia','Parita Kachhela'],flow:'Saswati → Amar → Richa → Thavakumar → Shubham → Parita → Saswati'},
 ];
 const ALL_MEMBERS=[...new Set(GROUPS.flatMap(g=>g.members))];
 
 /* ══ EMAILS ══ */
-const EMAILS={'Amar':'amr.000in@gmail.com','Shobha':'shobhak2012@gmail.com','Aakash Rayate':'rayate2410@gmail.com','Poulomi Mukherjee':'mukherjee.poulomi09@gmail.com','Sipra Tripathy':'sipra.dsh@gmail.com','Shibani Pattnaik':'shibani.pattnaik@gmail.com','Puneet Ahuja':'ahujapuneet65@gmail.com','Shubham Singh':'singh.shubh647@gmail.com','Praveen Choudhary':'prvnchdry@gmail.com','Surabhi Telang':'surabhitelang@gmail.com','Aparna Shinde':'aparna.pattadar@gmail.com','Renu Goel':'renugoel393@gmail.com','Saswati Mahapatra':'saswatier@gmail.com','Sonam Agnihotri':'sonam.agnihotri.1705@gmail.com','Jyotika Bhurani':'jbhurani87@gmail.com','Yogesh Karira':'karira.yogesh@gmail.com','Mayuri Hegde':'mayuri.athavale88@gmail.com','Asmita Tiwari':'tiwai@gmail.com','Jaya Bharti':'jayabharti2006@gmail.com','Pritam Kumari':'','Aman Gupta':'gupta.aman2332@gmail.com','BIBEK LAL':'bibeklal@gmail.com','Richa Johar':'richajohar1992@gmail.com','Dikshant Ohri':'ohridikshant3@gmail.com','Shyamala':'shyamlas@yahoo.com'};
+const EMAILS={'Amar':'amr.000in@gmail.com','Shobha':'shobhak2012@gmail.com','Aakash Rayate':'rayate2410@gmail.com','Poulomi Mukherjee':'mukherjee.poulomi09@gmail.com','Sipra Tripathy':'sipra.dsh@gmail.com','Shibani Pattnaik':'shibani.pattnaik@gmail.com','Puneet Ahuja':'ahujapuneet65@gmail.com','Shubham Singh':'singh.shubh647@gmail.com','Praveen Choudhary':'prvnchdry@gmail.com','Surabhi Telang':'surabhitelang@gmail.com','Aparna Shinde':'aparna.pattadar@gmail.com','Renu Goel':'renugoel393@gmail.com','Saswati Mahapatra':'saswatier@gmail.com','Sonam Agnihotri':'sonam.agnihotri.1705@gmail.com','Jyotika Bhurani':'jbhurani87@gmail.com','Yogesh Karira':'karira.yogesh@gmail.com','Mayuri Hegde':'mayuri.athavale88@gmail.com','Asmita Tiwari':'tiwai@gmail.com','Jaya Bharti':'jayabharti2006@gmail.com','Pritam Kumari':'','Aman Gupta':'gupta.aman2332@gmail.com','BIBEK LAL':'bibeklal@gmail.com','Richa Johar':'richajohar1992@gmail.com','Dikshant Ohri':'ohridikshant3@gmail.com','Shyamala':'shyamlas@yahoo.com','Shubham Lakhotia':'Shubhamlaks92@gmail.com'};
 
 /* ══ MEMBER GROUP LOOKUP ══ */
 const MEMBER_GROUP={};
@@ -1782,6 +1937,259 @@ function renderWeeklyAwards(){
   el.innerHTML=(nav?nav.outerHTML:'')+awardsHTML;
 }
 
+
+/* ══ ADMIN TAB SWITCHER ══ */
+function switchAdminTab(id, btn){
+  document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('admin-panel-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ══ AI SCREENSHOT SCANNER ══ */
+// ── Gemini API (free tier) ──
+const GEMINI_API_KEY = 'YAQ.Ab8RN6Ju5o4rQxO5mu9aGqf9yBuUgTujRd9zu_G8VebUP44FfA'; // ← paste your key here
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+let scanImageB64 = null;
+let scanImageType = 'image/jpeg';
+
+function handleScanFile(input){
+  const file = input.files[0];
+  if(!file) return;
+  loadScanImage(file);
+}
+
+function handleScanDrop(e){
+  e.preventDefault();
+  document.getElementById('scan-upload-zone').classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if(file && file.type.startsWith('image/')) loadScanImage(file);
+}
+
+function loadScanImage(file){
+  scanImageType = file.type || 'image/jpeg';
+  const reader = new FileReader();
+  reader.onload = function(e){
+    scanImageB64 = e.target.result.split(',')[1];
+    document.getElementById('scan-img').src = e.target.result;
+    document.getElementById('scan-preview').style.display = 'block';
+    document.getElementById('scan-result').style.display = 'none';
+    setScanStatus('', '');
+    // Set today's date as default
+    document.getElementById('sc-date').valueAsDate = new Date();
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearScan(){
+  scanImageB64 = null;
+  document.getElementById('scan-img').src = '';
+  document.getElementById('scan-preview').style.display = 'none';
+  document.getElementById('scan-result').style.display = 'none';
+  document.getElementById('scan-file-input').value = '';
+  setScanStatus('', '');
+}
+
+function setScanStatus(type, msg){
+  const el = document.getElementById('scan-status');
+  if(!type){ el.className='scan-status'; el.innerHTML=''; return; }
+  const icons = {loading:'<span class="spin">⏳</span>', ok:'✅', err:'❌'};
+  el.className = 'scan-status show ' + type;
+  el.innerHTML = (icons[type]||'') + ' ' + msg;
+}
+
+async function runScan(){
+  if(!scanImageB64){ setScanStatus('err','Please upload a screenshot first.'); return; }
+
+  const btn = document.getElementById('btn-scan');
+  const icon = document.getElementById('scan-btn-icon');
+  btn.disabled = true;
+  icon.className = 'spin';
+  icon.textContent = '⏳';
+  setScanStatus('loading', 'AI is reading the screenshot…');
+  document.getElementById('scan-result').style.display = 'none';
+
+  const prompt = `You are an activity data extractor. Look at this fitness app screenshot carefully.
+
+Extract ONLY these fields:
+1. activity_type: Must be exactly one of: Walking, Running, Cycling. Infer from context (steps/walk = Walking, run/jog = Running, bike/ride = Cycling)
+2. distance_km: Distance as a number in km. If shown in miles, convert to km (multiply by 1.609). Return only the number.
+3. date: Date of activity in YYYY-MM-DD format. If not visible, return today.
+4. app_source: App name (Strava, Apple Health, Google Fit, Garmin, Nike Run Club, Samsung Health, Watch, or Unknown)
+5. confidence: Your confidence 0-100 that you read the data correctly.
+6. notes: Any additional info visible (pace, duration, steps) max 50 chars.
+
+Respond ONLY with valid JSON, no other text:
+{"activity_type":"Walking","distance_km":4.2,"date":"2026-06-08","app_source":"Strava","confidence":95,"notes":"Avg pace 12:30 min/km"}`;
+
+  try{
+    if(!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY'){
+      setScanStatus('err', 'Gemini API key not set. Please add your key in the code.');
+      showManualFallback();
+      return;
+    }
+
+    const response = await fetch(GEMINI_URL + '?key=' + GEMINI_API_KEY, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [
+            { inline_data: { mime_type: scanImageType, data: scanImageB64 }},
+            { text: prompt }
+          ]
+        }],
+        generationConfig: { maxOutputTokens: 300, temperature: 0.1 }
+      })
+    });
+
+    const data = await response.json();
+
+    if(data.error){
+      setScanStatus('err', 'Gemini error: ' + (data.error.message || 'Check API key'));
+      showManualFallback();
+      return;
+    }
+
+    const rawText = data.candidates[0].content.parts[0].text.trim();
+    // Strip markdown code fences if present
+    const jsonStr = rawText.replace(/```json|```/g,'').trim();
+    const result = JSON.parse(jsonStr);
+
+    // Show extracted results
+    document.getElementById('air-act').textContent = result.activity_type || '—';
+    document.getElementById('air-km').textContent = result.distance_km ? result.distance_km + ' km' : '—';
+    document.getElementById('air-date').textContent = result.date || '—';
+    document.getElementById('air-app').textContent = result.app_source || 'Unknown';
+
+    const conf = result.confidence || 0;
+    document.getElementById('conf-fill').style.width = conf + '%';
+    document.getElementById('conf-fill').style.background = conf >= 80 ? 'var(--green)' : conf >= 60 ? 'var(--gold)' : 'var(--red)';
+    document.getElementById('conf-pct').textContent = conf + '%';
+
+    // Pre-fill the editable form
+    if(result.activity_type){
+      document.getElementById('sc-act').value = result.activity_type;
+    }
+    if(result.distance_km){
+      document.getElementById('sc-km').value = result.distance_km;
+    }
+    if(result.date){
+      document.getElementById('sc-date').value = result.date;
+    }
+    if(result.notes){
+      document.getElementById('sc-notes').value = result.notes;
+    }
+
+    document.getElementById('scan-result').style.display = 'block';
+    setScanStatus('ok', 'Data extracted! Review and select member name, then save.');
+
+  } catch(err) {
+    console.error('Scan error:', err);
+    setScanStatus('err', 'Could not read screenshot. Please fill details manually.');
+    showManualFallback();
+  } finally {
+    btn.disabled = false;
+    icon.className = '';
+    icon.textContent = '✨';
+  }
+}
+
+function showManualFallback(){
+  // Show the result form anyway so user can fill manually
+  document.getElementById('air-act').textContent = '— fill manually';
+  document.getElementById('air-km').textContent = '— fill manually';
+  document.getElementById('air-date').textContent = '—';
+  document.getElementById('air-app').textContent = '—';
+  document.getElementById('conf-fill').style.width = '0%';
+  document.getElementById('conf-pct').textContent = '—';
+  document.getElementById('scan-result').style.display = 'block';
+  document.getElementById('sc-date').valueAsDate = new Date();
+}
+
+/* Scanner name dropdown */
+function showScanDrop(){ filterScanNames(document.getElementById('sc-name-search').value); }
+function hideScanDrop(){ document.getElementById('sc-nd-drop').style.display='none'; }
+function filterScanNames(q){
+  const drop = document.getElementById('sc-nd-drop');
+  const filtered = q ? MEMBERS_LIST.filter(m=>m.toLowerCase().includes(q.toLowerCase())) : MEMBERS_LIST;
+  if(!filtered.length){
+    drop.innerHTML = '<div style="padding:.7rem 1rem;font-size:.8rem;color:var(--muted)">No match found</div>';
+  } else {
+    drop.innerHTML = filtered.map(name=>{
+      const grp = MEMBER_GROUP[name.toLowerCase()];
+      const col = grp ? GC[grp.name] : '#64748b';
+      const [c1,c2] = avc(avidx(name));
+      return '<div class="nd-item" onmousedown="selectScanName(\'' + name.replace(/'/g,"\\'") + '\')">' +
+        '<div class="nd-av" style="background:linear-gradient(135deg,'+c1+','+c2+')">'+ini(name)+'</div>' +
+        '<span>'+name+'</span>' +
+        (grp ? '<span class="nd-grp" style="color:'+col+'">'+grp.emoji+' '+grp.name+'</span>' : '') +
+        '</div>';
+    }).join('');
+  }
+  drop.style.display = 'block';
+}
+function selectScanName(name){
+  document.getElementById('sc-name-search').value = name;
+  document.getElementById('sc-name').value = name;
+  document.getElementById('sc-nd-drop').style.display = 'none';
+  const conf = document.getElementById('sc-nd-confirm');
+  const grp = MEMBER_GROUP[name.toLowerCase()];
+  conf.textContent = '✅ ' + name + (grp ? ' · ' + grp.emoji + ' ' + grp.name : '');
+  conf.style.display = 'block';
+}
+
+/* Scanner submit */
+function showScanSubStatus(type, msg){
+  const el = document.getElementById('sc-sub-status');
+  el.className = 'sub-status show ' + type;
+  el.innerHTML = '<span>' + ({ok:'✅',err:'❌',loading:'⏳'}[type]||'') + '</span><span>' + msg + '</span>';
+}
+async function submitScan(){
+  const name  = document.getElementById('sc-name').value.trim();
+  const act   = document.getElementById('sc-act').value;
+  const km    = parseFloat(document.getElementById('sc-km').value) || 0;
+  const date  = document.getElementById('sc-date').value;
+  const notes = document.getElementById('sc-notes').value.trim();
+
+  if(!name){ showScanSubStatus('err','Please select a member name.'); return; }
+  if(!act){  showScanSubStatus('err','Please select activity type.'); return; }
+  if(!date){ showScanSubStatus('err','Please set the date.'); return; }
+  const base = act==='Cycling' ? 5 : 2;
+  if(km < base){ showScanSubStatus('err','Minimum ' + base + ' km for ' + act + '.'); return; }
+
+  const dayNum = Math.max(1, Math.floor((new Date(date) - new Date(2026,5,1)) / 86400000) + 1);
+  const email  = EMAILS[name] || '';
+  const btn    = document.getElementById('sc-sub-btn');
+  btn.disabled = true;
+  showScanSubStatus('loading', 'Saving to Google Sheet…');
+
+  try{
+    await fetch(APPS_SCRIPT_URL, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
+      body: JSON.stringify({name, email, flat:'', date, dayNum, activity:act, km, duration:'', mapLink:'', notes:'[AI Scan] '+notes, points:0, tokenUsed:false})
+    });
+    showScanSubStatus('ok', km + ' km of ' + act + ' logged for ' + name + '! 🔥');
+    // Reset scanner
+    setTimeout(()=>{
+      clearScan();
+      document.getElementById('sc-name-search').value='';
+      document.getElementById('sc-name').value='';
+      document.getElementById('sc-act').value='';
+      document.getElementById('sc-km').value='';
+      document.getElementById('sc-notes').value='';
+      document.getElementById('sc-nd-confirm').style.display='none';
+      document.getElementById('sc-sub-status').className='sub-status';
+      fetchData(false);
+    }, 3000);
+  } catch(e){
+    showScanSubStatus('err','Save failed. Check connection.');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
 /* ══ FAQ ══ */
 const FAQS=[
   ['What is this challenge?','Community fitness event for Keya Apartment members from <strong>1 June to 9 September 2026</strong>. Walk, run, or cycle every day!'],
@@ -1817,5 +2225,5 @@ document.addEventListener('DOMContentLoaded',()=>{
   fetchData(false);
 });
 </script>
-</body>
-</html>
+
+</body></html>
