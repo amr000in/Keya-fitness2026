@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)file:///C:/Users/Amr/Downloads/index_6.html -->
+<!-- saved from url=(0043)file:///C:/Users/Amr/Downloads/index_7.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>100 Days Fitness Challenge 2026 — Keya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index-v20_files/css2" rel="stylesheet">
+<link href="./index-v21_files/css2" rel="stylesheet">
 <style>
 :root{
   --bg:#0b0e14;--bg2:#111520;--bg3:#141926;--card:#1a2030;--card2:#1e2638;
@@ -926,7 +926,7 @@ input,textarea,select{font-family:inherit}
 
       <div class="scan-preview" id="scan-preview">
         <div class="scan-img-wrap">
-          <img id="scan-img" src="file:///C:/Users/Amr/Downloads/index_6.html" alt="Activity screenshot">
+          <img id="scan-img" src="file:///C:/Users/Amr/Downloads/index_7.html" alt="Activity screenshot">
           <button class="scan-img-clear" onclick="clearScan()" title="Remove">✕</button>
         </div>
 
@@ -1076,7 +1076,7 @@ input,textarea,select{font-family:inherit}
       <div class="banner-preview-label">Banner Content</div>
       <div class="bp-row">
         <div class="bp-img-placeholder" id="bp-placeholder">🖼️</div>
-        <img class="bp-img-preview" id="bp-preview" src="file:///C:/Users/Amr/Downloads/index_6.html" alt="">
+        <img class="bp-img-preview" id="bp-preview" src="file:///C:/Users/Amr/Downloads/index_7.html" alt="">
         <div>
           <div class="btn-img-upload" onclick="document.getElementById(&#39;banner-img-input&#39;).click()">📷 Upload Image</div>
           <input type="file" id="banner-img-input" accept="image/*" style="display:none" onchange="handleBannerImg(this)">
@@ -1999,6 +1999,26 @@ function setScanStatus(type, msg){
   el.innerHTML = (icons[type]||'') + ' ' + msg;
 }
 
+// Compress image to max 800px wide, JPEG quality 0.7 — keeps it under 500KB
+async function compressImage(b64, mimeType){
+  return new Promise(function(resolve){
+    var img = new Image();
+    img.onload = function(){
+      var MAX = 800;
+      var w = img.width, h = img.height;
+      if(w > MAX){ h = Math.round(h * MAX/w); w = MAX; }
+      var canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      var compressed = canvas.toDataURL('image/jpeg', 0.7).split(',')[1];
+      resolve(compressed);
+    };
+    img.onerror = function(){ resolve(b64); }; // fallback to original
+    img.src = 'data:' + mimeType + ';base64,' + b64;
+  });
+}
+
 async function runScan(){
   if(!scanImageB64){ setScanStatus('err','Please upload a screenshot first.'); return; }
 
@@ -2024,29 +2044,30 @@ Respond ONLY with valid JSON, no other text:
 {"activity_type":"Walking","distance_km":4.2,"date":"2026-06-08","app_source":"Strava","confidence":95,"notes":"Avg pace 12:30 min/km"}`;
 
   try{
-    // Call Apps Script proxy — key is safely stored there
-    const response = await fetch(APPS_SCRIPT_URL, {
+    // Compress image before sending if too large
+    const compressedB64 = await compressImage(scanImageB64, scanImageType);
+
+    // POST to Apps Script — image data in body, not URL
+    const r2 = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
         action: 'scanImage',
-        imageData: scanImageB64,
-        mimeType: scanImageType,
-        prompt: prompt
+        imageData: compressedB64,
+        mimeType: 'image/jpeg'
       })
     });
 
-    // no-cors returns opaque response — use a cors-friendly GET with encoded data
-    const proxyUrl = APPS_SCRIPT_URL + '?action=scanImage&mime=' +
-      encodeURIComponent(scanImageType) +
-      '&img=' + encodeURIComponent(scanImageB64);
+    if(!r2.ok){
+      setScanStatus('err', 'Server error: ' + r2.status + '. Check Apps Script is deployed correctly.');
+      showManualFallback();
+      return;
+    }
 
-    const r2 = await fetch(proxyUrl);
     const data = await r2.json();
 
     if(!data || data.error){
-      setScanStatus('err', 'Scan failed: ' + (data?.error || 'Apps Script error'));
+      setScanStatus('err', 'Scan failed: ' + (data.error || 'Could not read screenshot'));
       showManualFallback();
       return;
     }
