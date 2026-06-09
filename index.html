@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)file:///C:/Users/Amr/Downloads/index_3.html -->
+<!-- saved from url=(0043)file:///C:/Users/Amr/Downloads/index_6.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>100 Days Fitness Challenge 2026 — Keya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index-v17_files/css2" rel="stylesheet">
+<link href="./index-v20_files/css2" rel="stylesheet">
 <style>
 :root{
   --bg:#0b0e14;--bg2:#111520;--bg3:#141926;--card:#1a2030;--card2:#1e2638;
@@ -926,7 +926,7 @@ input,textarea,select{font-family:inherit}
 
       <div class="scan-preview" id="scan-preview">
         <div class="scan-img-wrap">
-          <img id="scan-img" src="file:///C:/Users/Amr/Downloads/index_3.html" alt="Activity screenshot">
+          <img id="scan-img" src="file:///C:/Users/Amr/Downloads/index_6.html" alt="Activity screenshot">
           <button class="scan-img-clear" onclick="clearScan()" title="Remove">✕</button>
         </div>
 
@@ -1000,43 +1000,6 @@ input,textarea,select{font-family:inherit}
     <!-- ══ MANUAL ENTRY PANEL ══ -->
     <div id="admin-panel-log" class="admin-panel">
 
-    </div><!-- end manual entry panel -->
-
-    <!-- ══ BANNER PANEL ══ -->
-    <div id="admin-panel-banner" class="admin-panel">
-    <div class="admin-section-hdr">🌟 Motivation Banner</div>
-    <div class="banner-toggle-row">
-      <div>
-        <div class="banner-toggle-label">Show Banner on Home Page</div>
-        <div class="banner-toggle-sub">Toggle to show/hide the motivation banner</div>
-      </div>
-      <label class="toggle-sw">
-        <input type="checkbox" id="banner-toggle" onchange="toggleBanner(this.checked)">
-        <span class="toggle-sl"></span>
-      </label>
-    </div>
-    <div class="banner-preview">
-      <div class="banner-preview-label">Banner Content</div>
-      <div class="bp-row">
-        <div class="bp-img-placeholder" id="bp-placeholder">🖼️</div>
-        <img class="bp-img-preview" id="bp-preview" src="file:///C:/Users/Amr/Downloads/index_3.html" alt="">
-        <div>
-          <div class="btn-img-upload" onclick="document.getElementById(&#39;banner-img-input&#39;).click()">📷 Upload Image</div>
-          <input type="file" id="banner-img-input" accept="image/*" style="display:none" onchange="handleBannerImg(this)">
-          <div style="font-size:.65rem;color:var(--muted);margin-top:.35rem">PNG, JPG · shows beside quote</div>
-        </div>
-      </div>
-      <div class="fg" style="margin-bottom:.6rem">
-        <label class="fl">Motivational Quote *</label>
-        <textarea class="fta fi" id="banner-quote" rows="2" placeholder="e.g. Every step counts. Keep moving forward!" style="min-height:60px"></textarea>
-      </div>
-      <div class="fg" style="margin-bottom:.6rem">
-        <label class="fl">Author / Source</label>
-        <input class="fi" id="banner-author" type="text" placeholder="e.g. — Daily Motivation">
-      </div>
-      <button class="btn-save-banner" onclick="saveBanner()">💾 Save &amp; Update Banner</button>
-    </div>
-
     <div class="admin-section-hdr">📋 Activity Entry</div>
     <div class="sub-status" id="sub-status"></div>
 
@@ -1094,6 +1057,44 @@ input,textarea,select{font-family:inherit}
       Open Google Activity Form
     </a>
     <div style="height:1rem"></div>
+    </div><!-- end manual entry panel -->
+
+    <!-- ══ BANNER PANEL ══ -->
+    <div id="admin-panel-banner" class="admin-panel">
+    <div class="admin-section-hdr">🌟 Motivation Banner</div>
+    <div class="banner-toggle-row">
+      <div>
+        <div class="banner-toggle-label">Show Banner on Home Page</div>
+        <div class="banner-toggle-sub">Toggle to show/hide the motivation banner</div>
+      </div>
+      <label class="toggle-sw">
+        <input type="checkbox" id="banner-toggle" onchange="toggleBanner(this.checked)">
+        <span class="toggle-sl"></span>
+      </label>
+    </div>
+    <div class="banner-preview">
+      <div class="banner-preview-label">Banner Content</div>
+      <div class="bp-row">
+        <div class="bp-img-placeholder" id="bp-placeholder">🖼️</div>
+        <img class="bp-img-preview" id="bp-preview" src="file:///C:/Users/Amr/Downloads/index_6.html" alt="">
+        <div>
+          <div class="btn-img-upload" onclick="document.getElementById(&#39;banner-img-input&#39;).click()">📷 Upload Image</div>
+          <input type="file" id="banner-img-input" accept="image/*" style="display:none" onchange="handleBannerImg(this)">
+          <div style="font-size:.65rem;color:var(--muted);margin-top:.35rem">PNG, JPG · shows beside quote</div>
+        </div>
+      </div>
+      <div class="fg" style="margin-bottom:.6rem">
+        <label class="fl">Motivational Quote *</label>
+        <textarea class="fta fi" id="banner-quote" rows="2" placeholder="e.g. Every step counts. Keep moving forward!" style="min-height:60px"></textarea>
+      </div>
+      <div class="fg" style="margin-bottom:.6rem">
+        <label class="fl">Author / Source</label>
+        <input class="fi" id="banner-author" type="text" placeholder="e.g. — Daily Motivation">
+      </div>
+      <button class="btn-save-banner" onclick="saveBanner()">💾 Save &amp; Update Banner</button>
+    </div>
+
+
     </div><!-- end banner panel -->
   </div>
 </div>
@@ -1124,7 +1125,7 @@ input,textarea,select{font-family:inherit}
 
 <script>
 /* ══ CONFIG ══ */
-const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbw7bwt3vcX_6bKWL2oZRi1dojbxXenhWcKVJkY6QEZ0VNPQmE_NlmwPr4YyM76IcfgS/exec';
+const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbyM_YVYUqrZIorFCsDNYEtNRcTPA880-lCJslA-QnK--AjjKJW7umKVe2lsoPt7V3Fv/exec';
 const MY_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vR8fZtNYlF6BtiQ6VedKS64xYVfTJpV8XHw8N_x07Zh3ybTlyn3rNTM2d9Zm-FCMS8LOXKkpGWp_Ezo/pub?gid=2128169938&single=true&output=csv';
 const FRIEND_CSV='';
 const ADMIN_PIN='1001'; // ← change this to your preferred 4-digit PIN
@@ -1948,7 +1949,7 @@ function switchAdminTab(id, btn){
 
 /* ══ AI SCREENSHOT SCANNER ══ */
 // ── Gemini API (free tier) ──
-const GEMINI_API_KEY = 'YAQ.Ab8RN6Ju5o4rQxO5mu9aGqf9yBuUgTujRd9zu_G8VebUP44FfA'; // ← paste your key here
+const GEMINI_API_KEY = '';  // key handled by Apps Script proxy // ← paste your key here
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 let scanImageB64 = null;
 let scanImageType = 'image/jpeg';
@@ -2023,35 +2024,34 @@ Respond ONLY with valid JSON, no other text:
 {"activity_type":"Walking","distance_km":4.2,"date":"2026-06-08","app_source":"Strava","confidence":95,"notes":"Avg pace 12:30 min/km"}`;
 
   try{
-    if(!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY'){
-      setScanStatus('err', 'Gemini API key not set. Please add your key in the code.');
-      showManualFallback();
-      return;
-    }
-
-    const response = await fetch(GEMINI_URL + '?key=' + GEMINI_API_KEY, {
+    // Call Apps Script proxy — key is safely stored there
+    const response = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
-        contents: [{
-          parts: [
-            { inline_data: { mime_type: scanImageType, data: scanImageB64 }},
-            { text: prompt }
-          ]
-        }],
-        generationConfig: { maxOutputTokens: 300, temperature: 0.1 }
+        action: 'scanImage',
+        imageData: scanImageB64,
+        mimeType: scanImageType,
+        prompt: prompt
       })
     });
 
-    const data = await response.json();
+    // no-cors returns opaque response — use a cors-friendly GET with encoded data
+    const proxyUrl = APPS_SCRIPT_URL + '?action=scanImage&mime=' +
+      encodeURIComponent(scanImageType) +
+      '&img=' + encodeURIComponent(scanImageB64);
 
-    if(data.error){
-      setScanStatus('err', 'Gemini error: ' + (data.error.message || 'Check API key'));
+    const r2 = await fetch(proxyUrl);
+    const data = await r2.json();
+
+    if(!data || data.error){
+      setScanStatus('err', 'Scan failed: ' + (data?.error || 'Apps Script error'));
       showManualFallback();
       return;
     }
 
-    const rawText = data.candidates[0].content.parts[0].text.trim();
+    const rawText = data.result || '';
     // Strip markdown code fences if present
     const jsonStr = rawText.replace(/```json|```/g,'').trim();
     const result = JSON.parse(jsonStr);
