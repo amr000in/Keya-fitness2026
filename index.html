@@ -1932,6 +1932,20 @@ async function submitLog(){
   finally{btn.disabled=false;}
 }
 
+/* ══ GLOBAL HELPERS ══ */
+function longestStreak(datesSet){
+  if(!datesSet||datesSet.size===0)return 0;
+  const sorted=[...datesSet].sort();
+  let best=1,cur=1;
+  for(let i=1;i<sorted.length;i++){
+    const prev=new Date(sorted[i-1]),curr=new Date(sorted[i]);
+    const diff=(curr-prev)/86400000;
+    if(diff===1){cur++;best=Math.max(best,cur);}
+    else cur=1;
+  }
+  return best;
+}
+
 /* ══ WEEKLY AWARDS ══ */
 let currentWeekOffset = 0;
 
@@ -1989,18 +2003,7 @@ function renderWeeklyAwards(){
     if(!allDaysMap[r.name])allDaysMap[r.name]=new Set();
     allDaysMap[r.name].add(isoDate(r.date));
   });
-  function longestStreak(datesSet){
-    if(!datesSet||datesSet.size===0)return 0;
-    const sorted=[...datesSet].sort();
-    let best=1,cur=1;
-    for(let i=1;i<sorted.length;i++){
-      const prev=new Date(sorted[i-1]),curr=new Date(sorted[i]);
-      const diff=(curr-prev)/86400000;
-      if(diff===1){cur++;best=Math.max(best,cur);}
-      else cur=1;
-    }
-    return best;
-  }
+  // longestStreak defined globally below
   const streakRanked=Object.entries(allDaysMap)
     .map(([name,dates])=>({name,streak:longestStreak(dates),total:dates.size}))
     .filter(x=>x.streak>0)
