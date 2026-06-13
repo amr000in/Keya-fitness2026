@@ -620,6 +620,115 @@ input,textarea,select{font-family:inherit}
 /* edit extracted fields */
 .extracted-form{margin-top:.8rem}
 
+
+/* ═══ MEMBER TRACKER MODAL ═══ */
+.tracker-overlay{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,.72);backdrop-filter:blur(6px);
+  align-items:flex-end;justify-content:center;
+  animation:fadeIn .18s ease;
+}
+.tracker-overlay.open{display:flex}
+@media(min-width:600px){
+  .tracker-overlay{align-items:center}
+}
+.tracker-modal{
+  background:var(--bg2);
+  width:100%;max-width:520px;
+  border-radius:20px 20px 0 0;
+  max-height:90vh;display:flex;flex-direction:column;
+  overflow:hidden;
+  animation:slideUp .28s cubic-bezier(.22,.68,0,1.2);
+  border:1px solid var(--border2);border-bottom:none;
+}
+@media(min-width:600px){
+  .tracker-modal{border-radius:20px;border:1px solid var(--border2);max-height:82vh}
+}
+@keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+
+/* modal header */
+.tm-header{
+  padding:1.2rem 1.2rem .8rem;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;position:relative;
+}
+.tm-close{
+  position:absolute;top:1rem;right:1rem;
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:none;
+  color:var(--muted);font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.tm-close:hover{background:rgba(255,255,255,.12);color:var(--white)}
+.tm-avatar{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.2rem;margin-bottom:.6rem;
+  border:2.5px solid rgba(255,255,255,.12);
+}
+.tm-name{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:.2rem}
+.tm-group{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.tm-motiv{
+  font-family:'Caveat',cursive;font-size:1rem;
+  line-height:1.35;margin-bottom:.8rem;
+}
+/* stat pills */
+.tm-stats{display:flex;gap:.5rem;flex-wrap:wrap}
+.tm-stat{
+  display:flex;flex-direction:column;align-items:center;
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:10px;padding:.45rem .9rem;min-width:72px;
+}
+.tm-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1px;line-height:1}
+.tm-stat-l{font-size:.56rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:.1rem}
+
+/* scrollable body */
+.tm-body{
+  flex:1;overflow-y:auto;padding:.8rem 1.2rem 1.2rem;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+}
+.tm-body::-webkit-scrollbar{width:4px}
+.tm-body::-webkit-scrollbar-track{background:transparent}
+.tm-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+.tm-section-title{
+  font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--orange);margin-bottom:.65rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.tm-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* day row */
+.tm-day-row{
+  display:flex;align-items:center;gap:.7rem;
+  padding:.52rem .6rem;border-radius:8px;
+  margin-bottom:.3rem;transition:background .12s;
+}
+.tm-day-row:hover{background:rgba(255,255,255,.03)}
+.tm-day-row.active-day{background:rgba(34,197,94,.05)}
+.tm-day-row.missed-day{opacity:.5}
+.tm-day-num{
+  font-family:'Bebas Neue',sans-serif;font-size:.95rem;
+  color:var(--muted);width:36px;text-align:center;flex-shrink:0;
+  letter-spacing:1px;
+}
+.tm-day-icon{font-size:1.1rem;flex-shrink:0;width:22px;text-align:center}
+.tm-day-info{flex:1;min-width:0}
+.tm-day-date{font-size:.7rem;color:var(--muted)}
+.tm-day-act{font-size:.82rem;font-weight:600;color:var(--white)}
+.tm-day-km{
+  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+  color:var(--sky);flex-shrink:0;text-align:right;
+}
+.tm-day-km.walk{color:var(--green)}
+.tm-day-km.run{color:var(--orange)}
+.tm-day-km.cycle{color:var(--sky)}
+.tm-no-act{
+  font-size:.78rem;color:var(--muted);
+  font-style:italic;flex:1;
+}
+
 </style>
 </head>
 <body>
@@ -1118,6 +1227,24 @@ input,textarea,select{font-family:inherit}
   </div>
 </div>
 
+
+<!-- ═══ MEMBER TRACKER MODAL ═══ -->
+<div class="tracker-overlay" id="tracker-overlay" onclick="closeTracker(event)">
+  <div class="tracker-modal" id="tracker-modal">
+    <div class="tm-header">
+      <button class="tm-close" onclick="closeTrackerBtn()">✕</button>
+      <div class="tm-avatar" id="tm-avatar"></div>
+      <div class="tm-name" id="tm-name"></div>
+      <div class="tm-group" id="tm-group"></div>
+      <div class="tm-motiv" id="tm-motiv"></div>
+      <div class="tm-stats" id="tm-stats"></div>
+    </div>
+    <div class="tm-body">
+      <div class="tm-section-title">Activity History</div>
+      <div id="tm-history"></div>
+    </div>
+  </div>
+</div>
 </main>
 </div><!-- layout -->
 
@@ -1587,7 +1714,7 @@ function renderRankings(totKm,totDays,rows,catKm){
     el.innerHTML=items.map((p,i)=>{
       const[c1,c2]=avc(avidx(p.name));const isZ=p.km===0;
       const actBadge=p.lastAct!=='—'?` · <span class="rb ${bmap[p.lastAct]||'rb-m'}">${p.lastAct}</span>`:'';
-      return`<div class="rank-item" style="${isZ?'opacity:.35':''}"><div class="rank-num ${!isZ&&i<3?'r'+(i+1):''}">${isZ?'—':i+1}</div><div class="rank-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(p.name)}</div><div class="rank-info"><div class="rank-name">${p.name}</div><div class="rank-sub">${p.days===0?'<span class="days-zero">Not started yet</span>':p.days+' days'+actBadge}</div></div><div class="rank-km">${p.km.toFixed(1)}<small> km</small></div></div>`;
+      return`<div class="rank-item" style="${isZ?'opacity:.35':''}cursor:pointer" onclick="openTracker('${p.name.replace(/'/g,"\\'")}')" title="View ${p.name}'s activity history"><div class="rank-num ${!isZ&&i<3?'r'+(i+1):''}">${isZ?'—':i+1}</div><div class="rank-av" style="background:linear-gradient(135deg,${c1},${c2})">${ini(p.name)}</div><div class="rank-info"><div class="rank-name">${p.name}</div><div class="rank-sub">${p.days===0?'<span class="days-zero">Not started yet</span>':p.days+' days'+actBadge}</div></div><div class="rank-km">${p.km.toFixed(1)}<small> km</small></div></div>`;
     }).join('');
   }
   makeList(all,'rank-list-all');
@@ -2216,6 +2343,206 @@ async function submitScan(){
     btn.disabled = false;
   }
 }
+
+
+/* ══ MEMBER TRACKER MODAL ══ */
+
+function getMotivLine(name, totalDays, streak, lastLoggedISO){
+  // Calculate days since last activity
+  var today = new Date();
+  var daysSinceLast = 999;
+  if(lastLoggedISO){
+    var last = new Date(lastLoggedISO);
+    daysSinceLast = Math.floor((today - last) / 86400000);
+  }
+  var challengeDay = dayNumber(new Date());
+
+  // Not started
+  if(totalDays === 0){
+    var lines = [
+      {text:"Your journey starts with one step! 🌱", color:"var(--sky)"},
+      {text:"Day 1 is waiting for you — let's go! 💫", color:"var(--sky)"},
+      {text:"The best time to start is today! 🙌", color:"var(--sky)"},
+    ];
+    return lines[Math.floor(Math.random() * lines.length)];
+  }
+  // Missed 3+ days
+  if(daysSinceLast >= 3){
+    var lines = [
+      {text:"Your buddies miss you — come back stronger! 🤝", color:"var(--gold)"},
+      {text:"Every day is a fresh start. Lace up! 👟", color:"var(--gold)"},
+      {text:"Missing you on the track — we need you! 💬", color:"var(--gold)"},
+    ];
+    return lines[Math.floor(Math.random() * lines.length)];
+  }
+  // Completed 50%+ of challenge days
+  if(totalDays >= challengeDay * 0.5 && challengeDay > 10){
+    var lines = [
+      {text:"Halfway hero — finish strong! 🎉", color:"var(--orange)"},
+      {text:"Beyond the halfway mark — amazing! 🚀", color:"var(--orange)"},
+    ];
+    return lines[Math.floor(Math.random() * lines.length)];
+  }
+  // Long streak 7+
+  if(streak >= 7){
+    var lines = [
+      {text:"Unstoppable! " + streak + " days and counting! 🏆", color:"var(--gold)"},
+      {text:"Discipline in action — " + streak + " day streak! 🎯", color:"var(--gold)"},
+    ];
+    return lines[Math.floor(Math.random() * lines.length)];
+  }
+  // Active and doing well
+  var lines = [
+    {text:"On fire! Keep the streak alive! 🔥", color:"var(--green)"},
+    {text:"Crushing it day by day! 💪", color:"var(--green)"},
+    {text:"Your consistency is inspiring! ⚡", color:"var(--green)"},
+    {text:"Leading by example! 🌟", color:"var(--green)"},
+  ];
+  return lines[Math.floor(Math.random() * lines.length)];
+}
+
+function currentStreak(datesArr){
+  // Calculate current streak from today backwards
+  if(!datesArr || datesArr.length === 0) return 0;
+  var sorted = [...new Set(datesArr)].sort().reverse();
+  var today = new Date();
+  var streak = 0;
+  var checkDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  for(var i = 0; i < sorted.length; i++){
+    var d = new Date(sorted[i]);
+    var diff = Math.round((checkDate - d) / 86400000);
+    if(diff === 0 || diff === 1){
+      streak++;
+      checkDate = d;
+    } else {
+      break;
+    }
+  }
+  return streak;
+}
+
+function openTracker(memberName){
+  var overlay = document.getElementById('tracker-overlay');
+  if(!overlay) return;
+
+  // Get member data from allRows
+  var memberRows = allRows.filter(function(r){
+    return r.name && r.name.toLowerCase().trim() === memberName.toLowerCase().trim() && r.km > 0;
+  });
+
+  // Get group info
+  var grp = MEMBER_GROUP[memberName.toLowerCase()];
+  var av = avc(avidx(memberName));
+  var c1 = av[0], c2 = av[1];
+
+  // Calculate stats
+  var totalKm = memberRows.reduce(function(s,r){ return s + r.km; }, 0);
+  var totalDays = memberRows.length;
+  var allDates = memberRows.map(function(r){ return isoDate(r.date); });
+  var streak = currentStreak(allDates);
+  var longestS = longestStreak(new Set(allDates));
+  var lastLogged = allDates.length ? allDates.slice().sort().pop() : null;
+
+  // Set avatar
+  var avEl = document.getElementById('tm-avatar');
+  avEl.style.background = 'linear-gradient(135deg,' + c1 + ',' + c2 + ')';
+  avEl.textContent = ini(memberName);
+
+  // Set name & group
+  document.getElementById('tm-name').textContent = memberName;
+  document.getElementById('tm-group').textContent = grp ? grp.emoji + ' ' + grp.name : '';
+
+  // Set motivational line
+  var motiv = getMotivLine(memberName, totalDays, streak, lastLogged);
+  var motivEl = document.getElementById('tm-motiv');
+  motivEl.style.color = motiv.color;
+  motivEl.textContent = motiv.text;
+
+  // Set stats
+  var statsEl = document.getElementById('tm-stats');
+  statsEl.innerHTML =
+    '<div class="tm-stat"><span class="tm-stat-n" style="color:var(--sky)">' + totalKm.toFixed(1) + '</span><span class="tm-stat-l">Total KM</span></div>' +
+    '<div class="tm-stat"><span class="tm-stat-n" style="color:var(--green)">' + totalDays + '</span><span class="tm-stat-l">Days Active</span></div>' +
+    '<div class="tm-stat"><span class="tm-stat-n" style="color:var(--gold)">' + (streak > 0 ? '🔥' + streak : '—') + '</span><span class="tm-stat-l">Current Streak</span></div>' +
+    '<div class="tm-stat"><span class="tm-stat-n" style="color:var(--orange)">' + longestS + '</span><span class="tm-stat-l">Best Streak</span></div>';
+
+  // Build day-by-day history
+  // Create a map of date → activity data
+  var dateMap = {};
+  memberRows.forEach(function(r){
+    var iso = isoDate(r.date);
+    if(!dateMap[iso] || r.km > dateMap[iso].km){
+      dateMap[iso] = r;
+    }
+  });
+
+  // Build list from Day 1 to current challenge day (descending)
+  var today = new Date();
+  var todayISO_val = dateToISO(today);
+  var challengeDayNum = dayNumber(today);
+  var rows_html = '';
+
+  for(var d = challengeDayNum; d >= 1; d--){
+    var dateObj = new Date(2026, 5, d); // June is month 5
+    var dateISO = dateToISO(dateObj);
+    var actData = dateMap[dateISO];
+    var dateLabel = dateObj.toLocaleDateString('en-IN', {day:'numeric', month:'short'});
+
+    if(actData){
+      var cat = actCat(actData.act);
+      var icon = cat==='Running' ? '🏃' : cat==='Cycling' ? '🚴' : '🚶';
+      var kmClass = cat==='Running' ? 'run' : cat==='Cycling' ? 'cycle' : 'walk';
+      rows_html +=
+        '<div class="tm-day-row active-day">' +
+          '<div class="tm-day-num">D' + d + '</div>' +
+          '<div class="tm-day-icon">' + icon + '</div>' +
+          '<div class="tm-day-info">' +
+            '<div class="tm-day-date">' + dateLabel + '</div>' +
+            '<div class="tm-day-act">' + (actData.act || 'Activity') + '</div>' +
+          '</div>' +
+          '<div class="tm-day-km ' + kmClass + '">' + actData.km.toFixed(1) + '<small style="font-size:.55rem;color:var(--muted)"> km</small></div>' +
+        '</div>';
+    } else {
+      // Future days — don't show
+      if(dateISO > todayISO_val) continue;
+      // Past missed days
+      rows_html +=
+        '<div class="tm-day-row missed-day">' +
+          '<div class="tm-day-num">D' + d + '</div>' +
+          '<div class="tm-day-icon">—</div>' +
+          '<div class="tm-day-info">' +
+            '<div class="tm-day-date">' + dateLabel + '</div>' +
+            '<div class="tm-no-act">No activity</div>' +
+          '</div>' +
+          '<div class="tm-day-km" style="color:var(--muted)">—</div>' +
+        '</div>';
+    }
+  }
+
+  document.getElementById('tm-history').innerHTML = rows_html ||
+    '<div class="empty"><div class="empty-icon">🌱</div><div class="empty-d">No activities logged yet — start today!</div></div>';
+
+  // Open overlay
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTracker(event){
+  // Close only if clicking the overlay background (not the modal itself)
+  if(event && event.target !== document.getElementById('tracker-overlay')) return;
+  closeTrackerBtn();
+}
+
+function closeTrackerBtn(){
+  var overlay = document.getElementById('tracker-overlay');
+  if(overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on Escape key
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeTrackerBtn();
+});
 
 /* ══ FAQ ══ */
 const FAQS=[
