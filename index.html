@@ -729,6 +729,297 @@ input,textarea,select{font-family:inherit}
   font-style:italic;flex:1;
 }
 
+
+/* ════════════════════════════════════════════════════════
+   LIGHT THEME — Strava-inspired: clean white, warm greys
+   Activate with: <html data-theme="light">
+════════════════════════════════════════════════════════ */
+[data-theme="light"]{
+  --bg:#f7f5f2;
+  --bg2:#ffffff;
+  --bg3:#eeece8;
+  --card:#ffffff;
+  --card2:#f2f0ec;
+  --border:rgba(0,0,0,.07);
+  --border2:rgba(0,0,0,.12);
+  --orange:#fc4c02;   /* Strava orange */
+  --gold:#d97706;
+  --silver:#6b7280;
+  --bronze:#92400e;
+  --green:#16a34a;
+  --sky:#0284c7;
+  --red:#dc2626;
+  --purple:#7c3aed;
+  --white:#111111;
+  --muted:#9ca3af;
+  --text:#374151;
+  --g1:#3b82f6;--g2:#16a34a;--g3:#fc4c02;--g4:#7c3aed;
+  --g5:#dc2626;--g6:#d97706;--g7:#92400e;--g8:#6b7280;
+}
+[data-theme="light"] body{background:#f7f5f2;color:#111111}
+
+/* Nav */
+[data-theme="light"] .topnav{
+  background:rgba(255,255,255,.97) !important;
+  border-bottom:1px solid rgba(0,0,0,.07) !important;
+  box-shadow:0 1px 8px rgba(0,0,0,.06) !important;
+}
+[data-theme="light"] .tab-bar{
+  background:rgba(255,255,255,.97) !important;
+  border-top:1px solid rgba(0,0,0,.07) !important;
+  box-shadow:0 -1px 8px rgba(0,0,0,.05) !important;
+}
+[data-theme="light"] .nav-link{color:#374151 !important}
+[data-theme="light"] .nav-link.active,
+[data-theme="light"] .tab.active{color:var(--orange) !important}
+[data-theme="light"] .nav-logo{color:var(--orange) !important}
+[data-theme="light"] .nav-day{
+  background:rgba(252,76,2,.08) !important;
+  border-color:rgba(252,76,2,.2) !important;
+  color:var(--orange) !important;
+}
+[data-theme="light"] .live-dot{background:var(--orange) !important}
+
+/* Cards */
+[data-theme="light"] .card,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .rank-item,
+[data-theme="light"] .faq-item,
+[data-theme="light"] .hero-right,
+[data-theme="light"] .item-card{
+  background:#ffffff !important;
+  border-color:rgba(0,0,0,.07) !important;
+  box-shadow:0 2px 10px rgba(0,0,0,.05) !important;
+}
+[data-theme="light"] .card2{background:#f2f0ec !important;border-color:rgba(0,0,0,.08) !important}
+
+/* Hero */
+[data-theme="light"] .hero-h1 .n1,
+[data-theme="light"] .hero-h1 .n3{color:#111111 !important}
+[data-theme="light"] .hero-sub{color:#374151 !important}
+[data-theme="light"] .hero-org{color:#9ca3af !important}
+[data-theme="light"] .hero-pill{
+  background:rgba(252,76,2,.07) !important;
+  border-color:rgba(252,76,2,.2) !important;
+  color:var(--orange) !important;
+}
+[data-theme="light"] .vp{
+  background:rgba(252,76,2,.06) !important;
+  border-color:rgba(252,76,2,.18) !important;
+  color:var(--orange) !important;
+}
+
+/* Champ */
+[data-theme="light"] .champ-card{
+  background:linear-gradient(135deg,rgba(252,76,2,.08),rgba(217,119,6,.04)) !important;
+  border-color:rgba(252,76,2,.18) !important;
+}
+[data-theme="light"] .champ-km-n{color:var(--orange) !important}
+
+/* Podium */
+[data-theme="light"] .pod-card.g{
+  background:linear-gradient(180deg,rgba(217,119,6,.1),rgba(217,119,6,.03)) !important;
+  border-color:rgba(217,119,6,.28) !important;
+}
+[data-theme="light"] .pod-name{color:#111111 !important}
+[data-theme="light"] .pod-days{color:#9ca3af !important}
+
+/* Progress */
+[data-theme="light"] .progress-bar{background:rgba(0,0,0,.07) !important}
+
+/* Rankings */
+[data-theme="light"] .rank-name{color:#111111 !important;font-weight:700 !important}
+[data-theme="light"] .rank-sub{color:#9ca3af !important}
+[data-theme="light"] .rank-km{color:var(--orange) !important}
+[data-theme="light"] .rank-item:hover{
+  background:#f7f5f2 !important;
+  border-color:rgba(252,76,2,.2) !important;
+}
+[data-theme="light"] .rank-num{color:#9ca3af !important}
+[data-theme="light"] .rank-num.r1{color:var(--gold) !important}
+[data-theme="light"] .rank-num.r2{color:var(--silver) !important}
+[data-theme="light"] .rank-num.r3{color:var(--bronze) !important}
+
+/* Groups */
+[data-theme="light"] .mc{background:#f2f0ec !important;border-color:rgba(0,0,0,.08) !important}
+[data-theme="light"] .mc.done{
+  background:rgba(22,163,74,.06) !important;
+  border-color:rgba(22,163,74,.3) !important;
+}
+[data-theme="light"] .mc-name{color:#111111 !important}
+[data-theme="light"] .mc-km{color:var(--orange) !important}
+[data-theme="light"] .mc-act,.mentor-flow{color:#9ca3af !important}
+
+/* Day/week nav */
+[data-theme="light"] .day-nav,
+[data-theme="light"] .week-nav{
+  background:#f2f0ec !important;
+  border-color:rgba(0,0,0,.07) !important;
+}
+[data-theme="light"] .day-nav-date{color:#111111 !important}
+[data-theme="light"] .day-nav-day{color:#9ca3af !important}
+[data-theme="light"] .day-nav-btn,
+[data-theme="light"] .week-nav-btn{color:#374151 !important}
+[data-theme="light"] .day-nav-btn:hover:not(:disabled),
+[data-theme="light"] .week-nav-btn:hover:not(:disabled){
+  background:rgba(252,76,2,.08) !important;
+  color:var(--orange) !important;
+}
+
+/* Section labels */
+[data-theme="light"] .sec-label{color:var(--orange) !important}
+[data-theme="light"] .sec-title span{color:var(--orange) !important}
+[data-theme="light"] .divider-label{color:rgba(252,76,2,.65) !important}
+[data-theme="light"] .divider-label::after{background:rgba(0,0,0,.08) !important}
+
+/* FAQ */
+[data-theme="light"] .faq-q{color:#111111 !important}
+[data-theme="light"] .faq-a{color:#374151 !important}
+[data-theme="light"] .faq-ico{background:rgba(0,0,0,.06) !important;color:#374151 !important}
+[data-theme="light"] .faq-item.open .faq-ico{background:var(--orange) !important;color:#fff !important}
+
+/* Form inputs */
+[data-theme="light"] .fi,
+[data-theme="light"] .fta{
+  background:#f2f0ec !important;
+  border-color:rgba(0,0,0,.1) !important;
+  color:#111111 !important;
+}
+[data-theme="light"] .fi:focus,
+[data-theme="light"] .fta:focus{
+  border-color:var(--orange) !important;
+  box-shadow:0 0 0 3px rgba(252,76,2,.1) !important;
+  background:#ffffff !important;
+}
+[data-theme="light"] .fl{color:#374151 !important}
+[data-theme="light"] .nd-drop{
+  background:#ffffff !important;
+  border-color:var(--orange) !important;
+}
+[data-theme="light"] .nd-item{color:#111111 !important;border-bottom-color:rgba(0,0,0,.05) !important}
+[data-theme="light"] .nd-item:hover{background:rgba(252,76,2,.05) !important}
+[data-theme="light"] .nd-grp{color:#9ca3af !important}
+
+/* Admin */
+[data-theme="light"] .admin-lock{background:#ffffff !important;border-color:rgba(0,0,0,.08) !important}
+[data-theme="light"] .lock-title{color:#111111 !important}
+[data-theme="light"] .lock-desc{color:#374151 !important}
+[data-theme="light"] .admin-section-hdr{color:var(--orange) !important}
+[data-theme="light"] .admin-tab{color:#374151 !important;border-color:rgba(0,0,0,.1) !important}
+[data-theme="light"] .admin-tab.active{
+  color:var(--orange) !important;
+  background:rgba(252,76,2,.08) !important;
+  border-color:rgba(252,76,2,.25) !important;
+}
+[data-theme="light"] .toggle-sw input:checked + .toggle-sl{background:var(--orange) !important}
+
+/* Tracker modal */
+[data-theme="light"] .tracker-overlay{background:rgba(0,0,0,.5) !important}
+[data-theme="light"] .tracker-modal{background:#ffffff !important;border-color:rgba(0,0,0,.1) !important}
+[data-theme="light"] .tm-name{color:#111111 !important}
+[data-theme="light"] .tm-group{color:#9ca3af !important}
+[data-theme="light"] .tm-close{background:rgba(0,0,0,.06) !important;color:#374151 !important}
+[data-theme="light"] .tm-close:hover{background:rgba(0,0,0,.1) !important}
+[data-theme="light"] .tm-stat{background:#f2f0ec !important;border-color:rgba(0,0,0,.07) !important}
+[data-theme="light"] .tm-stat-l{color:#9ca3af !important}
+[data-theme="light"] .tm-day-row.active-day{background:rgba(22,163,74,.06) !important}
+[data-theme="light"] .tm-day-date{color:#9ca3af !important}
+[data-theme="light"] .tm-day-act{color:#111111 !important}
+[data-theme="light"] .tm-no-act{color:#9ca3af !important}
+[data-theme="light"] .tm-section-title{color:var(--orange) !important}
+[data-theme="light"] .tm-section-title::after{background:rgba(0,0,0,.08) !important}
+
+/* WA */
+[data-theme="light"] .wa-row{
+  background:rgba(252,76,2,.05) !important;
+  border-color:rgba(252,76,2,.15) !important;
+}
+
+/* Upload zone */
+[data-theme="light"] .upload-zone{
+  background:#f2f0ec !important;
+  border-color:rgba(0,0,0,.15) !important;
+}
+[data-theme="light"] .upload-zone:hover{
+  border-color:var(--orange) !important;
+  background:rgba(252,76,2,.04) !important;
+}
+
+/* Empty state */
+[data-theme="light"] .empty-t{color:#374151 !important}
+[data-theme="light"] .empty-d{color:#9ca3af !important}
+
+/* Cat tabs */
+[data-theme="light"] .cat-tab{
+  background:#f2f0ec !important;
+  border-color:rgba(0,0,0,.1) !important;
+  color:#374151 !important;
+}
+[data-theme="light"] .cat-tab.aw{border-color:var(--green) !important;color:var(--green) !important}
+[data-theme="light"] .cat-tab.ar{border-color:var(--orange) !important;color:var(--orange) !important}
+[data-theme="light"] .cat-tab.ac{border-color:var(--sky) !important;color:var(--sky) !important}
+
+/* Motiv banner */
+[data-theme="light"] .motiv-banner{
+  background:linear-gradient(135deg,rgba(252,76,2,.08),rgba(217,119,6,.05)) !important;
+  border-color:rgba(252,76,2,.2) !important;
+}
+
+/* ════════════════════════════════════════════════════════
+   DARK THEME — Runna-inspired: deep navy, clean contrast
+   This is the DEFAULT — Runna uses very dark navy blues
+════════════════════════════════════════════════════════ */
+[data-theme="dark"]{
+  --bg:#0a0d16;
+  --bg2:#0f1320;
+  --bg3:#131826;
+  --card:#181e2e;
+  --card2:#1c2234;
+  --border:rgba(255,255,255,.07);
+  --border2:rgba(255,255,255,.12);
+  --orange:#f97316;
+  --gold:#f59e0b;
+  --silver:#94a3b8;
+  --bronze:#b87333;
+  --green:#22c55e;
+  --sky:#38bdf8;
+  --red:#ef4444;
+  --purple:#a78bfa;
+  --white:#f0f4ff;
+  --muted:#3a4a6a;
+  --text:#7a90b8;
+  --g1:#3b82f6;--g2:#22c55e;--g3:#f97316;--g4:#a78bfa;
+  --g5:#ef4444;--g6:#eab308;--g7:#a8805a;--g8:#6b7280;
+}
+[data-theme="dark"] body{background:#0a0d16;color:#f0f4ff}
+[data-theme="dark"] .topnav{background:rgba(10,13,22,.96) !important}
+[data-theme="dark"] .tab-bar{background:rgba(10,13,22,.98) !important}
+
+/* Theme toggle button — fixed bottom right */
+.theme-toggle{
+  position:fixed;
+  right:1rem;
+  bottom:calc(68px + env(safe-area-inset-bottom) + .6rem);
+  width:40px;height:40px;
+  border-radius:50%;
+  background:var(--card);
+  border:1.5px solid var(--border2);
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:500;
+  font-size:1rem;line-height:1;
+  transition:transform .2s,box-shadow .2s;
+}
+@media(min-width:769px){
+  .theme-toggle{bottom:1.2rem;right:1.4rem}
+}
+.theme-toggle:hover{transform:scale(1.12);box-shadow:0 6px 22px rgba(0,0,0,.4)}
+[data-theme="light"] .theme-toggle{
+  background:#ffffff;
+  border-color:rgba(0,0,0,.12);
+  box-shadow:0 4px 14px rgba(0,0,0,.1);
+}
+
 </style>
 </head>
 <body>
@@ -2583,6 +2874,40 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderWeeklyAwards();
   fetchData(false);
 });
+
+/* ══ THEME TOGGLE — Light (Strava) / Dark (Runna) ══ */
+function toggleTheme(){
+  var html=document.documentElement;
+  var btn=document.getElementById('theme-btn');
+  var cur=html.getAttribute('data-theme');
+  if(cur==='light'){
+    html.setAttribute('data-theme','dark');
+    btn.textContent='☀️';
+    try{localStorage.setItem('keya_theme','dark');}catch(e){}
+  } else {
+    html.setAttribute('data-theme','light');
+    btn.textContent='🌙';
+    try{localStorage.setItem('keya_theme','light');}catch(e){}
+  }
+}
+(function(){
+  try{
+    var saved=localStorage.getItem('keya_theme');
+    if(saved==='light'){
+      document.documentElement.setAttribute('data-theme','light');
+      var btn=document.getElementById('theme-btn');
+      if(btn) btn.textContent='🌙';
+    } else if(saved==='dark'){
+      document.documentElement.setAttribute('data-theme','dark');
+      var btn=document.getElementById('theme-btn');
+      if(btn) btn.textContent='☀️';
+    }
+  }catch(e){}
+})();
+
 </script>
+
+<!-- Theme Toggle -->
+<button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Switch theme" aria-label="Toggle light/dark theme">🌙</button>
 </body>
 </html>
